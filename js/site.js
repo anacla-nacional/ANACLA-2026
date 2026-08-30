@@ -10,7 +10,15 @@
 
     window.toggleDropdown = function (el) {
         if (!el || !el.parentElement) return;
-        el.parentElement.classList.toggle('open');
+        const dropdown = el.parentElement;
+        const wasOpen = dropdown.classList.contains('open');
+        const menuMobile = document.getElementById('menuMobile');
+        if (menuMobile) {
+            menuMobile.querySelectorAll('.dropdown.open').forEach(function (d) {
+                d.classList.remove('open');
+            });
+        }
+        if (!wasOpen) dropdown.classList.add('open');
     };
 
     document.addEventListener('DOMContentLoaded', function () {

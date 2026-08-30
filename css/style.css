@@ -95,8 +95,6 @@ button, input, textarea { font: inherit; }
     z-index: 1100;
     padding: 8px;
 }
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu { display: block; }
 .dropdown-menu a {
     display: block;
     color: #424751;
@@ -150,8 +148,11 @@ button, input, textarea { font: inherit; }
     box-shadow: none;
     padding: 4px;
     margin: 0 0 5px 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, padding .3s ease, margin .3s ease;
 }
-.menu-mobile .dropdown.open .dropdown-menu { display: block; }
+.menu-mobile .dropdown.open .dropdown-menu { display: block; max-height: 500px; padding: 4px; margin: 0 0 5px 8px; }
 .menu-mobile .dropdown-menu a { padding: 9px 12px; font-size: .88rem; }
 
 /* ===== HERO ===== */
@@ -409,6 +410,10 @@ textarea { min-height: 130px; resize: vertical; }
 .modal-close:hover { color: var(--cor); background: var(--fundo-suave); }
 
 /* ===== RESPONSIVO ===== */
+@media (min-width: 981px) {
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu { display: block; }
+}
 @media (max-width: 980px) {
     .navbar { padding: 0 18px; }
     .nav-links { display: none; }
