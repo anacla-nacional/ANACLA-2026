@@ -79,6 +79,13 @@ const sheets = {
         return data.sort((a, b) => parseInt(a.cadeira) - parseInt(b.cadeira));
     },
     
+    async buscarConfig() {
+        const data = await this.fetch('config');
+        const config = {};
+        data.forEach(c => config[c.chave] = c.valor);
+        return config;
+    },
+    
     converterLink(url, id) {
         if (!url) return 'imagens/academicos/' + id + '.png';
         if (url.startsWith('imagens/')) return url;
