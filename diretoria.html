@@ -13,10 +13,34 @@
     <a href="index.html" class="logo"><img src="imagens/estaticas/bandeira_3D.png" alt="ANACLA"><span>ANACLA</span></a>
     <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="historia.html">História</a>
-        <a href="diretoria.html">Diretoria</a>
-        <a href="biografias.html">Acadêmicos</a>
-        <a href="eventos.html">Eventos</a>
+        <div class="dropdown">
+            <a href="#">Academia</a>
+            <div class="dropdown-menu">
+                <a href="historia.html">História</a>
+                <a href="vinicius.html">Patrono Vinícius de Moraes</a>
+                <a href="obras.html">Obras da ANACLA</a>
+                <a href="diretoria.html">Diretoria</a>
+                <a href="hino.html">Hino</a>
+                <a href="premios.html">Prêmios</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Acadêmicos</a>
+            <div class="dropdown-menu">
+                <a href="galeria.html">Galeria</a>
+                <a href="biografias.html">Biografias</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Eventos</a>
+            <div class="dropdown-menu">
+                <a href="eventos.html">Todos</a>
+                <a href="eventos.html?tipo=oficial">Oficiais</a>
+                <a href="eventos.html?tipo=mosalc">MOSALC</a>
+                <a href="homenageados.html">Homenageados</a>
+                <a href="eventos.html?tipo=feira">Feiras de Livros</a>
+            </div>
+        </div>
         <a href="noticias.html">Notícias</a>
         <a href="contato.html">Contato</a>
     </div>
@@ -25,10 +49,34 @@
 
 <div class="menu-mobile" id="menuMobile">
     <a href="index.html">Home</a>
-    <a href="historia.html">História</a>
-    <a href="diretoria.html">Diretoria</a>
-    <a href="biografias.html">Acadêmicos</a>
-    <a href="eventos.html">Eventos</a>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Academia ▾</a>
+        <div class="dropdown-menu">
+            <a href="historia.html">História</a>
+            <a href="vinicius.html">Patrono Vinícius de Moraes</a>
+            <a href="obras.html">Obras da ANACLA</a>
+            <a href="diretoria.html">Diretoria</a>
+            <a href="hino.html">Hino</a>
+            <a href="premios.html">Prêmios</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Acadêmicos ▾</a>
+        <div class="dropdown-menu">
+            <a href="galeria.html">Galeria</a>
+            <a href="biografias.html">Biografias</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Eventos ▾</a>
+        <div class="dropdown-menu">
+            <a href="eventos.html">Todos</a>
+            <a href="eventos.html?tipo=oficial">Oficiais</a>
+            <a href="eventos.html?tipo=mosalc">MOSALC</a>
+            <a href="homenageados.html">Homenageados</a>
+            <a href="eventos.html?tipo=feira">Feiras de Livros</a>
+        </div>
+    </div>
     <a href="noticias.html">Notícias</a>
     <a href="contato.html">Contato</a>
 </div>
@@ -51,6 +99,7 @@
 
 <script>
 function toggleMenu() { document.getElementById('menuMobile').classList.toggle('active'); }
+function toggleDropdown(el) { el.parentElement.classList.toggle('open'); }
 </script>
 <script src="js/sheets.js"></script>
 <script>
@@ -66,7 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const foto = ac ? sheets.converterLink(ac.foto_url, ac.cadeira) : 'imagens/estaticas/placeholder.svg';
             const nome = ac ? ac.nome : 'Não informado';
             return '<div class="card" style="text-align:center;">' +
-                '<img src="' + foto + '" style="height:250px;object-fit:cover;" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
+                '<img src="' + foto + '" style="height:300px;object-fit:contain;background:#f5f5f5;" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
                 '<div class="card-content">' +
                 '<h3 class="card-title">' + cargo.cargo + '</h3>' +
                 '<p style="font-weight:bold;">' + nome + '</p>' +
@@ -79,5 +128,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 </script>
 
+<script src="js/site.js"></script>
 </body>
 </html>
