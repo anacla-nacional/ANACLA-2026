@@ -1,0 +1,44 @@
+cadeira,nome,foto_url,biografia,ativo,patrono,data_posse
+1,Mara Núbia V. Roloff,imagens/academicos/1.png,"Idealizadora e Fundadora da ANACLA. Acadêmica dedicada à promoção das ciências, letras e artes.",SIM,Dr. Cibélis da Rocha Vianna,20/07/2018
+3,Alessandro Padilha Simas,imagens/academicos/3.png,"Diretor Financeiro da ANACLA. Profissional comprometido com a gestão financeira da instituição.",SIM,Henrique da Silva Fontes,20/07/2018
+4,Grazieli Francini de Brito,imagens/academicos/4-grazieli.png,"Acadêmica contribuindo para o desenvolvimento cultural da ANACLA.",SIM,Cora Coralina,18/10/2019
+6,Marcos Vinícius De Bortolli,imagens/academicos/6-marcos.png,"Poeta, Escritor, Contista, Artesão. Bacharel em Ciências da Religião.",SIM,Lauro Junkes,24/06/2022
+7,Marcos Rogério Costa,imagens/academicos/7.png,"Diretor de Projetos Culturais da ANACLA. Responsável pela coordenação de projetos artísticos e culturais.",SIM,Guimarães Rosa,19/11/2021
+9,Ariadne Vanderlinde,imagens/academicos/9-ariadne.png,"Acadêmica dedicada às letras e artes.",SIM,Tarsila do Amaral,09/07/2021
+10,Silvia da Silva Velho,imagens/academicos/10-silvia.png,"Acadêmica contribuindo para as atividades da ANACLA.",SIM,Cecília Meireles,09/07/2021
+11,Rosangela Polichuck,imagens/academicos/11.png,"Membro do Conselho Fiscal da ANACLA.",SIM,Antonio Carlos Jobim,
+12,Sibeli Fernandes Luz,imagens/academicos/12.png,"Acadêmica integrante da ANACLA.",SIM,Hoydo de Gouvêa Lins,
+13,Felipe Reitz,imagens/academicos/13-felipe.png,"Acadêmico contribuindo para as atividades da ANACLA.",SIM,Rubem Alves,
+14,Edilamar Ilha Librelotto,imagens/academicos/14.png,"Acadêmica integrante da ANACLA.",SIM,Franz Peter Schubert,
+15,Ailton Donizette Fabri,imagens/academicos/15-ailton.png,"Acadêmico contribuindo para as atividades da ANACLA.",SIM,José de Alencar,20/07/2018
+16,Christiane Cordeiro Andrea,imagens/academicos/16-christiane.png,"Acadêmica integrante da ANACLA.",SIM,Anita Malfatti,
+18,Maria Luiza Kuhn,imagens/academicos/18.png,"Acadêmica integrante da ANACLA.",SIM,Manoel Venceslau Leite de Barros,20/07/2018
+19,Erika Nazare Gadelha Meira Cerqueira,imagens/academicos/19.png,"Acadêmica contribuindo para as atividades da ANACLA.",SIM,Ruy Barbosa,19/11/2021
+20,Talitha Nara Menna Barreto Gomes,imagens/academicos/20-01-talitha.png,"Secretária Geral da ANACLA. Responsável pela administração geral da instituição.",SIM,Clarice Lispector,24/07/2021
+21,Cynthia Magno Panca,imagens/academicos/21.png,"Membro do Conselho Fiscal da ANACLA.",SIM,Maria Firmina dos Reis,19/11/2021
+22,Carlos Antonio de Souza Caldas,imagens/academicos/22-01-carloscaldas.png,"Acadêmico integrante da ANACLA.",SIM,,
+23,Mara Eneida Mariano Pregardier,imagens/academicos/23.png,"Acadêmica integrante da ANACLA.",SIM,Franklin Joaquim Cascais,29/08/2021
+24,Maria Elena Lamego Matos,imagens/academicos/24.png,"Acadêmica integrante da ANACLA.",SIM,,
+25,Edenice Fraga,imagens/academicos/25.png,"Acadêmica integrante da ANACLA.",SIM,João da Cruz e Sousa,24/05/2019
+26,Daniela Cristina Sousa de Miranda,imagens/academicos/26.png,"Acadêmica integrante da ANACLA.",SIM,,
+27,Luiz Antonio Hecker Kappel,imagens/academicos/27.png,"Acadêmico integrante da ANACLA.",SIM,Ariano Vilar Suassuna,24/05/2019
+29,Moema Pinheiro Nolasco,imagens/academicos/29.png,"Acadêmica integrante da ANACLA.",SIM,Maura de Senna Pereira,09/07/2021
+30,Miriam Leal Bitencourt,imagens/academicos/30.png,"Acadêmica integrante da ANACLA.",SIM,Rose Marie Muraro,19/11/2021
+31,Paulo Roberto Pedreira de Souza,imagens/academicos/31.png,"Acadêmico integrante da ANACLA.",SIM,,
+34,Adir Pacheco,imagens/academicos/34.png,"Acadêmico integrante da ANACLA.",SIM,Luis Gama,29/08/2019
+36,Miriam de Jesus Pereira Braga,imagens/academicos/36.png,"Acadêmica integrante da ANACLA.",SIM,,
+37,Claudia Regina Abel Rocha,imagens/academicos/37.png,"Acadêmica integrante da ANACLA.",SIM,Rubem Braga,24/06/2022
+38,Paulo Ricardo Campos,imagens/academicos/38.png,"Acadêmico integrante da ANACLA.",SIM,Victor Meirelles de Lima,18/10/2019
+39,Rosana Leon Abrão Dal Molin,imagens/academicos/39.png,"Vice-Presidente da ANACLA. Diretora de Integração da Sucursal Balneário Camboriú/SC.",SIM,Chiara Lubich,09/07/2021
+40,Alana Grando Rauen,imagens/academicos/40-alana.png,"Diretora de Eventos da ANACLA. Responsável pela organização de eventos institucionais.",SIM,Olga Savary,09/07/2021
+42,João Felix Nolasco,imagens/academicos/42.png,"Acadêmico integrante da ANACLA.",SIM,,
+46,Claudia Maria Messores,imagens/academicos/46.png,"Acadêmica integrante da ANACLA.",SIM,,
+48,Arlene Dellatorre,imagens/academicos/48.png,"Acadêmica integrante da ANACLA.",SIM,Di Cavalcanti,24/06/2022
+52,Nelma Baldin,imagens/academicos/52-Nelma.png,"Membro do Conselho Fiscal da ANACLA.",SIM,,
+53,Claudio José de Assis Menna Barreto Gomes,imagens/academicos/53.png,"Acadêmico integrante da ANACLA.",SIM,,
+54,Marcella Lais Zorzo Mendonça,imagens/academicos/54.png,"Acadêmica integrante da ANACLA.",SIM,,
+55,Thayna Mariano Costa,imagens/academicos/55.png,"Acadêmica integrante da ANACLA.",SIM,,
+56,Virginia Maria Pereira da Rocha,imagens/academicos/56.png,"Acadêmica integrante da ANACLA.",SIM,,
+57,Vilmar Dal Bo Maccari,imagens/academicos/57-vilmar.png,"Acadêmico integrante da ANACLA.",SIM,,
+58,Maria Suely Farias Cunha,imagens/academicos/58.png,"Acadêmica integrante da ANACLA.",SIM,,
+59,Eliana Pontes de Souza Vitelli,imagens/academicos/59-eliana.png,"Acadêmica integrante da ANACLA.",SIM,,
