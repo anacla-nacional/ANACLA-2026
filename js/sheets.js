@@ -82,7 +82,26 @@ const sheets = {
     async buscarConfig() {
         const data = await this.fetch('config');
         const config = {};
-        data.forEach(c => config[c.chave] = c.valor);
+        // Formato vertical: cada linha é uma chave,valor
+        data.forEach(c => {
+            if (c.chave && c.valor) config[c.chave.trim()] = c.valor.trim();
+        });
+        // Fallback: formato horizontal (tudo numa linha com espaços)
+        if (Object.keys(config).length <= 1 && data.length > 0) {
+            var row = data[0];
+            var keys = Object.keys(row);
+            if (keys.length > 0) {
+                var keyStr = row[keys[0]] || '';
+                var valStr = keys.length > 1 ? row[keys[1]] || '' : '';
+                var keyParts = keyStr.split(/\s+/);
+                var valParts = valStr.split(/\s+/);
+                for (var i = 0; i < keyParts.length; i++) {
+                    if (keyParts[i] && valParts[i]) {
+                        config[keyParts[i]] = valParts[i];
+                    }
+                }
+            }
+        }
         return config;
     },
     
