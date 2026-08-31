@@ -189,7 +189,7 @@ button, input, textarea { font: inherit; }
 }
 .hero > * { position: relative; z-index: 1; }
 .hero img {
-    width: clamp(170px, 22vw, 220px);
+    width: clamp(187px, 24vw, 242px);
     margin: 0 auto 25px;
     filter: drop-shadow(0 20px 40px rgba(0,0,0,.35)) drop-shadow(0 0 25px rgba(212,175,55,.2));
     border: 3px solid rgba(212,175,55,.5);
