@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         container.innerHTML = academicos.map(ac => {
             const foto = sheets.converterLink(ac.foto_url, ac.cadeira);
             return '<div class="card-com-overlay" onclick="abrirBio(\'' + ac.cadeira + '\')">' +
-                '<img src="' + foto + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
+                '<img src="' + foto + '">' +
                 '<div class="card-overlay">' +
                 '<span class="badge">Cadeira ' + ac.cadeira + '</span>' +
                 '<div class="nome">' + ac.nome + '</div>' +
