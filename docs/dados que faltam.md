@@ -36,47 +36,49 @@ Aba `patronos` no Google Sheets:
 
 ## Fotos dos patronos
 
-Pasta `imagens/patronos/` só tem `placeholder.svg`. Precisa baixar fotos dos 37 patronos:
+Pasta `imagens/patronos/` - status:
 
-| Cadeira | Patrono | Arquivo esperado |
-|---------|---------|------------------|
-| 1 | Dr. Cibélis da Rocha Vianna | patronos/1.png |
-| 3 | Henrique da Silva Fontes | patronos/3.png |
-| 4 | Cora Coralina | patronos/4.png |
-| 6 | Lauro Junkes | patronos/6.png |
-| 7 | Guimarães Rosa | patronos/7.png |
-| 9 | Tarsila do Amaral | patronos/9.png |
-| 10 | Cecília Meireles | patronos/10.png |
-| 11 | Antonio Carlos Jobim | patronos/11.png |
-| 12 | Hoydo de Gouvêa Lins | patronos/12.png |
-| 13 | Rubem Alves | patronos/13.png |
-| 14 | Franz Peter Schubert | patronos/14.png |
-| 15 | José de Alencar | patronos/15.png |
-| 16 | Anita Malfatti | patronos/16.png |
-| 18 | Manoel Venceslau Leite de Barros | patronos/18.png |
-| 19 | Ruy Barbosa | patronos/19.png |
-| 20 | Clarice Lispector | patronos/20.png |
-| 21 | Maria Firmina dos Reis | patronos/21.png |
-| 23 | Franklin Joaquim Cascais | patronos/23.png |
-| 25 | João da Cruz e Sousa | patronos/25.png |
-| 27 | Ariano Vilar Suassuna | patronos/27.png |
-| 29 | Maura de Senna Pereira | patronos/29.png |
-| 30 | Rose Marie Muraro | patronos/30.png |
-| 34 | Luis Gama | patronos/34.png |
-| 36 | Machado de Assis | patronos/36.png |
-| 37 | Rubem Braga | patronos/37.png |
-| 38 | Victor Meirelles de Lima | patronos/38.png |
-| 39 | Chiara Lubich | patronos/39.png |
-| 40 | Olga Savary | patronos/40.png |
-| 48 | Di Cavalcanti | patronos/48.png |
-| 52 | Cruz e Sousa | patronos/52.png |
-| 53 | Machado de Assis | patronos/53.png |
-| 54 | Olavo Bilac | patronos/54.png |
-| 55 | Manuel Bandeira | patronos/55.png |
-| 56 | Castro Alves | patronos/56.png |
-| 57 | Gonzaga Duque | patronos/57.png |
-| 58 | Coelho Neto | patronos/58.png |
-| 59 | Aluísio Azevedo | patronos/59.png |
+| Cadeira | Patrono | Status |
+|---------|---------|--------|
+| 1 | Dr. Cibélis da Rocha Vianna | ✅ Baixada |
+| 3 | Henrique da Silva Fontes | ❌ 404 no site |
+| 4 | Cora Coralina | ❌ 404 no site |
+| 6 | Lauro Junkes | ❌ 404 no site |
+| 7 | Guimarães Rosa | ✅ Baixada |
+| 9 | Tarsila do Amaral | ✅ Baixada |
+| 10 | Cecília Meireles | ❌ 404 no site |
+| 11 | Antonio Carlos Jobim | ✅ Baixada |
+| 12 | Hoydo de Gouvêa Lins | ✅ Baixada |
+| 13 | Rubem Alves | ✅ Baixada |
+| 14 | Franz Peter Schubert | ✅ Baixada |
+| 15 | José de Alencar | ✅ Baixada |
+| 16 | Anita Malfatti | ❌ 404 no site |
+| 18 | Manoel Venceslau Leite de Barros | ❌ 404 no site |
+| 19 | Ruy Barbosa | ❌ 404 no site |
+| 20 | Clarice Lispector | ✅ Baixada |
+| 21 | Maria Firmina dos Reis | ❌ 404 no site |
+| 23 | Franklin Joaquim Cascais | ❌ 404 no site |
+| 25 | João da Cruz e Sousa | ❌ 404 no site |
+| 27 | Ariano Vilar Suassuna | ❌ 404 no site |
+| 29 | Maura de Senna Pereira | ❌ 404 no site |
+| 30 | Rose Marie Muraro | ❌ 404 no site |
+| 34 | Luis Gama | ❌ 404 no site |
+| 36 | Machado de Assis | ❌ 404 no site |
+| 37 | Rubem Braga | ❌ 404 no site |
+| 38 | Victor Meirelles de Lima | ✅ Baixada |
+| 39 | Chiara Lubich | ✅ Baixada |
+| 40 | Olga Savary | ❌ 404 no site |
+| 48 | Di Cavalcanti | ❌ 404 no site |
+| 52 | Cruz e Sousa | ❌ 404 no site |
+| 53 | Machado de Assis | ❌ 404 no site |
+| 54 | Olavo Bilac | ❌ 404 no site |
+| 55 | Manuel Bandeira | ❌ 404 no site |
+| 56 | Castro Alves | ❌ 404 no site |
+| 57 | Gonzaga Duque | ❌ 404 no site |
+| 58 | Coelho Neto | ❌ 404 no site |
+| 59 | Aluísio Azevedo | ❌ 404 no site |
+
+**Resumo:** 11 de 37 baixadas. As demais não existem no servidor do site online (retornam 404).
 
 ## Eventos faltando
 
