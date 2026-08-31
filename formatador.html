@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatador de Texto - ANACLA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background: var(--fundo); }
+        .ferramentas-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .ferramentas-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .ferramentas-header h1 {
+            color: var(--cor);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        .ferramentas-header p {
+            color: var(--texto-suave);
+        }
+        .editor-card {
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            margin-bottom: 20px;
+        }
+        .editor-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--borda);
+            align-items: center;
+        }
+        .editor-toolbar button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            background: white;
+            color: var(--texto);
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+        .editor-toolbar button:hover {
+            background: var(--fundo-suave);
+            border-color: var(--cor);
+            color: var(--cor);
+        }
+        .editor-toolbar .separator {
+            width: 1px;
+            height: 24px;
+            background: var(--borda);
+            margin: 0 6px;
+        }
+        .editor-area {
+            min-height: 250px;
+            padding: 20px;
+            outline: none;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--texto);
+        }
+        .editor-area:empty::before {
+            content: 'Digite ou cole seu texto aqui...';
+            color: #aaa;
+        }
+        .editor-area p { margin-bottom: 10px; }
+        .editor-area b, .editor-area strong { font-weight: 700; }
+        .editor-area i, .editor-area em { font-style: italic; }
+        .editor-area u { text-decoration: underline; }
+
+        .botoes-acao {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .resultado-card {
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+        .resultado-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--borda);
+        }
+        .resultado-header h3 {
+            font-size: 0.9rem;
+            color: var(--texto);
+        }
+        .resultado-codigo {
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--texto);
+            background: #fafafa;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            margin: 10px 15px 15px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .toast.show { opacity: 1; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo"><img src="imagens/estaticas/bandeira_3D.png" alt="ANACLA"><span>ANACLA</span></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+</nav>
+
+<div class="menu-mobile" id="menuMobile">
+    <a href="index.html">Home</a>
+</div>
+
+<div class="ferramentas-container">
+    <div class="ferramentas-header">
+        <i class="fas fa-font" style="font-size:2rem;color:var(--cor);margin-bottom:10px;"></i>
+        <h1>Formatador de Texto</h1>
+        <p>Formate o texto e copie o HTML pronto para o campo "Conteúdo" no Google Sheets</p>
+    </div>
+
+    <div class="editor-card">
+        <div class="editor-toolbar">
+            <button onclick="execCmd('bold')" title="Negrito (Ctrl+B)"><b>N</b></button>
+            <button onclick="execCmd('italic')" title="Itálico (Ctrl+I)"><i>I</i></button>
+            <button onclick="execCmd('underline')" title="Sublinhado (Ctrl+U)"><u>U</u></button>
+            <div class="separator"></div>
+            <button onclick="execCmd('insertUnorderedList')" title="Lista com marcadores"><i class="fas fa-list-ul"></i></button>
+            <button onclick="execCmd('insertOrderedList')" title="Lista numerada"><i class="fas fa-list-ol"></i></button>
+            <div class="separator"></div>
+            <button onclick="inserirLink()" title="Inserir link"><i class="fas fa-link"></i></button>
+            <button onclick="execCmd('removeFormat')" title="Remover formatação"><i class="fas fa-eraser"></i></button>
+            <div class="separator"></div>
+            <button onclick="inserirParagrafo()" title="Inserir parágrafo">¶</button>
+        </div>
+        <div class="editor-area" id="editor" contenteditable="true"></div>
+    </div>
+
+    <div class="botoes-acao">
+        <button class="btn" onclick="gerarHTML()"><i class="fas fa-code"></i> Gerar HTML</button>
+        <button class="btn" style="background:#333;" onclick="copiarHTML()"><i class="fas fa-copy"></i> Copiar HTML</button>
+        <button class="btn" style="background:#e74c3c;" onclick="limparEditor()"><i class="fas fa-trash"></i> Limpar</button>
+    </div>
+
+    <div class="resultado-card" id="resultadoCard" style="display:none;">
+        <div class="resultado-header">
+            <h3><i class="fas fa-code"></i> HTML Gerado</h3>
+            <button class="btn" style="padding:6px 14px;font-size:0.8rem;" onclick="copiarHTML()"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <div class="resultado-codigo" id="resultadoCodigo"></div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function toggleMenu() { document.getElementById('menuMobile').classList.toggle('active'); }
+
+function execCmd(cmd) {
+    document.execCommand(cmd, false, null);
+    document.getElementById('editor').focus();
+}
+
+function inserirLink() {
+    var url = prompt('Digite a URL do link:', 'https://');
+    if (url) {
+        document.execCommand('createLink', false, url);
+        document.getElementById('editor').focus();
+    }
+}
+
+function inserirParagrafo() {
+    document.execCommand('insertHTML', false, '<br><br>');
+    document.getElementById('editor').focus();
+}
+
+function gerarHTML() {
+    var editor = document.getElementById('editor');
+    var html = editor.innerHTML.trim();
+    if (!html || html === '<br>') {
+        showToast('Digite algum texto primeiro.');
+        return;
+    }
+    // Limpar HTML desnecessário
+    html = html.replace(/<div>/g, '<p>').replace(/<\/div>/g, '</p>');
+    html = html.replace(/<p><br><\/p>/g, '<br>');
+    document.getElementById('resultadoCodigo').textContent = html;
+    document.getElementById('resultadoCard').style.display = 'block';
+    showToast('HTML gerado com sucesso!');
+}
+
+function copiarHTML() {
+    var codigo = document.getElementById('resultadoCodigo').textContent;
+    if (!codigo) {
+        showToast('Gere o HTML primeiro.');
+        return;
+    }
+    navigator.clipboard.writeText(codigo).then(function() {
+        showToast('HTML copiado para a área de transferência!');
+    }).catch(function() {
+        // Fallback
+        var textarea = document.createElement('textarea');
+        textarea.value = codigo;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('HTML copiado!');
+    });
+}
+
+function limparEditor() {
+    document.getElementById('editor').innerHTML = '';
+    document.getElementById('resultadoCodigo').textContent = '';
+    document.getElementById('resultadoCard').style.display = 'none';
+}
+
+function showToast(msg) {
+    var toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2500);
+}
+</script>
+
+<script src="js/site.js"></script>
+</body>
+</html>
