@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (ac) {
                 const foto = sheets.converterLink(ac.foto_url, ac.cadeira);
                 html += '<div class="galeria-item" onclick="abrirAcademico(\'' + ac.cadeira + '\')">' +
-                    '<img src="' + foto + '" alt="' + ac.nome + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
+                    '<img src="' + foto + '" alt="' + ac.nome + '">' +
                     '<div class="overlay">' +
                     '<div class="badges">' +
                     '<span class="cadeira-badge">Cadeira ' + ac.cadeira + '</span>' +
