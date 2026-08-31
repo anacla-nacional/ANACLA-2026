@@ -48,6 +48,24 @@
             border-radius: 10px;
             font-size: 0.7rem;
             display: inline-block;
+        }
+        .galeria-item .overlay .patrono-badge {
+            background: rgba(255,255,255,.25);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            display: inline-block;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .galeria-item .overlay .patrono-badge:hover {
+            background: rgba(255,255,255,.45);
+        }
+        .galeria-item .overlay .badges {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
             margin-bottom: 4px;
         }
         .galeria-item .overlay .nome {
@@ -196,7 +214,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 html += '<div class="galeria-item" onclick="abrirAcademico(\'' + ac.cadeira + '\')">' +
                     '<img src="' + foto + '" alt="' + ac.nome + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
                     '<div class="overlay">' +
+                    '<div class="badges">' +
                     '<span class="cadeira-badge">Cadeira ' + ac.cadeira + '</span>' +
+                    '<a href="patronos.html#cadeira-' + ac.cadeira + '" class="patrono-badge" onclick="event.stopPropagation()">Patrono</a>' +
+                    '</div>' +
                     '<div class="nome">' + ac.nome + '</div>' +
                     '</div></div>';
             } else {
