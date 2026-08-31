@@ -95,6 +95,11 @@ const sheets = {
         return data.sort((a, b) => parseInt(a.cadeira) - parseInt(b.cadeira));
     },
     
+    async buscarHomenageados() {
+        const data = await this.fetch('homenageados');
+        return data.sort((a, b) => new Date(b.data) - new Date(a.data));
+    },
+    
     async buscarConfig() {
         const data = await this.fetch('config');
         const config = {};
