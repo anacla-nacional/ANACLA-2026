@@ -1,1 +1,138 @@
-<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Obras da ANACLA - ANACLA</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="css/style.css"></head><body><nav class="navbar"><a href="index.html" class="logo"><img src="imagens/estaticas/bandeira_3D.png" alt="ANACLA"><span>ANACLA</span></a><div class="nav-links"><a href="index.html">Home</a><div class="dropdown"><a href="#">Academia</a><div class="dropdown-menu"><a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a></div></div><div class="dropdown"><a href="#">Acadêmicos</a><div class="dropdown-menu"><a href="galeria.html">Galeria</a><a href="biografias.html">Biografias</a></div></div><div class="dropdown"><a href="#">Eventos</a><div class="dropdown-menu"><a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a></div></div><a href="noticias.html">Notícias</a><a href="contato.html">Contato</a></div><button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menu"><i class="fa fa-bars"></i></button></nav><div class="menu-mobile" id="menuMobile"><a href="index.html">Home</a><div class="dropdown"><a href="#" onclick="toggleDropdown(this); return false;">Academia</a><div class="dropdown-menu"><a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a></div></div><div class="dropdown"><a href="#" onclick="toggleDropdown(this); return false;">Acadêmicos</a><div class="dropdown-menu"><a href="galeria.html">Galeria</a><a href="biografias.html">Biografias</a></div></div><div class="dropdown"><a href="#" onclick="toggleDropdown(this); return false;">Eventos</a><div class="dropdown-menu"><a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a></div></div><a href="noticias.html">Notícias</a><a href="contato.html">Contato</a></div><header class="hero"><p>Acervo e produções</p><h1>Obras da ANACLA</h1></header><section class="section"><div style="max-width:800px;margin:0 auto;text-align:center;"><i class="fas fa-layer-group" style="font-size:2.5rem;color:var(--cor);margin-bottom:18px;"></i><h2 style="color:var(--cor);margin-bottom:15px;">Conteúdo em organização</h2><p style="margin-bottom:25px;">O espaço de obras da ANACLA está sendo organizado. Em breve, este acervo reunirá publicações e trabalhos relacionados à Academia.</p><a href="index.html" class="btn">Voltar para a página inicial</a></div></section><footer class="footer"><h3>Academia Nacional de Ciências, Letras e Artes</h3><div class="footer-links"><a href="historia.html">História</a><a href="diretoria.html">Diretoria</a><a href="biografias.html">Acadêmicos</a><a href="eventos.html">Eventos</a><a href="noticias.html">Notícias</a></div><div class="social"><a href="https://www.youtube.com/channel/UCBBQVZl_4oPtybxuyYd0bjA" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a><a href="https://www.facebook.com/ANACLANACIONAL/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/anacla_nacional/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></div><p>&copy; 2026 ANACLA - Todos os direitos reservados</p></footer><script src="js/site.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras da ANACLA - ANACLA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo"><img src="imagens/estaticas/bandeira_3D.png" alt="ANACLA"><span>ANACLA</span></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="#">Academia</a>
+            <div class="dropdown-menu">
+                <a href="historia.html">História</a>
+                <a href="vinicius.html">Patrono Vinícius de Moraes</a>
+                <a href="obras.html">Obras da ANACLA</a>
+                <a href="diretoria.html">Diretoria</a>
+                <a href="hino.html">Hino</a>
+                <a href="premios.html">Prêmios</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Acadêmicos</a>
+            <div class="dropdown-menu">
+                <a href="galeria.html">Galeria</a>
+                <a href="biografias.html">Biografias</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Eventos</a>
+            <div class="dropdown-menu">
+                <a href="eventos.html">Todos</a>
+                <a href="eventos.html?tipo=oficial">Oficiais</a>
+                <a href="eventos.html?tipo=mosalc">MOSALC</a>
+                <a href="homenageados.html">Homenageados</a>
+                <a href="eventos.html?tipo=feira">Feiras de Livros</a>
+            </div>
+        </div>
+        <a href="noticias.html">Notícias</a>
+        <a href="contato.html">Contato</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+</nav>
+
+<div class="menu-mobile" id="menuMobile">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Academia ▾</a>
+        <div class="dropdown-menu">
+            <a href="historia.html">História</a>
+            <a href="vinicius.html">Patrono Vinícius de Moraes</a>
+            <a href="obras.html">Obras da ANACLA</a>
+            <a href="diretoria.html">Diretoria</a>
+            <a href="hino.html">Hino</a>
+            <a href="premios.html">Prêmios</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Acadêmicos ▾</a>
+        <div class="dropdown-menu">
+            <a href="galeria.html">Galeria</a>
+            <a href="biografias.html">Biografias</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Eventos ▾</a>
+        <div class="dropdown-menu">
+            <a href="eventos.html">Todos</a>
+            <a href="eventos.html?tipo=oficial">Oficiais</a>
+            <a href="eventos.html?tipo=mosalc">MOSALC</a>
+            <a href="homenageados.html">Homenageados</a>
+            <a href="eventos.html?tipo=feira">Feiras de Livros</a>
+        </div>
+    </div>
+    <a href="noticias.html">Notícias</a>
+    <a href="contato.html">Contato</a>
+</div>
+
+<header class="hero" style="padding: 40px 20px;">
+    <p>Saberes e criações</p>
+    <h1>Obras da ANACLA</h1>
+</header>
+
+<section class="section">
+    <div style="max-width:800px;margin:0 auto;">
+
+        <div class="cards" style="grid-template-columns:1fr;max-width:600px;margin:0 auto 40px;">
+            <div class="card" style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:30px;">
+                <i class="fas fa-book-open" style="font-size:3rem;color:var(--cor);margin-bottom:15px;"></i>
+                <h3 class="card-title">II Obra ANACLA - HISTÓRIA & VIDA</h3>
+                <p style="color:var(--texto-suave);margin-bottom:10px;">Publicada em 2022</p>
+                <p style="color:var(--texto-suave);font-size:0.9rem;">
+                    Apresentada na 1ª Bienal do Livro de São José/SC em 08/09/2022. Esta obra reúne a história e trajetória da Academia Nacional de Ciências, Letras e Artes, documentando seus marcos, eventos e contribuições para a cultura brasileira.
+                </p>
+            </div>
+        </div>
+
+        <div style="background:white;border:1px solid var(--borda);border-radius:var(--raio);padding:clamp(24px,5vw,42px);box-shadow:var(--sombra);text-align:center;">
+            <i class="fas fa-feather-alt" style="font-size:2.5rem;color:var(--cor);margin-bottom:15px;"></i>
+            <h2 style="color:var(--cor);margin-bottom:15px;">Próximas Obras</h2>
+            <p style="color:var(--texto-suave);margin-bottom:20px;">
+                A ANACLA está sempre trabalhando em novas publicações. Fique atento às nossas redes sociais e ao site para acompanhar o lançamento de novas obras.
+            </p>
+            <a href="noticias.html" class="btn">Acompanhe as novidades</a>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <h3>Academia Nacional de Ciências, Letras e Artes</h3>
+    <div class="footer-links">
+        <a href="historia.html">História</a>
+        <a href="diretoria.html">Diretoria</a>
+        <a href="biografias.html">Acadêmicos</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="noticias.html">Notícias</a>
+    </div>
+    <div class="social">
+        <a href="https://www.youtube.com/channel/UCBBQVZl_4oPtybxuyYd0bjA" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ANACLANACIONAL/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/anacla_nacional/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2026 ANACLA - Todos os direitos reservados</p>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById('menuMobile').classList.toggle('active'); }
+function toggleDropdown(el) { el.parentElement.classList.toggle('open'); }
+</script>
+<script src="js/site.js"></script>
+</body>
+</html>
