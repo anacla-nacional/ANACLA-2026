@@ -26,7 +26,8 @@
         var currentPage = window.location.pathname.split('/').pop() || 'index.html';
         if (currentPage !== 'offline.html' && window.sheets && window.sheets.buscarConfig) {
             window.sheets.buscarConfig().then(function (config) {
-                if (config.status_site === 'offline') {
+                var status = config.status_site || config['status do site'] || config['status_do_site'];
+                if (status === 'offline') {
                     window.location.href = 'offline.html';
                     return;
                 }
