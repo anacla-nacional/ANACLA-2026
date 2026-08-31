@@ -82,24 +82,37 @@ const sheets = {
     async buscarConfig() {
         const data = await this.fetch('config');
         const config = {};
-        // Formato vertical: cada linha é uma chave,valor
-        data.forEach(c => {
-            if (c.chave && c.valor) config[c.chave.trim()] = c.valor.trim();
+        if (data.length === 0) return config;
+
+        var firstRow = data[0];
+        var keys = Object.keys(firstRow);
+
+        // Formato vertical: coluna A = chave, coluna B = valor
+        if (keys[0] === 'chave' && keys[1] === 'valor') {
+            data.forEach(function (row) {
+                if (row.chave) config[row.chave.trim()] = (row.valor || '').trim();
+            });
+            return config;
+        }
+
+        // Formato horizontal: primeira linha = chaves, segunda linha = valores
+        var headerValues = [];
+        var valueValues = [];
+        keys.forEach(function (k) {
+            var h = firstRow[k];
+            if (h !== undefined && h !== '') headerValues.push(String(h).trim());
         });
-        // Fallback: formato horizontal (tudo numa linha com espaços)
-        if (Object.keys(config).length <= 1 && data.length > 0) {
-            var row = data[0];
-            var keys = Object.keys(row);
-            if (keys.length > 0) {
-                var keyStr = row[keys[0]] || '';
-                var valStr = keys.length > 1 ? row[keys[1]] || '' : '';
-                var keyParts = keyStr.split(/\s+/);
-                var valParts = valStr.split(/\s+/);
-                for (var i = 0; i < keyParts.length; i++) {
-                    if (keyParts[i] && valParts[i]) {
-                        config[keyParts[i]] = valParts[i];
-                    }
-                }
+        if (data.length > 1) {
+            var secondRow = data[1];
+            var keys2 = Object.keys(secondRow);
+            keys2.forEach(function (k) {
+                var v = secondRow[k];
+                if (v !== undefined) valueValues.push(String(v).trim());
+            });
+        }
+        for (var i = 0; i < headerValues.length; i++) {
+            if (headerValues[i] && valueValues[i]) {
+                config[headerValues[i]] = valueValues[i];
             }
         }
         return config;
