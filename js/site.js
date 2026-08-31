@@ -23,7 +23,8 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         // Verificar status do site ANTES de qualquer coisa
-        if (window.sheets && window.sheets.buscarConfig) {
+        var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        if (currentPage !== 'offline.html' && window.sheets && window.sheets.buscarConfig) {
             window.sheets.buscarConfig().then(function (config) {
                 if (config.status_site === 'offline') {
                     window.location.href = 'offline.html';
@@ -35,7 +36,7 @@
         }
 
         // Destacar página atual no menu
-        var current = window.location.pathname.split('/').pop() || 'index.html';
+        var current = currentPage;
         document.querySelectorAll('.nav-links a[href]').forEach(function (link) {
             var href = link.getAttribute('href');
             if (href && href.split('?')[0] === current) link.setAttribute('aria-current', 'page');
