@@ -83,7 +83,7 @@
 
 <header class="hero">
     <h1>ANACLA</h1>
-    <img src="imagens/estaticas/bandeira_3D.png" alt="Bandeira ANACLA">
+    <img src="imagens/estaticas/bandeira_3D-2.jpeg" alt="Bandeira ANACLA">
     <h1>Academia Nacional de Ciências, Letras e Artes</h1>
     <p>Cultivando, incentivando e promovendo a criatividade</p>
     <a href="historia.html" class="btn btn-outline">Conheça nossa história</a>
@@ -98,40 +98,46 @@
 
 <section class="section" style="background: #f8f9fa;">
     <h2 class="section-title">Sobre a ANACLA</h2>
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 1.1rem; color: #666; margin-bottom: 20px;">
-            Uma associação de ideias, de profissionais das diversas áreas das ciências, das letras e todas as artes.
-        </p>
-        <p style="color: #666; margin-bottom: 25px;">
-            Nosso objetivo principal é cultivar, incentivar e promover a criatividade e o desenvolvimento das letras, das artes e das Ciências em geral.
-        </p>
-        <a href="historia.html" class="btn">Saiba mais</a>
+    <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+        <div style="background: var(--fundo-suave); border-left: 4px solid var(--cor); border-radius: 12px; padding: 25px; margin-bottom: 25px;">
+            <p style="font-size: 1.1rem; color: var(--texto-suave); margin-bottom: 15px;">
+                Uma associação de ideias, de profissionais das diversas áreas das ciências, das letras e todas as artes.
+            </p>
+            <p style="color: var(--texto-suave); margin-bottom: 0;">
+                Nosso objetivo principal é cultivar, incentivar e promover a criatividade e o desenvolvimento das letras, das artes e das Ciências em geral.
+            </p>
+        </div>
+        <div style="text-align: center;">
+            <a href="historia.html" class="btn">Saiba mais</a>
+        </div>
     </div>
 </section>
 
 <section class="section">
     <h2 class="section-title">Contato</h2>
+
     <div class="contato-grid">
         <div class="contato-card">
             <i class="fas fa-envelope"></i>
-            <h3>Secretaria</h3>
-            <p>secretaria@anacla.com.br</p>
+            <b><h3>Secretaria</h3>
+            <p>secretaria@anacla.com.br</p></b>
         </div>
         <div class="contato-card">
             <i class="fas fa-envelope"></i>
-            <h3>Eventos</h3>
-            <p>eventos@anacla.com.br</p>
+            <b><h3>Eventos</h3>
+            <p>eventos@anacla.com.br</p></b>
         </div>
         <div class="contato-card">
             <i class="fab fa-whatsapp"></i>
-            <h3>WhatsApp</h3>
-            <p>(48) 984 324 698</p>
+            <b><h3>WhatsApp</h3>
+            <p>(48) 984 324 698</p></b>
         </div>
         <div class="contato-card">
             <i class="fab fa-whatsapp"></i>
-            <h3>Presidência</h3>
-            <p>(48) 991 534 380</p>
+            <b><h3>Presidência</h3>
+            <p>(48) 991 534 380</p></b>
         </div>
+
     </div>
     <div style="text-align: center; margin-top: 30px;">
         <a href="contato.html" class="btn">Envie sua mensagem</a>
@@ -172,7 +178,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     '<img src="' + foto + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
                     '<div class="card-content">' +
                     '<h3 class="card-title">' + n.titulo + '</h3>' +
-                    '<p class="card-text">' + (n.resumo || '') + '</p>' +
+                    '<b><p class="card-text">' + (n.resumo || '') + '</p></b>' +
                     '</div></div>';
             }).join('');
         } else {
