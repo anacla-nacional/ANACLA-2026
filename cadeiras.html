@@ -132,12 +132,12 @@
 
 <header class="hero" style="padding: 40px 20px;">
     <p>Acadêmicos</p>
-    <h1>Galeria da ANACLA</h1>
+    <h1>Cadeiras da ANACLA</h1>
 </header>
 
 <section class="section">
-    <div class="galeria-grid" id="galeria">
-        <div class="loading">Carregando galeria...</div>
+    <div class="galeria-grid" id="cadeiras">
+        <div class="loading">Carregando cadeiras...</div>
     </div>
 </section>
 
@@ -178,22 +178,46 @@ function toggleDropdown(el) { el.parentElement.classList.toggle('open'); }
 function fecharModal() { document.getElementById('modal').style.display = 'none'; }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const container = document.getElementById('galeria');
+    const container = document.getElementById('cadeiras');
     try {
         const academicos = await sheets.buscarAcademicos();
-        if (academicos.length > 0) {
-            container.innerHTML = academicos.map(ac => {
-                const foto = sheets.converterLink(ac.foto_url, ac.cadeira);
-                return '<div class="galeria-item" onclick="abrirAcademico(\'' + ac.cadeira + '\')">' +
-                    '<img src="' + foto + '" alt="' + ac.nome + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
-                    '<div class="overlay">' +
-                    '<span class="cadeira-badge">Cadeira ' + ac.cadeira + '</span>' +
-                    '<div class="nome">' + ac.nome + '</div>' +
-                    '</div></div>';
-            }).join('');
-        } else {
-            container.innerHTML = '<div class="loading">Nenhum acadêmico encontrado.</div>';
+        
+        // Todas as cadeiras de 1 a 59
+        const todasCadeiras = [];
+        for (let i = 1; i <= 59; i++) {
+            todasCadeiras.push(String(i));
         }
+        
+        // Cadeiras que existem no Google Sheets (com ou sem acadêmico)
+        const cadeirasExistentes = new Set(academicos.map(ac => ac.cadeira));
+        
+        // Gerar HTML para todas as cadeiras
+        let html = '';
+        
+        // Primeiro: cadeiras com acadêmicos
+        academicos.forEach(ac => {
+            const foto = sheets.converterLink(ac.foto_url, ac.cadeira);
+            html += '<div class="galeria-item" onclick="abrirAcademico(\'' + ac.cadeira + '\')">' +
+                '<img src="' + foto + '" alt="' + ac.nome + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
+                '<div class="overlay">' +
+                '<span class="cadeira-badge">Cadeira ' + ac.cadeira + '</span>' +
+                '<div class="nome">' + ac.nome + '</div>' +
+                '</div></div>';
+        });
+        
+        // Depois: cadeiras vazias
+        todasCadeiras.forEach(num => {
+            if (!cadeirasExistentes.has(num)) {
+                html += '<div class="galeria-item" style="opacity:0.5;cursor:default;">' +
+                    '<img src="imagens/estaticas/placeholder.svg" alt="Cadeira ' + num + '">' +
+                    '<div class="overlay">' +
+                    '<span class="cadeira-badge">Cadeira ' + num + '</span>' +
+                    '<div class="nome" style="font-size:0.75rem;opacity:0.7;">Vaga disponível</div>' +
+                    '</div></div>';
+            }
+        });
+        
+        container.innerHTML = html || '<div class="loading">Nenhuma cadeira encontrada.</div>';
     } catch(e) {
         container.innerHTML = '<div class="loading">Erro ao carregar.</div>';
     }
