@@ -121,13 +121,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         const academicos = await sheets.buscarAcademicos();
         container.innerHTML = academicos.map(ac => {
             const foto = sheets.converterLink(ac.foto_url, ac.cadeira);
-            const patronoInfo = ac.patrono ? '<p style="color:#888;font-size:0.8rem;margin-top:5px;font-style:italic;">' + ac.patrono + '</p>' : '';
-            return '<div class="card" style="text-align:center;cursor:pointer;" onclick="abrirBio(\'' + ac.cadeira + '\')">' +
-                '<img src="' + foto + '" style="height:300px;object-fit:contain;background:#f5f5f5;" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
-                '<div class="card-content">' +
-                '<span style="background:var(--cor);color:white;padding:5px 15px;border-radius:20px;font-size:0.8rem;">Cadeira ' + ac.cadeira + '</span>' +
-                '<h3 class="card-title" style="margin-top:10px;">' + ac.nome + '</h3>' +
-                patronoInfo +
+            return '<div class="card-com-overlay" onclick="abrirBio(\'' + ac.cadeira + '\')">' +
+                '<img src="' + foto + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
+                '<div class="card-overlay">' +
+                '<span class="badge">Cadeira ' + ac.cadeira + '</span>' +
+                '<div class="nome">' + ac.nome + '</div>' +
+                (ac.patrono ? '<div class="sub">' + ac.patrono + '</div>' : '') +
                 '</div></div>';
         }).join('');
     } catch(e) {

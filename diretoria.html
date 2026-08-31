@@ -114,12 +114,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             const ac = academicos.find(a => a.cadeira === cargo.academico_id);
             const foto = ac ? sheets.converterLink(ac.foto_url, ac.cadeira) : 'imagens/estaticas/placeholder.svg';
             const nome = ac ? ac.nome : 'Não informado';
-            return '<div class="card" style="text-align:center;">' +
-                '<img src="' + foto + '" style="height:300px;object-fit:contain;background:#f5f5f5;" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
-                '<div class="card-content">' +
-                '<h3 class="card-title">' + cargo.cargo + '</h3>' +
-                '<p style="font-weight:bold;">' + nome + '</p>' +
-                '<p style="color:#666;">' + cargo.periodo_inicio + ' - ' + cargo.periodo_fim + '</p>' +
+            return '<div class="card-com-overlay">' +
+                '<img src="' + foto + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
+                '<div class="card-overlay">' +
+                '<span class="badge">' + cargo.cargo + '</span>' +
+                '<div class="nome">' + nome + '</div>' +
+                '<div class="sub">' + cargo.periodo_inicio + ' - ' + cargo.periodo_fim + '</div>' +
                 '</div></div>';
         }).join('');
     } catch(e) {
