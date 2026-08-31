@@ -24,15 +24,14 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Verificar status do site ANTES de qualquer coisa
         var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        if (currentPage !== 'offline.html' && window.sheets && window.sheets.buscarConfig) {
-            window.sheets.buscarConfig().then(function (config) {
-                var status = config.status_site || config['status do site'] || config['status_do_site'];
+        if (currentPage !== 'offline.html' && window.sheets && window.sheets.buscarStatus) {
+            window.sheets.buscarStatus().then(function (status) {
                 if (status === 'offline') {
                     window.location.href = 'offline.html';
                     return;
                 }
             }).catch(function () {
-                // Fail-open: se erro ao ler config, permite acesso
+                // Fail-open: se erro ao ler status, permite acesso
             });
         }
 

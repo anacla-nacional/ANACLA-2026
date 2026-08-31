@@ -118,6 +118,21 @@ const sheets = {
         return config;
     },
     
+    async buscarStatus() {
+        try {
+            const response = await fetch(BASE_URL + encodeURIComponent('status'));
+            const text = await response.text();
+            var lines = text.split('\n');
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i].trim().replace(/"/g, '').toLowerCase();
+                if (line === 'online' || line === 'offline') return line;
+            }
+            return 'online';
+        } catch(e) {
+            return 'online';
+        }
+    },
+    
     converterLink(url, id) {
         if (!url) return 'imagens/academicos/' + id + '.png';
         if (url.startsWith('imagens/')) return url;
