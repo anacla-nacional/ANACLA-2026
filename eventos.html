@@ -86,11 +86,13 @@
 </header>
 
 <section class="section">
-    <div style="text-align:center;margin-bottom:30px;">
-        <a href="eventos.html" class="btn">Todos</a>
-        <a href="eventos.html?tipo=oficial" class="btn" style="background:#666;">Oficiais</a>
-        <a href="eventos.html?tipo=mosalc" class="btn" style="background:#666;">MOSALC</a>
-        <a href="eventos.html?tipo=feira" class="btn" style="background:#666;">Feiras</a>
+    <div style="text-align:center;margin-bottom:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
+        <a href="eventos.html" class="btn btn-filtro" data-tipo="todos">Todos</a>
+        <a href="eventos.html?tipo=oficial" class="btn btn-filtro" data-tipo="oficial">Oficiais</a>
+        <a href="eventos.html?tipo=mosalc" class="btn btn-filtro" data-tipo="mosalc">MOSALC</a>
+        <a href="eventos.html?tipo=homenageado" class="btn btn-filtro" data-tipo="homenageado">Homenageados</a>
+        <a href="eventos.html?tipo=feira" class="btn btn-filtro" data-tipo="feira">Feiras</a>
+        <a href="eventos.html?tipo=sarau" class="btn btn-filtro" data-tipo="sarau">Saraus</a>
     </div>
     <div id="eventos">
         <div class="loading">Carregando eventos...</div>
@@ -112,18 +114,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('eventos');
     const params = new URLSearchParams(window.location.search);
     const tipo = params.get('tipo') || 'todos';
+
+    // Destacar botão ativo
+    document.querySelectorAll('.btn-filtro').forEach(btn => {
+        if (btn.dataset.tipo === tipo) {
+            btn.style.background = 'var(--cor)';
+            btn.style.boxShadow = '0 4px 12px rgba(236,28,36,0.3)';
+        }
+    });
+
     try {
         const eventos = await sheets.buscarEventos(tipo);
-        container.innerHTML = '<div class="cards">' + eventos.map(ev => {
-            const foto = ev.imagem_url ? sheets.converterLink(ev.imagem_url, '') : 'imagens/estaticas/placeholder.svg';
-            return '<div class="card">' +
-                '<img src="' + foto + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
-                '<div class="card-content">' +
-                '<h3 class="card-title">' + ev.titulo + '</h3>' +
-                '<p style="color:#666;"><i class="fas fa-calendar"></i> ' + ev.data + ' | <i class="fas fa-map-marker-alt"></i> ' + ev.local + '</p>' +
-                '<p style="margin-top:10px;">' + (ev.descricao || '') + '</p>' +
-                '</div></div>';
-        }).join('') + '</div>';
+        if (eventos.length > 0) {
+            container.innerHTML = '<div class="cards">' + eventos.map(ev => {
+                const foto = ev.imagem_url ? sheets.converterLink(ev.imagem_url, '') : 'imagens/estaticas/placeholder.svg';
+                return '<div class="card">' +
+                    '<img src="' + foto + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
+                    '<div class="card-content">' +
+                    '<h3 class="card-title">' + ev.titulo + '</h3>' +
+                    '<p style="color:#666;"><i class="fas fa-calendar"></i> ' + ev.data + ' | <i class="fas fa-map-marker-alt"></i> ' + ev.local + '</p>' +
+                    '<p style="margin-top:10px;">' + (ev.descricao || '') + '</p>' +
+                    '</div></div>';
+            }).join('') + '</div>';
+        } else {
+            container.innerHTML = '<div class="loading">Nenhum evento encontrado nesta categoria.</div>';
+        }
     } catch(e) {
         container.innerHTML = '<div class="loading">Erro ao carregar.</div>';
     }

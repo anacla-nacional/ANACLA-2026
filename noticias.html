@@ -91,6 +91,16 @@
     </div>
 </section>
 
+<div class="modal" id="modal" onclick="if(event.target===this)fecharModal()">
+    <div class="modal-content">
+        <span class="modal-close" onclick="fecharModal()">&times;</span>
+        <p id="modal-data" style="color:#888;font-size:0.85rem;margin-bottom:8px;"></p>
+        <h2 id="modal-titulo" style="color:var(--cor);margin-bottom:15px;"></h2>
+        <img id="modal-foto" style="width:100%;max-height:350px;object-fit:cover;border-radius:12px;margin-bottom:15px;">
+        <div id="modal-conteudo" style="color:#444;line-height:1.8;"></div>
+    </div>
+</div>
+
 <footer class="footer">
     <h3>ANACLA</h3>
     <p>&copy; 2026 - Todos os direitos reservados</p>
@@ -99,6 +109,7 @@
 <script>
 function toggleMenu() { document.getElementById('menuMobile').classList.toggle('active'); }
 function toggleDropdown(el) { el.parentElement.classList.toggle('open'); }
+function fecharModal() { document.getElementById('modal').style.display = 'none'; }
 </script>
 <script src="js/sheets.js"></script>
 <script>
@@ -106,9 +117,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('noticias');
     try {
         const noticias = await sheets.buscarNoticias();
-        container.innerHTML = noticias.map(n => {
+        container.innerHTML = noticias.map((n, i) => {
             const foto = n.imagem_url ? sheets.converterLink(n.imagem_url, '') : 'imagens/estaticas/placeholder.svg';
-            return '<div class="card">' +
+            return '<div class="card" style="cursor:pointer;" onclick="abrirNoticia(' + i + ')">' +
                 '<img src="' + foto + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
                 '<div class="card-content">' +
                 '<p style="color:#666;font-size:0.9rem;">' + n.data + '</p>' +
@@ -116,10 +127,24 @@ document.addEventListener('DOMContentLoaded', async () => {
                 '<p class="card-text">' + (n.resumo || '') + '</p>' +
                 '</div></div>';
         }).join('');
+        window._noticias = noticias;
     } catch(e) {
         container.innerHTML = '<div class="loading">Erro ao carregar.</div>';
     }
 });
+
+function abrirNoticia(idx) {
+    var n = window._noticias[idx];
+    if (!n) return;
+    document.getElementById('modal-data').textContent = n.data || '';
+    document.getElementById('modal-titulo').textContent = n.titulo || '';
+    var foto = n.imagem_url ? sheets.converterLink(n.imagem_url, '') : '';
+    var fotoEl = document.getElementById('modal-foto');
+    if (foto) { fotoEl.src = foto; fotoEl.style.display = 'block'; }
+    else { fotoEl.style.display = 'none'; }
+    document.getElementById('modal-conteudo').innerHTML = n.conteudo ? '<p>' + n.conteudo + '</p>' : '<p style="color:#999;">Conteúdo não disponível.</p>';
+    document.getElementById('modal').style.display = 'block';
+}
 </script>
 
 <script src="js/site.js"></script>
