@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('noticias');
     try {
         const noticias = await sheets.buscarNoticias();
+        console.log('Notícias carregadas:', noticias);
         container.innerHTML = noticias.map((n, i) => {
             const foto = n.imagem_url ? sheets.converterLink(n.imagem_url, '') : 'imagens/estaticas/placeholder.svg';
             return '<div class="card" style="cursor:pointer;" onclick="abrirNoticia(' + i + ')">' +
@@ -136,6 +137,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 function abrirNoticia(idx) {
     var n = window._noticias[idx];
     if (!n) return;
+    console.log('Notícia selecionada:', n);
     document.getElementById('modal-data').textContent = n.data || '';
     document.getElementById('modal-titulo').textContent = n.titulo || '';
     var foto = n.imagem_url ? sheets.converterLink(n.imagem_url, '') : '';

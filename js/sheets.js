@@ -30,16 +30,32 @@ const sheets = {
         try {
             const response = await fetch(BASE_URL + encodeURIComponent(sheetName));
             const text = await response.text();
-            const lines = text.split('\n');
-            const headers = this.parseCsvLine(lines[0]);
+            
+            // Parse CSV com suporte a quebras de linha dentro de aspas
             const data = [];
-            for (let i = 1; i < lines.length; i++) {
-                if (lines[i].trim() === '') continue;
-                const values = this.parseCsvLine(lines[i]);
-                const obj = {};
-                headers.forEach((h, idx) => obj[h] = values[idx] || '');
-                data.push(obj);
+            let headers = [];
+            let i = 0;
+            const lines = text.split('\n');
+            
+            while (i < lines.length) {
+                let line = lines[i];
+                // Se a linha tem número ímpar de aspas, é linha quebrada - juntar com a próxima
+                while (line.split('"').length % 2 === 0 && i + 1 < lines.length) {
+                    i++;
+                    line += '\n' + lines[i];
+                }
+                
+                if (headers.length === 0) {
+                    headers = this.parseCsvLine(line);
+                } else if (line.trim() !== '') {
+                    const values = this.parseCsvLine(line);
+                    const obj = {};
+                    headers.forEach((h, idx) => obj[h] = values[idx] || '');
+                    data.push(obj);
+                }
+                i++;
             }
+            
             this.cache[sheetName] = data;
             return data;
         } catch(e) {
