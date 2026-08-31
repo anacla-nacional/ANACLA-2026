@@ -487,3 +487,32 @@ textarea { min-height: 130px; resize: vertical; }
     .contato-grid { grid-template-columns: 1fr; }
     .modal-content { padding: 24px 18px; }
 }
+
+/* ===== BOTÃO TOPO ===== */
+.btn-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    background: var(--cor);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(236,28,36,.3);
+    transition: transform .25s, opacity .25s;
+    z-index: 900;
+}
+.btn-topo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(236,28,36,.4);
+}
+.btn-topo.visible { display: flex; }
+@media (max-width: 520px) {
+    .btn-topo { bottom: 20px; right: 20px; width: 42px; height: 42px; font-size: 1rem; }
+}

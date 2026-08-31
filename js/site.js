@@ -42,6 +42,19 @@
             if (href && href.split('?')[0] === current) link.setAttribute('aria-current', 'page');
         });
 
+        // Botão topo
+        var btnTopo = document.createElement('button');
+        btnTopo.className = 'btn-topo';
+        btnTopo.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        btnTopo.setAttribute('aria-label', 'Voltar ao topo');
+        btnTopo.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+        document.body.appendChild(btnTopo);
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 400) btnTopo.classList.add('visible');
+            else btnTopo.classList.remove('visible');
+        });
+
         // Fechar menu mobile ao clicar fora
         document.addEventListener('click', function (event) {
             var menu = document.getElementById('menuMobile');
