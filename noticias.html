@@ -144,7 +144,8 @@ function abrirNoticia(idx) {
     var fotoEl = document.getElementById('modal-foto');
     if (foto) { fotoEl.src = foto; fotoEl.style.display = 'block'; }
     else { fotoEl.style.display = 'none'; }
-    document.getElementById('modal-conteudo').innerHTML = n.conteudo ? '<p>' + n.conteudo + '</p>' : '<p style="color:#999;">Conteúdo não disponível.</p>';
+    var conteudo = n.conteudo ? n.conteudo.replace(/\n/g, '<br>') : '';
+    document.getElementById('modal-conteudo').innerHTML = conteudo ? '<p>' + conteudo + '</p>' : '<p style="color:#999;">Conteúdo não disponível.</p>';
     document.getElementById('modal').style.display = 'block';
 }
 </script>
