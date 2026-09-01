@@ -184,7 +184,7 @@ button, input, textarea { font: inherit; }
         linear-gradient(135deg, #5a1a24, #3d0f18, #5a1a24);
     color: white;
     text-align: center;
-    padding: 65px 20px;
+    padding: 43px 20px;
 }
 .hero::before {
     content: '';
