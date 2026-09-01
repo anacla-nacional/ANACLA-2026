@@ -884,6 +884,18 @@ textarea { min-height: 130px; resize: vertical; }
     .alt-hero-grid { grid-template-columns: 1fr 280px; }
     .alt-manifesto { grid-column: 1/-1; border-left: 0; border-top: 1px solid rgba(201,165,91,.45); padding: 25px 0 0; }
     .alt-manifesto p { max-width: 500px; }
+    .alt-news-layout { grid-template-columns: 1fr; }
+    .alt-feature { min-height: 300px; }
+    .alt-feature img { min-height: 300px; }
+}
+@media (max-width: 650px) {
+    .alt-contact { grid-template-columns: 1fr; padding: 40px 22px; gap: 30px; }
+    .alt-contact-links { grid-template-columns: 1fr; }
+    .alt-contact-links .contact-cta { grid-column: auto; }
+    .alt-header-inner { min-height: 70px; }
+    .alt-brand img { width: 48px; height: 48px; }
+    .alt-brand strong { font-size: 1.1rem; }
+    .alt-brand span { font-size: .55rem; }
 }
 @media (max-width: 800px) {
     .alt-hero-grid { grid-template-columns: 1fr; text-align: center; }
