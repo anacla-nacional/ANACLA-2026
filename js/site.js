@@ -35,12 +35,15 @@
             });
         }
 
-        // Destacar página atual no menu
-        var current = currentPage;
-        document.querySelectorAll('.nav-links a[href]').forEach(function (link) {
-            var href = link.getAttribute('href');
-            if (href && href.split('?')[0] === current) link.setAttribute('aria-current', 'page');
-        });
+        // Menu mobile (alt-header)
+        var menuButton = document.querySelector('.alt-menu-button');
+        var mobileMenu = document.getElementById('altMobileMenu');
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', function () {
+                var open = mobileMenu.classList.toggle('open');
+                menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+        }
 
         // Botão topo
         var btnTopo = document.createElement('button');
@@ -57,10 +60,10 @@
 
         // Fechar menu mobile ao clicar fora
         document.addEventListener('click', function (event) {
-            var menu = document.getElementById('menuMobile');
-            var button = document.querySelector('.hamburger');
-            if (menu && menu.classList.contains('active') && !menu.contains(event.target) && !button?.contains(event.target)) {
-                menu.classList.remove('active');
+            var menu = document.getElementById('altMobileMenu');
+            var button = document.querySelector('.alt-menu-button');
+            if (menu && menu.classList.contains('open') && !menu.contains(event.target) && !button?.contains(event.target)) {
+                menu.classList.remove('open');
             }
         });
     });
