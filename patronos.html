@@ -43,7 +43,11 @@
     </div>
 </header>
 
-<header class="hero" style="padding: 40px 20px;">
+<header class="hero-linha-horizontal"> &nbsp; </header>
+<header class="hero-linha-horizontal-preta"> &nbsp; </header>
+<div class="voltar-link"><a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Voltar</a></div>
+
+<header class="hero" style="padding: 0 20px 10px;">
     <h1>Patronos</h1>
 </header>
 
@@ -86,6 +90,38 @@
 
 <script src="js/sheets.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('patronos');
+    try {
+        const patronos = await sheets.buscarPatronos();
+        container.innerHTML = patronos.map(p => {
+            const foto = sheets.converterLink(p.foto_url, p.cadeira);
+            return '<div class="card-com-overlay" onclick="abrirPatrono(\'' + p.cadeira + '\')">' +
+                '<img src="' + foto + '" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}">' +
+                '<div class="card-overlay">' +
+                '<span class="badge">Cadeira ' + p.cadeira + '</span>' +
+                '<div class="nome">' + p.nome + '</div>' +
+                (p.profissao ? '<div class="sub">' + p.profissao + '</div>' : '') +
+                '</div></div>';
+        }).join('');
+    } catch(e) {
+        container.innerHTML = '<div class="loading">Erro ao carregar.</div>';
+    }
+});
+
+async function abrirPatrono(cadeira) {
+    const p = (await sheets.buscarPatronos()).find(x => x.cadeira === cadeira);
+    if (p) {
+        document.getElementById('modal-titulo').textContent = p.nome;
+        document.getElementById('modal-cadeira').textContent = 'Cadeira ' + p.cadeira;
+        document.getElementById('modal-profissao').textContent = p.profissao || '';
+        document.getElementById('modal-datas').textContent = [p.nascimento, p.falecimento].filter(Boolean).join(' — ') || '';
+        document.getElementById('modal-foto').src = sheets.converterLink(p.foto_url, p.cadeira);
+        document.getElementById('modal-bio').textContent = p.biografia || 'Biografia não disponível.';
+        document.getElementById('modal').style.display = 'block';
+    }
+}
+
 function fecharModal() { document.getElementById('modal').style.display = 'none'; }
 </script>
 <script src="js/site.js"></script>

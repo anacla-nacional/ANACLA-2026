@@ -110,9 +110,12 @@
     </div>
 </header>
 
-<header class="hero" style="padding: 40px 20px;">
-    <p>Acadêmicos</p>
+<header class="hero-linha-horizontal"> &nbsp; </header>
+<header class="hero-linha-horizontal-preta"> &nbsp; </header>
+<div class="voltar-link"><a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Voltar</a></div>
+<header class="hero" style="padding: 0 20px 10px;">
     <h1>Cadeiras</h1>
+    <h2>Acadêmicos</h2>
 </header>
 
 <section class="section">
@@ -153,6 +156,39 @@
 
 <script src="js/sheets.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('cadeiras');
+    try {
+        const academicos = await sheets.buscarAcademicos();
+        container.innerHTML = academicos.map(ac => {
+            const foto = sheets.converterLink(ac.foto_url, ac.cadeira);
+            return '<div class="galeria-item" onclick="abrirCadeira(\'' + ac.cadeira + '\')">' +
+                '<img src="' + foto + '" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}">' +
+                '<div class="overlay">' +
+                '<div class="badges">' +
+                '<span class="cadeira-badge">Cadeira ' + ac.cadeira + '</span>' +
+                (ac.patrono ? '<a href="patronos.html" class="patrono-badge" onclick="event.stopPropagation()">Patrono</a>' : '') +
+                '</div>' +
+                '<div class="nome">' + ac.nome + '</div>' +
+                '</div></div>';
+        }).join('');
+    } catch(e) {
+        container.innerHTML = '<div class="loading">Erro ao carregar.</div>';
+    }
+});
+
+async function abrirCadeira(cadeira) {
+    const ac = (await sheets.buscarAcademicos()).find(a => a.cadeira === cadeira);
+    if (ac) {
+        document.getElementById('modal-titulo').textContent = ac.nome;
+        document.getElementById('modal-cadeira').textContent = 'Cadeira ' + ac.cadeira;
+        document.getElementById('modal-patrono').textContent = ac.patrono ? 'Patrono(a): ' + ac.patrono : '';
+        document.getElementById('modal-foto').src = sheets.converterLink(ac.foto_url, ac.cadeira);
+        document.getElementById('modal-bio').textContent = ac.biografia || 'Biografia não disponível.';
+        document.getElementById('modal').style.display = 'block';
+    }
+}
+
 function fecharModal() { document.getElementById('modal').style.display = 'none'; }
 </script>
 <script src="js/site.js"></script>

@@ -127,10 +127,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             imagem: n.imagem_url ? sheets.converterLink(n.imagem_url, '') : 'imagens/estaticas/placeholder.svg'
         });
         const first = normal(noticias[0]);
-        feature.innerHTML = '<img src="' + first.imagem + '" alt="" onerror="this.src=\'imagens/estaticas/placeholder.svg\'"><div class="feature-overlay"><small>DESTAQUE</small><h3>' + first.titulo + '</h3><p>' + first.resumo + '</p><a href="noticias.html">Ler notícia <i class="fas fa-arrow-right"></i></a></div>';
+        feature.innerHTML = '<a href="noticias.html" style="display:block;position:relative;z-index:1;"><img src="' + first.imagem + '" alt="" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}"></a><div class="feature-overlay"><small>DESTAQUE</small><h3>' + first.titulo + '</h3><p>' + first.resumo + '</p><a href="noticias.html">Ler notícia <i class="fas fa-arrow-right"></i></a></div>';
         list.innerHTML = noticias.slice(1, 4).map(function (item, index) {
             const n = normal(item);
-            return '<article class="alt-news-item"><span class="news-index">0' + (index + 2) + '</span><div><small>ANACLA</small><h3>' + n.titulo + '</h3><p>' + n.resumo + '</p></div><a href="noticias.html" aria-label="Ler notícia"><i class="fas fa-arrow-right"></i></a></article>';
+            return '<article class="alt-news-item"><span class="news-index">0' + (index + 2) + '</span><div><small>ANACLA</small><h3><a href="noticias.html">' + n.titulo + '</a></h3><p>' + n.resumo + '</p></div><a href="noticias.html" aria-label="Ler notícia"><i class="fas fa-arrow-right"></i></a></article>';
         }).join('');
     } catch (error) {
         feature.innerHTML = '<div class="alt-feature-loading">Não foi possível carregar os destaques agora.</div>';
