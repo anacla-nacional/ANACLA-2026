@@ -47,7 +47,7 @@ body {
     background: var(--fundo);
     -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3, .section-title, .logo, .hero h1, .card-title {
+h1, h2, h3, .section-title, .logo, .card-title {
     font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 a { text-decoration: none; color: inherit; }
@@ -55,20 +55,15 @@ img { max-width: 100%; height: auto; }
 button, input, textarea { font: inherit; }
 ::selection { background: var(--azul-escuro); color: var(--dourado); }
 
-/* ===== NAVBAR ===== */
+/* ===== NAVBAR (apenas para formatar.html) ===== */
 .navbar {
     background: var(--azul-escuro);
-    padding: 0 max(22px, calc((100vw - var(--largura)) / 2));
+    padding: 0 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    min-height: 68px;
-    border-bottom: 1px solid rgba(201,165,91,.75);
-    box-shadow: 0 4px 20px rgba(0,0,0,.22);
-    backdrop-filter: blur(14px);
+    gap: 12px;
+    min-height: 60px;
+    border-bottom: 1px solid rgba(201,165,91,.45);
 }
 .logo {
     display: flex;
