@@ -75,7 +75,15 @@
 <section class="alt-strip">
     <div class="alt-strip-item"><span class="number">01</span><div><small>IDENTIDADE</small><h3>Uma academia nacional</h3><p>Uma comunidade dedicada às Ciências, Letras e Artes.</p></div><a href="historia.html" aria-label="Conheça a história"><i class="fas fa-arrow-right"></i></a></div>
     <div class="alt-strip-item"><span class="number">02</span><div><small>ACERVO VIVO</small><h3>Obras e memória</h3><p>Produções, registros, eventos e homenagens da ANACLA.</p></div><a href="obras.html" aria-label="Veja as obras"><i class="fas fa-arrow-right"></i></a></div>
-    <div class="alt-strip-item"><span class="number">03</span><div><small>PARTICIPAÇÃO</small><h3>Eventos e encontros</h3><p>Atividades oficiais, posses, feiras e encontros culturais.</p></div><a href="eventos.html" aria-label="Veja os eventos"><i class="fas fa-arrow-right"></i></a></div>
+    <div class="alt-strip-item"><span class="number">03</span><div><small>PARTICIPAÇÃO</small><h3>Eventos e encontros</h3><p>Atividades oficiais, posses, feiras e encontros culturais.</p></div><a href="eventos.html" aria-label="Veja os eventos"><i class="fas fa-arrow-right"></i></a>    </div>
+</section>
+
+<section class="alt-content">
+    <div class="alt-section-heading"><span>EM EVIDÊNCIA</span><h2>O que acontece na ANACLA</h2><p>Acompanhe os destaques publicados pela Academia.</p></div>
+    <div class="alt-news-layout">
+        <div class="alt-feature" id="destaque-principal"><div class="alt-feature-loading">Carregando destaques...</div></div>
+        <div class="alt-news-list" id="destaques"><div class="alt-feature-loading">Carregando...</div></div>
+    </div>
 </section>
 
 <section class="section">
@@ -130,24 +138,29 @@
 <script src="js/site.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
-    const container = document.getElementById('destaques');
+    const list = document.getElementById('destaques');
+    const feature = document.getElementById('destaque-principal');
     try {
         const noticias = await sheets.buscarNoticias();
-        if (noticias.length > 0) {
-            container.innerHTML = noticias.slice(0, 3).map(n => {
-                const foto = n.imagem_url ? sheets.converterLink(n.imagem_url, '') : 'imagens/estaticas/placeholder.svg';
-                return '<div class="card">' +
-                    '<img src="' + foto + '" onerror="this.src=\'imagens/estaticas/placeholder.svg\'">' +
-                    '<div class="card-content">' +
-                    '<h3 class="card-title">' + n.titulo + '</h3>' +
-                    '<b><p class="card-text">' + (n.resumo || '') + '</p></b>' +
-                    '</div></div>';
-            }).join('');
-        } else {
-            container.innerHTML = '<div class="loading">Nenhum destaque disponível.</div>';
+        if (!noticias.length) {
+            feature.innerHTML = '<div class="alt-feature-loading">Nenhum destaque disponível.</div>';
+            list.innerHTML = '';
+            return;
         }
-    } catch(e) {
-        container.innerHTML = '<div class="loading">Erro ao carregar.</div>';
+        const normal = n => ({
+            titulo: n.titulo || 'Destaque ANACLA',
+            resumo: n.resumo || '',
+            imagem: n.imagem_url ? sheets.converterLink(n.imagem_url, '') : 'imagens/estaticas/placeholder.svg'
+        });
+        const first = normal(noticias[0]);
+        feature.innerHTML = '<img src="' + first.imagem + '" alt="" onerror="this.src=\'imagens/estaticas/placeholder.svg\'"><div class="feature-overlay"><small>DESTAQUE</small><h3>' + first.titulo + '</h3><p>' + first.resumo + '</p><a href="noticias.html">Ler notícia <i class="fas fa-arrow-right"></i></a></div>';
+        list.innerHTML = noticias.slice(1, 4).map(function (item, index) {
+            const n = normal(item);
+            return '<article class="alt-news-item"><span class="news-index">0' + (index + 2) + '</span><div><small>ANACLA</small><h3>' + n.titulo + '</h3><p>' + n.resumo + '</p></div><a href="noticias.html" aria-label="Ler notícia"><i class="fas fa-arrow-right"></i></a></article>';
+        }).join('');
+    } catch (error) {
+        feature.innerHTML = '<div class="alt-feature-loading">Não foi possível carregar os destaques agora.</div>';
+        list.innerHTML = '';
     }
 });
 </script>
