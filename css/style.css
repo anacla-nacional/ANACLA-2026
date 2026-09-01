@@ -569,6 +569,16 @@ textarea { min-height: 130px; resize: vertical; }
 .alt-news-item > a { color:var(--alt-vermelho, #74151d); align-self:center; text-decoration:none; }
 .alt-feature-loading { min-height:200px; display:grid; place-items:center; padding:30px; color:#756f65; font-family:Arial,sans-serif; text-align:center; }
 
+/* ===== ALT CONTACT (Design Alternativo) ===== */
+.alt-contact { background:#d9ccb9; display:grid; grid-template-columns:1fr 1fr; gap:50px; padding:65px max(22px, calc((100% - 1120px)/2)); }
+.alt-contact h2 { color:var(--alt-azul, #071a2b); font-size:clamp(2rem,3vw,2.7rem); font-weight:500; margin:8px 0; }
+.alt-contact p { color:#5d5a55; font: .85rem/1.6 Arial,sans-serif; }
+.alt-contact-links { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:center; }
+.alt-contact-links a { border-left:2px solid #b2935b; padding:7px 0 7px 16px; color:var(--alt-azul, #071a2b); text-decoration:none; }
+.alt-contact-links small { display:block; color:#816438; font:bold .56rem Arial,sans-serif; letter-spacing:.15em; margin-bottom:5px; }
+.alt-contact-links strong { font: .78rem Arial,sans-serif; }
+.alt-contact-links .contact-cta { grid-column:1/-1; border:1px solid #8f713f; text-align:center; padding:13px; margin-top:6px; font:bold .65rem Arial,sans-serif; text-transform:uppercase; letter-spacing:.08em; color:var(--alt-azul, #071a2b); }
+
 /* ===== ALT STRIP (Design Alternativo) ===== */
 .alt-strip { width:min(1240px, calc(100% - 44px)); margin:-1px auto 0; position:relative; z-index:5; display:grid; grid-template-columns:repeat(3,1fr); background:#f5f0e7; box-shadow:0 15px 35px rgba(17,24,31,.12); border-top:3px solid var(--alt-dourado, #c9a55b); }
 .alt-strip-item { display:grid; grid-template-columns:45px 1fr 25px; gap:15px; padding:27px 25px; border-right:1px solid #d7cdbd; }
