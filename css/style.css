@@ -46,6 +46,7 @@ body {
     color: var(--texto);
     background: var(--fundo);
     -webkit-font-smoothing: antialiased;
+    padding-top: 80px;
 }
 h1, h2, h3, .section-title, .logo, .card-title {
     font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -584,7 +585,11 @@ textarea { min-height: 130px; resize: vertical; }
 
 /* ===== ALT HEADER (Design Alternativo) ===== */
 .alt-header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
     background: #071a2b;
     color: #f3eee3;
