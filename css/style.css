@@ -11,6 +11,14 @@
     --dourado: #c9a55b;
     --azul-escuro: #071a2b;
 
+    --alt-vermelho: #74151d;
+    --alt-azul: #071a2b;
+    --alt-dourado: #c9a55b;
+    --alt-marfim: #f3eee3;
+    --alt-papel: #e9e1d2;
+    --alt-ink: #20252a;
+    --alt-linha: rgba(201,165,91,.45);
+
     --branco: #ffffff;
     --fundo: #f7f8fa;
     --fundo-suave: #fff6f6;
@@ -22,6 +30,13 @@
     --raio: 18px;
     --largura: 1180px;
 }
+
+.home-alternativa {
+    background: var(--alt-marfim);
+    color: var(--alt-ink);
+    font-family: Georgia, 'Times New Roman', serif;
+}
+.home-alternativa a { text-decoration: none; }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -738,10 +753,10 @@ textarea { min-height: 130px; resize: vertical; }
 }
 .alt-hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr .9fr;
+    grid-template-columns: 1.08fr .82fr .75fr;
     align-items: center;
-    gap: 40px;
-    padding: 20px 0;
+    min-height: 500px;
+    gap: 35px;
 }
 .alt-intro { padding: 20px 0; }
 .eyebrow { color: #ddc78e; font-size: .72rem; letter-spacing: .18em; margin-bottom: 18px; }
@@ -826,6 +841,13 @@ textarea { min-height: 130px; resize: vertical; }
 .alt-manifesto a { color: #dfbd72; font: bold .68rem Arial, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
 .alt-manifesto a i { margin-left: 7px; }
 
+@media (max-width: 1000px) {
+    .alt-nav { display: none; }
+    .alt-menu-button { display: block; }
+    .alt-hero-grid { grid-template-columns: 1fr 280px; }
+    .alt-manifesto { grid-column: 1/-1; border-left: 0; border-top: 1px solid rgba(201,165,91,.45); padding: 25px 0 0; }
+    .alt-manifesto p { max-width: 500px; }
+}
 @media (max-width: 800px) {
     .alt-hero-grid { grid-template-columns: 1fr; text-align: center; }
     .alt-intro .lead { margin-left: auto; margin-right: auto; }
