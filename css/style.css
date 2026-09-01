@@ -887,6 +887,9 @@ textarea { min-height: 130px; resize: vertical; }
     .alt-news-layout { grid-template-columns: 1fr; }
     .alt-feature { min-height: 300px; }
     .alt-feature img { min-height: 300px; }
+    .alt-strip { grid-template-columns: 1fr; }
+    .alt-strip-item { border-right: 0; border-bottom: 1px solid #d7cdbd; }
+    .alt-strip-item:last-child { border-bottom: 0; }
 }
 @media (max-width: 650px) {
     .alt-contact { grid-template-columns: 1fr; padding: 40px 22px; gap: 30px; }
