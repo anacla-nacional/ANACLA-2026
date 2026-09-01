@@ -552,6 +552,16 @@ textarea { min-height: 130px; resize: vertical; }
     .btn-topo { bottom: 20px; right: 20px; width: 42px; height: 42px; font-size: 1rem; }
 }
 
+/* ===== ALT STRIP (Design Alternativo) ===== */
+.alt-strip { width:min(1240px, calc(100% - 44px)); margin:-1px auto 0; position:relative; z-index:5; display:grid; grid-template-columns:repeat(3,1fr); background:#f5f0e7; box-shadow:0 15px 35px rgba(17,24,31,.12); border-top:3px solid var(--alt-dourado, #c9a55b); }
+.alt-strip-item { display:grid; grid-template-columns:45px 1fr 25px; gap:15px; padding:27px 25px; border-right:1px solid #d7cdbd; }
+.alt-strip-item:last-child { border-right:0; }
+.alt-strip-item .number { color:var(--alt-dourado, #c9a55b); font-size:.8rem; }
+.alt-strip-item small { color:#7e5b2c; font:bold .58rem Arial,sans-serif; letter-spacing:.16em; }
+.alt-strip-item h3 { margin:6px 0 4px; color:var(--alt-azul, #071a2b); font-size:1.12rem; font-weight:600; }
+.alt-strip-item p { margin:0; color:#65615a; font: .78rem/1.55 Arial,sans-serif; }
+.alt-strip-item > a { color:var(--alt-vermelho, #74151d); align-self:center; }
+
 /* ===== ALT HEADER (Design Alternativo) ===== */
 .alt-header {
     position: relative;
