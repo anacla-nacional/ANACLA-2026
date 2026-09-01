@@ -169,7 +169,7 @@ button, input, textarea { font: inherit; }
     background:
         radial-gradient(circle at 15% 15%, rgba(255,255,255,.12), transparent 27%),
         radial-gradient(circle at 85% 80%, rgba(255,255,255,.08), transparent 30%),
-        linear-gradient(135deg, #0d5c3a, #0a4a2e);
+        linear-gradient(135deg, #641e28, #4a1520);
     color: white;
     text-align: center;
     padding: 72px 20px;
