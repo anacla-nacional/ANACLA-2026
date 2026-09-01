@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História - ANACLA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo"><img src="imagens/estaticas/bandeira_3D.png" alt="ANACLA"><span>ANACLA</span></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="#">Academia</a>
+            <div class="dropdown-menu">
+                <a href="historia.html">História</a>
+                <a href="vinicius.html">Patrono Vinícius de Moraes</a>
+                <a href="obras.html">Obras da ANACLA</a>
+                <a href="diretoria.html">Diretoria</a>
+                <a href="hino.html">Hino</a>
+                <a href="premios.html">Prêmios</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Acadêmicos</a>
+            <div class="dropdown-menu">
+                <a href="galeria.html">Galeria</a>
+                <a href="biografias.html">Biografias</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Eventos</a>
+            <div class="dropdown-menu">
+                <a href="eventos.html">Todos</a>
+                <a href="eventos.html?tipo=oficial">Oficiais</a>
+                <a href="eventos.html?tipo=mosalc">MOSALC</a>
+                <a href="homenageados.html">Homenageados</a>
+                <a href="eventos.html?tipo=feira">Feiras de Livros</a>
+            </div>
+        </div>
+        <a href="noticias.html">Notícias</a>
+        <a href="contato.html">Contato</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+</nav>
+
+<div class="menu-mobile" id="menuMobile">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Academia ▾</a>
+        <div class="dropdown-menu">
+            <a href="historia.html">História</a>
+            <a href="vinicius.html">Patrono Vinícius de Moraes</a>
+            <a href="obras.html">Obras da ANACLA</a>
+            <a href="diretoria.html">Diretoria</a>
+            <a href="hino.html">Hino</a>
+            <a href="premios.html">Prêmios</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Acadêmicos ▾</a>
+        <div class="dropdown-menu">
+            <a href="galeria.html">Galeria</a>
+            <a href="biografias.html">Biografias</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#" onclick="toggleDropdown(this); return false;">Eventos ▾</a>
+        <div class="dropdown-menu">
+            <a href="eventos.html">Todos</a>
+            <a href="eventos.html?tipo=oficial">Oficiais</a>
+            <a href="eventos.html?tipo=mosalc">MOSALC</a>
+            <a href="homenageados.html">Homenageados</a>
+            <a href="eventos.html?tipo=feira">Feiras de Livros</a>
+        </div>
+    </div>
+    <a href="noticias.html">Notícias</a>
+    <a href="contato.html">Contato</a>
+</div>
+
+<header class="hero" style="padding: 40px 20px;">
+    <h1>História da ANACLA</h1>
+</header>
+
+<section class="section">
+    <div style="max-width:800px;margin:0 auto;">
+        <img src="imagens/estaticas/bandeira_3D.png" style="width:200px;display:block;margin:0 auto 30px;">
+        
+        <div style="background:#f8f9fa;padding:25px;border-left:4px solid var(--cor);border-radius:8px;margin-bottom:25px;">
+            <p style="font-style:italic;">Nosso objetivo principal é cultivar, incentivar e promover a criatividade e o desenvolvimento das letras, das artes e das Ciências em geral.</p>
+        </div>
+        
+        <p style="margin-bottom:15px;">ANACLA - Academia Nacional de Ciências, Letras e Artes reúne acadêmicos com conhecimento de todas as áreas culturais.</p>
+        
+        <p style="margin-bottom:15px;">Todo projeto nasce de uma ideia, passa por um desenvolvimento até chegar a uma plena realização. Não foi diferente com a ANACLA.</p>
+        
+        <p style="margin-bottom:15px;">Numa tarde de verão nasceu a nossa Academia, a qual foi a melhor decisão que tomou nessa área. Uma associação de ideias, de profissionais das diversas áreas das ciências, das letras e todas as artes.</p>
+        
+        <p style="margin-bottom:15px;">Chegou o dia de 25 de janeiro de 2018, realizamos a primeira reunião de Fundação. Desta data em diante não paramos mais.</p>
+        
+        <p style="margin-bottom:15px;">Em 20 de julho de 2018 realizamos o "Evento Oficial de Posse Acadêmica" e nesta noite oficializamos a primeira etapa das muitíssimas que aconteceram.</p>
+        
+        <p style="text-align:right;margin-top:30px;"><b>Florianópolis, 10 de agosto de 2020.</b></p>
+        <p style="text-align:center;margin-top:20px;"><b>Mara Núbia Roloff</b><br><i>Idealizadora/ Fundadora da ANACLA</i></p>
+    </div>
+</section>
+
+<footer class="footer">
+    <h3>ANACLA</h3>
+    <p>&copy; 2026 - Todos os direitos reservados</p>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById('menuMobile').classList.toggle('active'); }
+function toggleDropdown(el) { el.parentElement.classList.toggle('open'); }
+</script>
+
+<script src="js/site.js"></script>
+</body>
+</html>

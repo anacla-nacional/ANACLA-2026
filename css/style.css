@@ -723,7 +723,7 @@ textarea { min-height: 130px; resize: vertical; }
     position: relative;
     color: #fff;
     overflow: hidden;
-    background: #061827 url('../imagens/estaticas/central_1.jpeg') center/cover no-repeat;
+    background: #061827 url('../imagens/estaticas/imagem_capa_fundo.png') center/cover no-repeat;
 }
 .alt-hero-shade {
     position: absolute;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -9,79 +9,39 @@
 </head>
 <body>
 
-<nav class="navbar">
-    <a href="index.html" class="logo"><img src="imagens/estaticas/bandeira_3D.png" alt="ANACLA"><span>ANACLA</span></a>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="dropdown">
-            <a href="#">Academia</a>
-            <div class="dropdown-menu">
-                <a href="historia.html">História</a>
-                <a href="vinicius.html">Patrono Vinícius de Moraes</a>
-                <a href="obras.html">Obras da ANACLA</a>
-                <a href="diretoria.html">Diretoria</a>
-                <a href="hino.html">Hino</a>
-                <a href="premios.html">Prêmios</a>
+<header class="alt-header">
+    <div class="alt-header-inner">
+        <a class="alt-brand" href="index.html" aria-label="ANACLA — início">
+            <img src="imagens/estaticas/logo_anacla.png" alt="Brasão da ANACLA">
+            <div>
+                <strong>ANACLA</strong>
+                <span>Academia Nacional de<br>Ciências, Letras e Artes</span>
             </div>
-        </div>
-        <div class="dropdown">
-            <a href="#">Acadêmicos</a>
-            <div class="dropdown-menu">
-                <a href="cadeiras.html">Cadeiras</a>
-                <a href="biografias.html">Biografias</a>
-                <a href="patronos.html">Patronos</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="#">Eventos</a>
-            <div class="dropdown-menu">
-                <a href="eventos.html">Todos</a>
-                <a href="eventos.html?tipo=oficial">Oficiais</a>
-                <a href="eventos.html?tipo=mosalc">MOSALC</a>
-                <a href="homenageados.html">Homenageados</a>
-                <a href="eventos.html?tipo=feira">Feiras de Livros</a>
-            </div>
-        </div>
-        <a href="noticias.html">Notícias</a>
-        <a href="contato.html">Contato</a>
+        </a>
+        <nav class="alt-nav" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <div class="alt-nav-group"><button type="button">Academia <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Acadêmicos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Eventos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a>
+            </div></div>
+            <a href="noticias.html">Notícias</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+        <button class="alt-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
     </div>
-    <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
-</nav>
-
-<div class="menu-mobile" id="menuMobile">
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(this); return false;">Academia ▾</a>
-        <div class="dropdown-menu">
-            <a href="historia.html">História</a>
-            <a href="vinicius.html">Patrono Vinícius de Moraes</a>
-            <a href="obras.html">Obras da ANACLA</a>
-            <a href="diretoria.html">Diretoria</a>
-            <a href="hino.html">Hino</a>
-            <a href="premios.html">Prêmios</a>
-        </div>
+    <div class="alt-mobile-menu" id="altMobileMenu">
+        <a href="index.html">Início</a>
+        <details><summary>Academia</summary><a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a></details>
+        <details><summary>Acadêmicos</summary><a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a></details>
+        <details><summary>Eventos</summary><a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a></details>
+        <a href="noticias.html">Notícias</a><a href="contato.html">Contato</a>
     </div>
-    <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(this); return false;">Acadêmicos ▾</a>
-        <div class="dropdown-menu">
-            <a href="cadeiras.html">Cadeiras</a>
-            <a href="biografias.html">Biografias</a>
-            <a href="patronos.html">Patronos</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(this); return false;">Eventos ▾</a>
-        <div class="dropdown-menu">
-            <a href="eventos.html">Todos</a>
-            <a href="eventos.html?tipo=oficial">Oficiais</a>
-            <a href="eventos.html?tipo=mosalc">MOSALC</a>
-            <a href="homenageados.html">Homenageados</a>
-            <a href="eventos.html?tipo=feira">Feiras de Livros</a>
-        </div>
-    </div>
-    <a href="noticias.html">Notícias</a>
-    <a href="contato.html">Contato</a>
-</div>
+</header>
 
 <header class="hero" style="padding: 40px 20px;">
     <h1>Notícias</h1>
@@ -108,11 +68,6 @@
     <p>&copy; 2026 - Todos os direitos reservados</p>
 </footer>
 
-<script>
-function toggleMenu() { document.getElementById('menuMobile').classList.toggle('active'); }
-function toggleDropdown(el) { el.parentElement.classList.toggle('open'); }
-function fecharModal() { document.getElementById('modal').style.display = 'none'; }
-</script>
 <script src="js/sheets.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async () => {

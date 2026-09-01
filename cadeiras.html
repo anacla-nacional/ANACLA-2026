@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -76,83 +76,43 @@
 </head>
 <body>
 
-<nav class="navbar">
-    <a href="index.html" class="logo"><img src="imagens/estaticas/bandeira_3D.png" alt="ANACLA"><span>ANACLA</span></a>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <div class="dropdown">
-            <a href="#">Academia</a>
-            <div class="dropdown-menu">
-                <a href="historia.html">História</a>
-                <a href="vinicius.html">Patrono Vinícius de Moraes</a>
-                <a href="obras.html">Obras da ANACLA</a>
-                <a href="diretoria.html">Diretoria</a>
-                <a href="hino.html">Hino</a>
-                <a href="premios.html">Prêmios</a>
+<header class="alt-header">
+    <div class="alt-header-inner">
+        <a class="alt-brand" href="index.html" aria-label="ANACLA — início">
+            <img src="imagens/estaticas/logo_anacla.png" alt="Brasão da ANACLA">
+            <div>
+                <strong>ANACLA</strong>
+                <span>Academia Nacional de<br>Ciências, Letras e Artes</span>
             </div>
-        </div>
-        <div class="dropdown">
-            <a href="#">Acadêmicos</a>
-            <div class="dropdown-menu">
-                <a href="cadeiras.html">Cadeiras</a>
-                <a href="biografias.html">Biografias</a>
-                <a href="patronos.html">Patronos</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="#">Eventos</a>
-            <div class="dropdown-menu">
-                <a href="eventos.html">Todos</a>
-                <a href="eventos.html?tipo=oficial">Oficiais</a>
-                <a href="eventos.html?tipo=mosalc">MOSALC</a>
-                <a href="homenageados.html">Homenageados</a>
-                <a href="eventos.html?tipo=feira">Feiras de Livros</a>
-            </div>
-        </div>
-        <a href="noticias.html">Notícias</a>
-        <a href="contato.html">Contato</a>
+        </a>
+        <nav class="alt-nav" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <div class="alt-nav-group"><button type="button">Academia <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Acadêmicos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Eventos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a>
+            </div></div>
+            <a href="noticias.html">Notícias</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+        <button class="alt-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
     </div>
-    <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
-</nav>
-
-<div class="menu-mobile" id="menuMobile">
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(this); return false;">Academia ▾</a>
-        <div class="dropdown-menu">
-            <a href="historia.html">História</a>
-            <a href="vinicius.html">Patrono Vinícius de Moraes</a>
-            <a href="obras.html">Obras da ANACLA</a>
-            <a href="diretoria.html">Diretoria</a>
-            <a href="hino.html">Hino</a>
-            <a href="premios.html">Prêmios</a>
-        </div>
+    <div class="alt-mobile-menu" id="altMobileMenu">
+        <a href="index.html">Início</a>
+        <details><summary>Academia</summary><a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a></details>
+        <details><summary>Acadêmicos</summary><a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a></details>
+        <details><summary>Eventos</summary><a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a></details>
+        <a href="noticias.html">Notícias</a><a href="contato.html">Contato</a>
     </div>
-    <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(this); return false;">Acadêmicos ▾</a>
-        <div class="dropdown-menu">
-            <a href="cadeiras.html">Cadeiras</a>
-            <a href="biografias.html">Biografias</a>
-            <a href="patronos.html">Patronos</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a href="#" onclick="toggleDropdown(this); return false;">Eventos ▾</a>
-        <div class="dropdown-menu">
-            <a href="eventos.html">Todos</a>
-            <a href="eventos.html?tipo=oficial">Oficiais</a>
-            <a href="eventos.html?tipo=mosalc">MOSALC</a>
-            <a href="homenageados.html">Homenageados</a>
-            <a href="eventos.html?tipo=feira">Feiras de Livros</a>
-        </div>
-    </div>
-    <a href="noticias.html">Notícias</a>
-    <a href="contato.html">Contato</a>
-</div>
+</header>
 
 <header class="hero" style="padding: 40px 20px;">
     <p>Acadêmicos</p>
-    <h1>Cadeiras da ANACLA</h1>
+    <h1>Cadeiras</h1>
 </header>
 
 <section class="section">
@@ -192,65 +152,6 @@
 </footer>
 
 <script src="js/sheets.js"></script>
-<script>
-function toggleMenu() { document.getElementById('menuMobile').classList.toggle('active'); }
-function toggleDropdown(el) { el.parentElement.classList.toggle('open'); }
-function fecharModal() { document.getElementById('modal').style.display = 'none'; }
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const container = document.getElementById('cadeiras');
-    try {
-        const academicos = await sheets.buscarAcademicos();
-        
-        // Mapa de cadeiras com acadêmicos
-        const mapaAcademicos = {};
-        academicos.forEach(ac => { mapaAcademicos[ac.cadeira] = ac; });
-        
-        // Gerar HTML para todas as cadeiras em ordem numérica
-        let html = '';
-        for (let i = 1; i <= 59; i++) {
-            const num = String(i);
-            const ac = mapaAcademicos[num];
-            if (ac) {
-                const foto = sheets.converterLink(ac.foto_url, ac.cadeira);
-                html += '<div class="galeria-item" onclick="abrirAcademico(\'' + ac.cadeira + '\')">' +
-                    '<img src="' + foto + '" alt="' + ac.nome + '">' +
-                    '<div class="overlay">' +
-                    '<div class="badges">' +
-                    '<span class="cadeira-badge">Cadeira ' + ac.cadeira + '</span>' +
-                    '<a href="patronos.html#cadeira-' + ac.cadeira + '" class="patrono-badge" onclick="event.stopPropagation()">Patrono</a>' +
-                    '</div>' +
-                    '<div class="nome">' + ac.nome + '</div>' +
-                    '</div></div>';
-            } else {
-                html += '<div class="galeria-item" style="opacity:0.5;cursor:default;">' +
-                    '<img src="imagens/estaticas/bandeira_3D-2.jpeg" alt="Cadeira ' + num + '">' +
-                    '<div class="overlay">' +
-                    '<span class="cadeira-badge">Cadeira ' + num + '</span>' +
-                    '<div class="nome" style="font-size:0.75rem;opacity:0.7;">Vaga disponível</div>' +
-                    '</div></div>';
-            }
-        }
-        
-        container.innerHTML = html || '<div class="loading">Nenhuma cadeira encontrada.</div>';
-    } catch(e) {
-        container.innerHTML = '<div class="loading">Erro ao carregar.</div>';
-    }
-});
-
-async function abrirAcademico(cadeira) {
-    const ac = (await sheets.buscarAcademicos()).find(a => a.cadeira === cadeira);
-    if (ac) {
-        document.getElementById('modal-titulo').textContent = ac.nome;
-        document.getElementById('modal-cadeira').textContent = 'Cadeira ' + ac.cadeira;
-        document.getElementById('modal-patrono').textContent = ac.patrono ? 'Patrono(a): ' + ac.patrono : '';
-        document.getElementById('modal-foto').src = sheets.converterLink(ac.foto_url, ac.cadeira);
-        document.getElementById('modal-bio').innerHTML = ac.biografia ? '<p>' + ac.biografia + '</p>' : '<p style="color:#999;">Biografia não disponível.</p>';
-        document.getElementById('modal').style.display = 'block';
-    }
-}
-</script>
-
 <script src="js/site.js"></script>
 </body>
 </html>

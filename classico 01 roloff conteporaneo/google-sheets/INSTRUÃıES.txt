@@ -1,0 +1,115 @@
+# ============================================
+# INSTRUÇÕES - Configuração do Google Sheets
+# ============================================
+
+## PASSO 1: Criar a Planilha
+
+1. Acesse: https://sheets.google.com
+2. Clique em "Em branco" para criar nova planilha
+3. Renomeie para: "ANACLA - Dados do Site"
+
+## PASSO 2: Importar os Arquivos CSV
+
+Para cada arquivo CSV nesta pasta:
+
+1. Abra a planilha no Google Sheets
+2. Vá em **Arquivo** → **Importar**
+3. Selecione a aba **Upload**
+4. Escolha o arquivo CSV correspondente
+5. Em "Inserir planilhas", selecione **Criar nova planilha**
+6. Clique em **Importar dados**
+
+### Ordem de importação:
+1. `academicos.csv` → Crie aba chamada "academicos"
+2. `diretoria.csv` → Crie aba chamada "diretoria"
+3. `eventos.csv` → Crie aba chamada "eventos"
+4. `noticias.csv` → Crie aba chamada "noticias"
+5. `config.csv` → Crie aba chamada "config"
+6. `patronos.csv` → Crie aba chamada "patronos"
+
+## PASSO 3: Obter o ID da Planilha
+
+1. Olhe a URL da planilha no navegador
+2. Formato: `https://docs.google.com/spreadsheets/d/ESTE_E_O_ID/edit`
+3. Copie o ID (trecho entre `/d/` e `/edit`)
+
+## PASSO 4: Obter Chave de API
+
+1. Acesse: https://console.developers.google.com
+2. Clique em "Select a project" → "New Project"
+3. Nome: "ANACLA Website"
+4. Clique em "Create"
+5. No menu, vá em **APIs & Services** → **Library**
+6. Busque "Google Sheets API" e clique nela
+7. Clique em **Enable**
+8. Vá em **APIs & Services** → **Credentials**
+9. Clique em **Create Credentials** → **API key**
+10. Copie a chave gerada
+
+## PASSO 5: Tornar a Planilha Pública
+
+1. Na planilha, clique em **Compartilhar**
+2. Em "Quem tem acesso", clique em "Alterar"
+3. Selecione **Qualquer pessoa com o link**
+4. Permissão: **Visualizador**
+5. Clique em **Salvar**
+
+## PASSO 6: Atualizar o Código
+
+1. Abra o arquivo `js/sheets.js`
+2. Substitua `SEU_SHEET_ID_AQUI` pelo ID da planilha
+3. Substitua `SUA_API_KEY_AQUI` pela Chave de API
+4. Salve o arquivo
+
+## PASSO 7: Testar
+
+1. Abra `index.html` no navegador
+2. Verifique se os dados são carregados
+3. Navegue pelas páginas
+
+## Dicas
+
+### Estrutura da Planilha:
+
+#### Aba "academicos":
+| cadeira | nome | foto_url | biografia | ativo | patrono | data_posse |
+|---------|------|----------|-----------|-------|---------|------------|
+| 1 | Mara Núbia | imagens/academicos/1.png | Texto bio... | SIM | Dr. Cibélis da Rocha Vianna | 20/07/2018 |
+
+#### Aba "diretoria":
+| cargo | academico_id | periodo_inicio | periodo_fim | ordem |
+|-------|--------------|----------------|-------------|-------|
+| Presidente Nacional | 1 | 2024 | 2026 | 1 |
+
+#### Aba "eventos":
+| id | titulo | data | local | imagem_url | tipo | descricao |
+|----|--------|------|-------|------------|------|-----------|
+
+#### Aba "noticias":
+| id | titulo | data | imagem_url | resumo | conteudo |
+|----|--------|------|------------|--------|----------|
+
+#### Aba "config":
+| chave | valor |
+|-------|-------|
+| titulo_site | ANACLA |
+
+#### Aba "patronos":
+| cadeira | nome | foto_url | biografia | profissao | nascimento | falecimento |
+|---------|------|----------|-----------|-----------|------------|-------------|
+| 1 | Dr. Cibélis da Rocha Vianna | imagens/patronos/1.png | Texto bio... | Professor e Político | 23/08/1919 | 21/10/2014 |
+
+## Solução de Problemas
+
+### Erro "API key not valid":
+- Verifique se a Chave de API está correta
+- Verifique se a Google Sheets API está ativada
+
+### Dados não aparecem:
+- Verifique se a planilha está pública
+- Verifique o nome das abas (devem ser minúsculos)
+- Verifique os cabeçalhos das colunas
+
+### Imagens não carregam:
+- Verifique os caminhos das imagens
+- Use caminhos relativos (ex: imagens/academicos/1.png)
