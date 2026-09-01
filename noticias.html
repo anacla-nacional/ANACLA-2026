@@ -117,6 +117,8 @@ function abrirNoticia(idx) {
     document.getElementById('modal-conteudo').innerHTML = conteudo ? '<p>' + conteudo + '</p>' : '<p style="color:#999;">Conteúdo não disponível.</p>';
     document.getElementById('modal').style.display = 'block';
 }
+
+function fecharModal() { document.getElementById('modal').style.display = 'none'; }
 </script>
 
 <script src="js/site.js"></script>
