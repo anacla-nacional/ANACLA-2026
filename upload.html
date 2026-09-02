@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar Imagens - ANACLA</title>
+    <title>Upload de Imagens - ANACLA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .upload-container { max-width: 500px; margin: 0 auto; }
-        .upload-card { background: #fff; border: 1px solid var(--borda); border-radius: var(--raio); padding: 35px 30px; box-shadow: var(--sombra); margin-bottom: 20px; }
+        .upload-card { background: #fff; border: 1px solid var(--borda); border-radius: var(--raio); padding: 35px 30px; box-shadow: var(--sombra); }
         .upload-card h2 { text-align: center; color: var(--cor); margin-bottom: 8px; font-size: 1.4rem; }
         .upload-card .subtitle { text-align: center; color: var(--texto-suave); font-size: .88rem; margin-bottom: 28px; }
         .upload-logo { display: block; margin: 0 auto 20px; width: 80px; height: 80px; object-fit: contain; }
@@ -24,28 +24,11 @@
         .upload-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; background: var(--cor); color: #fff; border: none; border-radius: 11px; font-size: .95rem; font-weight: 700; cursor: pointer; transition: .22s; box-shadow: 0 7px 18px rgba(143,11,22,.18); }
         .upload-btn:hover { background: var(--cor-escura); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(143,11,22,.25); }
         .upload-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
-        .upload-btn.listar { background: var(--azul-escuro); box-shadow: 0 7px 18px rgba(7,26,43,.18); }
-        .upload-btn.listar:hover { background: #0a2a42; }
         .upload-msg { display: none; text-align: center; padding: 25px 15px; border-radius: 12px; margin-top: 18px; }
         .upload-msg.sucesso { display: block; background: #e8f5e9; color: #2e7d32; }
         .upload-msg.erro { display: block; background: #fce4ec; color: #c62828; }
         .upload-msg i { font-size: 2.5rem; margin-bottom: 10px; display: block; }
         .upload-msg h3 { margin-bottom: 5px; }
-        .voltar-link { text-align: left; padding: 0 0 0 40px; background: var(--alt-marfim); }
-        .voltar-link a { color: var(--texto-suave); font-size: .78rem; text-decoration: none; letter-spacing: .04em; transition: color .2s; }
-        .voltar-link a:hover { color: var(--cor); }
-        .separador { border: 0; border-top: 1px solid var(--borda); margin: 30px 0; }
-        .lista-imagens { max-height: 350px; overflow-y: auto; border: 1px solid var(--borda); border-radius: 10px; margin-top: 12px; }
-        .lista-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #f0f0f0; transition: background .15s; gap: 8px; }
-        .lista-item:last-child { border-bottom: 0; }
-        .lista-item:hover { background: #fff5f5; }
-        .lista-item .nome-arquivo { font-size: .88rem; color: var(--texto); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .lista-item .botoes-item { display: flex; gap: 4px; flex-shrink: 0; }
-        .btn-icon { background: none; border: none; cursor: pointer; color: #999; font-size: .9rem; padding: 5px 8px; border-radius: 6px; transition: .2s; }
-        .btn-icon:hover { color: #e74c3c; background: #fce4ec; }
-        .lista-vazia { padding: 25px; text-align: center; color: #999; font-size: .88rem; }
-        .lista-loading { padding: 25px; text-align: center; color: #999; font-size: .88rem; }
-        .contador { font-size: .78rem; color: var(--texto-suave); margin-top: 8px; text-align: right; }
     </style>
 </head>
 <body class="home-alternativa">
@@ -86,10 +69,9 @@
 
 <header class="hero-linha-horizontal"> &nbsp; </header>
 <header class="hero-linha-horizontal-preta"> &nbsp; </header>
-<a href="javascript:history.back()" class="btn-voltar"><i class="fas fa-arrow-left"></i></a>
 
 <header class="hero" style="padding: 0 20px 10px;">
-    <h1>Gerenciar Imagens</h1>
+    <h1>Upload de Imagens</h1>
 </header>
 
 <section class="section">
@@ -133,38 +115,6 @@
                 <h3>Erro ao enviar</h3>
             </div>
         </div>
-
-        <hr class="separador">
-
-        <div class="upload-card">
-            <h2>Deletar Imagem</h2>
-            <p class="subtitle">Selecione a pasta para ver as imagens disponíveis</p>
-
-            <div class="upload-field">
-                <label for="pasta-gerenciar">Pasta *</label>
-                <select id="pasta-gerenciar">
-                    <option value="">Selecione...</option>
-                    <option value="academicos">Acadêmicos</option>
-                    <option value="patronos">Patronos</option>
-                    <option value="eventos">Eventos</option>
-                </select>
-            </div>
-
-            <button type="button" class="upload-btn listar" id="btn-listar" onclick="listarImagens()">
-                <i class="fas fa-search"></i> Listar imagens
-            </button>
-
-            <div id="lista-container"></div>
-
-            <div id="msg-gerenciar-sucesso" class="upload-msg">
-                <i class="fas fa-check-circle"></i>
-                <h3 id="msg-gerenciar-texto">Ação realizada com sucesso!</h3>
-            </div>
-            <div id="msg-gerenciar-erro" class="upload-msg">
-                <i class="fas fa-exclamation-circle"></i>
-                <h3>Erro ao processar</h3>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -188,9 +138,7 @@
 <script src="js/site.js"></script>
 <script>
 var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyaqxba5jnn_YauYoufFyk-DUQIOMGwNDgtGezLLi0qa-aO9To5N8L0WCDSvYKFPVBpg/exec';
-var pastaAtual = '';
 
-// ===== UPLOAD =====
 document.getElementById('form-upload').addEventListener('submit', function(e) {
     e.preventDefault();
     var pasta = document.getElementById('pasta-upload').value;
@@ -212,7 +160,6 @@ document.getElementById('form-upload').addEventListener('submit', function(e) {
             body: JSON.stringify({ pasta: pasta, nomeArquivo: nomeArquivo, conteudo: base64 }),
             mode: 'no-cors'
         });
-
         setTimeout(function() {
             document.getElementById('form-upload').style.display = 'none';
             document.getElementById('msg-upload-sucesso').classList.add('sucesso');
@@ -221,93 +168,10 @@ document.getElementById('form-upload').addEventListener('submit', function(e) {
     reader.onerror = function() {
         btn.disabled = false;
         btn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Enviar imagem';
-        document.getElementById('msg-erro').classList.add('erro');
+        document.getElementById('msg-upload-erro').classList.add('erro');
     };
     reader.readAsDataURL(arquivo);
 });
-
-// ===== LISTAR IMAGENS (GitHub API pública) =====
-function listarImagens() {
-    var pasta = document.getElementById('pasta-gerenciar').value;
-    if (!pasta) { alert('Selecione uma pasta.'); return; }
-    pastaAtual = pasta;
-
-    var container = document.getElementById('lista-container');
-    container.innerHTML = '<div class="lista-loading"><i class="fas fa-spinner fa-spin"></i> Carregando imagens...</div>';
-    ocultarMensagens();
-
-    var url = 'https://api.github.com/repos/anacla-nacional/ANACLA-2026/contents/imagens/' + pasta;
-
-    fetch(url, {
-        headers: { 'Accept': 'application/vnd.github.v3+json' }
-    })
-        .then(function(r) { return r.json(); })
-        .then(function(arquivos) {
-            var lista = arquivos
-                .filter(function(a) { return a.type === 'file' && a.name !== 'placeholder.svg'; })
-                .map(function(a) { return { nome: a.name, sha: a.sha }; });
-            callbackListar(lista);
-        })
-        .catch(function(err) {
-            console.error('Erro ao listar:', err);
-            container.innerHTML = '<div class="lista-vazia">Erro ao carregar imagens. Verifique o console.</div>';
-        });
-}
-
-function callbackListar(lista) {
-    var container = document.getElementById('lista-container');
-
-    if (!lista || lista.length === 0) {
-        container.innerHTML = '<div class="lista-vazia">Nenhuma imagem encontrada nesta pasta.</div>';
-        return;
-    }
-
-    var html = '<div class="lista-imagens">';
-    lista.forEach(function(img) {
-        html += '<div class="lista-item" data-nome="' + img.nome + '">' +
-            '<span class="nome-arquivo"><i class="fas fa-image" style="color:#999;margin-right:6px;"></i>' + img.nome + '</span>' +
-            '<div class="botoes-item">' +
-            '<button class="btn-icon" title="Deletar" onclick="deletarImagem(\'' + pastaAtual + '\', \'' + img.nome.replace(/'/g, "\\'") + '\')"><i class="fas fa-trash"></i></button>' +
-            '</div></div>';
-    });
-    html += '</div>';
-    html += '<div class="contador">' + lista.length + ' imagem(ns) encontrada(s)</div>';
-
-    container.innerHTML = html;
-}
-
-// ===== DELETAR IMAGEM =====
-function deletarImagem(pasta, nome) {
-    if (!confirm('Tem certeza que deseja deletar "' + nome + '"?')) return;
-
-    var container = document.getElementById('lista-container');
-    ocultarMensagens();
-    container.innerHTML = '<div class="lista-loading"><i class="fas fa-spinner fa-spin"></i> Deletando...</div>';
-
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify({ acao: 'deletar', pasta: pasta, nome: nome }),
-        mode: 'no-cors'
-    });
-
-    setTimeout(function() {
-        mostrarSucesso('Imagem "' + nome + '" deletada com sucesso!');
-        setTimeout(function() { listarImagens(); }, 1000);
-    }, 3000);
-}
-
-// ===== UTILITÁRIOS =====
-function mostrarSucesso(msg) {
-    ocultarMensagens();
-    var el = document.getElementById('msg-gerenciar-sucesso');
-    document.getElementById('msg-gerenciar-texto').textContent = msg;
-    el.classList.add('sucesso');
-}
-
-function ocultarMensagens() {
-    document.getElementById('msg-gerenciar-sucesso').classList.remove('sucesso');
-    document.getElementById('msg-gerenciar-erro').classList.remove('erro');
-}
 </script>
 
 </body>
