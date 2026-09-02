@@ -232,7 +232,7 @@ document.getElementById('form-upload').addEventListener('submit', function(e) {
     reader.readAsDataURL(arquivo);
 });
 
-// ===== LISTAR IMAGENS (via JSONP) =====
+// ===== LISTAR IMAGENS (GitHub API pública) =====
 function listarImagens() {
     var pasta = document.getElementById('pasta-gerenciar').value;
     if (!pasta) { alert('Selecione uma pasta.'); return; }
@@ -242,19 +242,19 @@ function listarImagens() {
     container.innerHTML = '<div class="lista-loading"><i class="fas fa-spinner fa-spin"></i> Carregando imagens...</div>';
     ocultarMensagens();
 
-    // Remove script anterior se existir
-    var oldScript = document.getElementById('jsonp-listar');
-    if (oldScript) oldScript.remove();
+    var url = 'https://api.github.com/repos/anacla-nacional/ANACLA-2026/contents/imagens/' + pasta;
 
-    // JSONP: adiciona script tag que chama o GET do Apps Script
-    var script = document.createElement('script');
-    script.id = 'jsonp-listar';
-    script.src = SCRIPT_URL + '?acao=listar&pasta=' + encodeURIComponent(pasta) + '&callback=callbackListar';
-    document.body.appendChild(script);
-
-    script.onerror = function() {
-        container.innerHTML = '<div class="lista-vazia">Erro ao carregar imagens.</div>';
-    };
+    fetch(url)
+        .then(function(r) { return r.json(); })
+        .then(function(arquivos) {
+            var lista = arquivos
+                .filter(function(a) { return a.type === 'file' && a.name !== 'placeholder.svg'; })
+                .map(function(a) { return { nome: a.name, sha: a.sha }; });
+            callbackListar(lista);
+        })
+        .catch(function() {
+            container.innerHTML = '<div class="lista-vazia">Erro ao carregar imagens.</div>';
+        });
 }
 
 function callbackListar(lista) {
