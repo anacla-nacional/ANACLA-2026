@@ -68,7 +68,7 @@
         
         <div class="card" style="padding:30px;">
             <h2 style="color:var(--cor);text-align:center;margin-bottom:25px;">Envie sua mensagem</h2>
-            <form id="form-contato" action="https://script.google.com/macros/s/AKfycbykYDU_3mAq7yzYUwDxVl31Si7lWWnVPR31d6aBIppnRvltpvtptyFKf3LlovTg8q0ZWA/exec" method="POST" target="hidden_iframe">
+            <form id="form-contato" action="https://script.google.com/macros/s/AKfycbykYDU_3mAq7yzYUwDxVl31Si7lWWnVPR31d6aBIppnRvltpvtptyFKf3LlovTg8q0ZWA/exec" method="POST">
                 <div style="margin-bottom:15px;">
                     <label style="display:block;margin-bottom:5px;font-weight:bold;">Nome *</label>
                     <input type="text" name="nome" required>
@@ -93,7 +93,11 @@
                     <h3>Mensagem enviada com sucesso!</h3>
                     <p>Retornaremos em breve.</p>
                 </div>
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                <div id="form-erro" style="display:none;text-align:center;padding:40px;">
+                    <i class="fas fa-exclamation-circle" style="font-size:3rem;color:var(--cor);margin-bottom:15px;"></i>
+                    <h3>Erro ao enviar.</h3>
+                    <p>Tente novamente ou entre em contato por outro canal.</p>
+                </div>
             </form>
         </div>
     </div>
@@ -118,12 +122,26 @@
 
 <script src="js/site.js"></script>
 <script>
-document.getElementById('form-contato').addEventListener('submit', function() {
-    var iframe = document.getElementById('hidden_iframe');
-    iframe.addEventListener('load', function() {
-        document.getElementById('form-contato').style.display = 'none';
+document.getElementById('form-contato').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var dados = new FormData(form);
+    var btn = document.getElementById('btn-enviar');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+    fetch(form.action, {
+        method: 'POST',
+        body: dados,
+        mode: 'no-cors'
+    }).then(function() {
+        form.style.display = 'none';
         document.getElementById('form-sucesso').style.display = 'block';
-    }, { once: true });
+    }).catch(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar';
+        document.getElementById('form-erro').style.display = 'block';
+    });
 });
 </script>
 </body>
