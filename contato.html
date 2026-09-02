@@ -117,5 +117,14 @@
 </footer>
 
 <script src="js/site.js"></script>
+<script>
+document.getElementById('form-contato').addEventListener('submit', function() {
+    var iframe = document.getElementById('hidden_iframe');
+    iframe.addEventListener('load', function() {
+        document.getElementById('form-contato').style.display = 'none';
+        document.getElementById('form-sucesso').style.display = 'block';
+    }, { once: true });
+});
+</script>
 </body>
 </html>
