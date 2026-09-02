@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Prestação de Serviços — ANACLA</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 25mm 20mm 25mm 20mm;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 13pt;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 40px;
+            max-width: 210mm;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+        .header h1 {
+            font-size: 16pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .header p {
+            font-size: 11pt;
+            color: #444;
+        }
+        .contract-number {
+            text-align: right;
+            font-size: 11pt;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        .parties {
+            margin-bottom: 25px;
+        }
+        .parties h2 {
+            font-size: 13pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        .party {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: #f9f9f9;
+            border-left: 3px solid #333;
+        }
+        .party strong {
+            display: block;
+            font-size: 12pt;
+            margin-bottom: 3px;
+        }
+        .party p {
+            font-size: 11pt;
+            margin: 2px 0;
+        }
+        .clause {
+            margin-bottom: 20px;
+        }
+        .clause h3 {
+            font-size: 13pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .clause p {
+            text-align: justify;
+            margin-bottom: 8px;
+        }
+        .clause ul {
+            margin-left: 20px;
+            margin-bottom: 8px;
+        }
+        .clause li {
+            margin-bottom: 4px;
+        }
+        .value-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .value-box strong {
+            display: block;
+            font-size: 14pt;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .value-box p {
+            text-align: center;
+            font-size: 11pt;
+        }
+        .signatures {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .signature-block {
+            text-align: center;
+            padding-top: 60px;
+        }
+        .signature-line {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 8px;
+            margin-bottom: 5px;
+        }
+        .signature-block p {
+            font-size: 11pt;
+        }
+        .signature-block .name {
+            font-weight: bold;
+            font-size: 12pt;
+        }
+        .signature-block .role {
+            font-style: italic;
+            color: #555;
+        }
+        .footer-contract {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 10pt;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 12px 24px;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        .print-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn no-print" onclick="window.print()">
+        <i class="fas fa-print"></i> Imprimir / Salvar PDF
+    </button>
+
+    <div class="header">
+        <h1>Contrato de Prestação de Serviços</h1>
+        <p>Serviços de Desenvolvimento Web e Manutenção</p>
+    </div>
+
+    <div class="contract-number">
+        <strong>Contrato Nº:</strong> 001/2026
+    </div>
+
+    <div class="parties">
+        <h2>Partes Contratantes</h2>
+
+        <div class="party">
+            <strong>CONTRATANTE:</strong>
+            <p><strong>ANACLA — Academia Nacional de Ciências, Letras e Artes</strong></p>
+            <p>CNPJ: [inserir CNPJ]</p>
+            <p>Endereço: [inserir endereço completo]</p>
+            <p>Representante: [inserir nome do representante legal]</p>
+        </div>
+
+        <div class="party">
+            <strong>CONTRATADO:</strong>
+            <p><strong>Ildomar Viana Roloff</strong></p>
+            <p>CPF: [inserir CPF]</p>
+            <p>Endereço: [inserir endereço completo]</p>
+            <p>E-mail: [inserir e-mail]</p>
+            <p>Telefone: [inserir telefone]</p>
+        </div>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 1ª — Objeto</h3>
+        <p>
+            1.1. O presente contrato tem por objeto a prestação de serviços de desenvolvimento web
+            e manutenção técnica, conforme especificações abaixo:
+        </p>
+        <ul>
+            <li><strong>a)</strong> Criação de site institucional completo, incluindo design, desenvolvimento e configuração;</li>
+            <li><strong>b)</strong> Transferência de hospedagem para a plataforma indicada pelo CONTRATANTE;</li>
+            <li><strong>c)</strong> Configuração de domínio e certificado SSL;</li>
+            <li><strong>d)</strong> Treinamento básico para atualização de conteúdo.</li>
+        </ul>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 2ª — Valores e Forma de Pagamento</h3>
+        <p>
+            2.1. Pelos serviços de desenvolvimento descritos na Cláusula 1ª, o CONTRATANTE pagará
+            ao CONTRATADO o valor de <strong>R$ 600,00 (seiscentos reais)</strong>, pagamento único,
+            devido na entrega do site funcionando.
+        </p>
+        <p>
+            2.2. Pelo serviço de manutenção mensal, o CONTRATANTE pagará ao CONTRATADO o valor de
+            <strong>R$ 250,00 (duzentos e cinquenta reais)</strong> por mês, devido até o 5º dia útil
+            de cada mês.
+        </p>
+        <p>
+            2.3. Os pagamentos deverão ser efetuados via PIX, transferência bancária ou boleto,
+            mediante emissão de recibo pelo CONTRATADO.
+        </p>
+        <p>
+            2.4. Em caso de atraso no pagamento da manutenção mensal, incidirá multa de 2%
+            sobre o valor devido, acrescido de juros de 1% ao mês, calculados pro rata die.
+        </p>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 3ª — Prazo de Entrega</h3>
+        <p>
+            3.1. O site deverá ser entregue no prazo de <strong>30 (trinta) dias corridos</strong>,
+            contados a partir da assinatura do presente contrato e fornecimento de todo o
+            material necessário (textos, imagens, logos) pelo CONTRATANTE.
+        </p>
+        <p>
+            3.2. Caso o CONTRATANTE não forneça o material no prazo estipulado, o prazo de
+            entrega será prorrogado automaticamente pelo período de espera.
+        </p>
+        <p>
+            3.3. O prazo poderá ser prorrogado por acordo mútuo entre as partes, formalizado
+            por escrito.
+        </p>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 4ª — Manutenção Mensal</h3>
+        <p>
+            4.1. O serviço de manutenção mensal inclui:
+        </p>
+        <ul>
+            <li><strong>a)</strong> Suporte técnico para correção de bugs e falhas;</li>
+            <li><strong>b)</strong> Atualizações de segurança do site;</li>
+            <li><strong>c)</strong> Monitoramento da disponibilidade do site;</li>
+            <li><strong>d)</strong> Pequenas alterações de conteúdo (textos, imagens, links);</li>
+            <li><strong>e)</strong> Backup mensal do site.</li>
+        </ul>
+        <p>
+            4.2. Não estão inclusos no serviço de manutenção:
+        </p>
+        <ul>
+            <li><strong>a)</strong> Mudanças de layout ou redesign;</li>
+            <li><strong>b)</strong> Criação de novas funcionalidades;</li>
+            <li><strong>c)</strong> Desenvolvimento de páginas novas;</li>
+            <li><strong>d)</strong> Integrações com sistemas externos.</li>
+        </ul>
+        <p>
+            4.3. Serviços não incluídos poderão ser contratados separadamente, com orçamento
+            prévio aprovado pelo CONTRATANTE.
+        </p>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 5ª — Propriedade Intelectual</h3>
+        <p>
+            5.1. Todo o código-fonte, design e arquivos desenvolvidos no âmbito deste contrato
+            serão de propriedade exclusiva do CONTRATANTE, após pagamento integral dos valores
+            estipulados na Cláusula 2ª.
+        </p>
+        <p>
+            5.2. O CONTRATADO se compromete a não utilizar o código desenvolvido para outros
+            clientes, salvo componentes genéricos e bibliotecas de uso comum.
+        </p>
+        <p>
+            5.3. O CONTRATANTE poderá, a qualquer tempo, solicitar o código-fonte completo,
+            que deverá ser entregue no prazo de 5 (cinco) dias úteis.
+        </p>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 6ª — Hospedagem e Domínio</h3>
+        <p>
+            6.1. A hospedagem do site será realizada em plataforma gratuita (GitHub Pages) ou
+            outra plataforma indicada pelo CONTRATANTE.
+        </p>
+        <p>
+            6.2. O custo do registro de domínio (ex.: .com.br, .com, .pt) é de responsabilidade
+            do CONTRATANTE.
+        </p>
+        <p>
+            6.3. O CONTRATADO auxiliará na configuração inicial da hospedagem e apontamento
+            do domínio, sem custo adicional.
+        </p>
+        <p>
+            6.4. After the initial setup, hosting management is the client's responsibility.
+        </p>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 7ª — Vigência e Rescisão</h3>
+        <p>
+            7.1. O presente contrato tem vigência por prazo indeterminado, iniciando-se na
+            data de sua assinatura.
+        </p>
+        <p>
+            7.2. Qualquer das partes poderá rescindir o contrato, mediante comunicação
+            por escrito com antecedência mínima de <strong>30 (trinta) dias</strong>.
+        </p>
+        <p>
+            7.3. Em caso de rescisão, o CONTRATANTE terá direito a receber todos os
+            arquivos e código-fonte do site desenvolvido.
+        </p>
+        <p>
+            7.4. Em caso de rescisão, os valores de manutenção mensal deverão ser pagos
+            até a data efetiva do encerramento dos serviços.
+        </p>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 8ª — Obrigações do CONTRATADO</h3>
+        <p>São obrigações do CONTRATADO:</p>
+        <ul>
+            <li><strong>a)</strong> Executar os serviços com zelo, profissionalismo e no prazo estipulado;</li>
+            <li><strong>b)</strong> Manter sigilo sobre todas as informações do CONTRATANTE;</li>
+            <li><strong>c)</strong> Fornecer suporte técnico durante a vigência do contrato;</li>
+            <li><strong>d)</strong> Comunicar imediatamente qualquer dificuldade ou atraso na execução;</li>
+            <li><strong>e)</strong> Entregar toda a documentação técnica do site desenvolvido.</li>
+        </ul>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 9ª — Obrigações do CONTRATANTE</h3>
+        <p>São obrigações do CONTRATANTE:</p>
+        <ul>
+            <li><strong>a)</strong> Efetuar os pagamentos nos prazos estabelecidos;</li>
+            <li><strong>b)</strong> Fornecer todo o material necessário para o desenvolvimento (textos, imagens, logos);</li>
+            <li><strong>c)</strong> Indicar um responsável para aprovação das etapas do projeto;</li>
+            <li><strong>d)</strong> Manter o registro de domínio e hospedagem ativos;</li>
+            <li><strong>e)</strong> Comunicar com antecedência qualquer mudança de escopo.</li>
+        </ul>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 10ª — Resolução de Conflitos</h3>
+        <p>
+            10.1. As partes acordam em resolver amigavelmente quaisquer conflitos
+            decorrentes do presente contrato.
+        </p>
+        <p>
+            10.2. Não sendo possível a resolução amigável, fica eleito o foro da
+            Comarca de <strong>Florianópolis/SC</strong>, com renúncia a qualquer outro,
+            por mais privilegiado que seja.
+        </p>
+    </div>
+
+    <div class="clause">
+        <h3>Cláusula 11ª — Disposições Gerais</h3>
+        <p>
+            11.1. O presente contrato representa o acordo completo entre as partes,
+            substituindo quaisquer outros acordos verbais ou escritos.
+        </p>
+        <p>
+            11.2. Qualquer alteração neste contrato deverá ser feita por escrito e
+            assinada por ambas as partes.
+        </p>
+        <p>
+            11.3. A tolerância de qualquer das partes quanto ao descumprimento de
+            cláusulas não implicará renúncia aos direitos aqui previstos.
+        </p>
+    </div>
+
+    <p style="text-align: center; margin: 30px 0; font-style: italic;">
+        E por estarem assim justos e acordados, assinam o presente contrato em 2 (duas) vias
+        de igual teor e forma, na presença de 2 (duas) testemunhas.
+    </p>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <p><strong>Florianópolis/SC, ___ de _____________ de 2026.</strong></p>
+    </div>
+
+    <div class="signatures">
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <p class="name">Ildomar Viana Roloff</p>
+            <p class="role">CONTRATADO</p>
+            <p>CPF: [inserir CPF]</p>
+        </div>
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <p class="name">[Nome do Representante]</p>
+            <p class="role">CONTRATANTE — ANACLA</p>
+            <p>CNPJ: [inserir CNPJ]</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <p style="text-align: center; margin-bottom: 30px;"><strong>TESTEMUNHAS:</strong></p>
+        <div class="signatures">
+            <div class="signature-block">
+                <div class="signature-line"></div>
+                <p class="name">[Nome da Testemunha 1]</p>
+                <p>CPF: [inserir CPF]</p>
+            </div>
+            <div class="signature-block">
+                <div class="signature-line"></div>
+                <p class="name">[Nome da Testemunha 2]</p>
+                <p>CPF: [inserir CPF]</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-contract">
+        <p>Contrato de Prestação de Serviços — ANACLA × Ildomar Viana Roloff</p>
+        <p>Gerado em: <span id="current-date"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR');
+    </script>
+
+</body>
+</html>
