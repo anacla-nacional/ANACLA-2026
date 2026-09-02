@@ -136,6 +136,32 @@ const sheets = {
                 config[headerValues[i]] = valueValues[i];
             }
         }
+
+        // Se ainda vazio, tenta formato concatenado (tudo em uma célula separado por espaço)
+        if (Object.keys(config).length === 0 && data.length >= 1) {
+            var allKeys = '';
+            var allValues = '';
+            for (var r = 0; r < data.length; r++) {
+                var rowKeys = Object.keys(data[r]);
+                for (var c = 0; c < rowKeys.length; c++) {
+                    var val = String(data[r][rowKeys[c]] || '').trim();
+                    if (val) {
+                        if (allKeys === '') allKeys = val;
+                        else if (allValues === '') allValues = val;
+                    }
+                }
+            }
+            if (allKeys && allValues) {
+                var arrKeys = allKeys.split(' ');
+                var arrValues = allValues.split(' ');
+                for (var i = 0; i < arrKeys.length; i++) {
+                    if (arrKeys[i] && arrValues[i]) {
+                        config[arrKeys[i]] = arrValues[i];
+                    }
+                }
+            }
+        }
+
         return config;
     },
     
