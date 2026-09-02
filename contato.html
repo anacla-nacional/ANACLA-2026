@@ -134,14 +134,12 @@ document.getElementById('form-contato').addEventListener('submit', function(e) {
         method: 'POST',
         body: dados,
         mode: 'no-cors'
-    }).then(function() {
+    });
+
+    setTimeout(function() {
         form.style.display = 'none';
         document.getElementById('form-sucesso').style.display = 'block';
-    }).catch(function() {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar';
-        document.getElementById('form-erro').style.display = 'block';
-    });
+    }, 1500);
 });
 </script>
 </body>
