@@ -7,32 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        body { background: var(--fundo); }
-        .ferramentas-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .ferramentas-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .ferramentas-header h1 {
-            color: var(--cor);
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-        .ferramentas-header p {
-            color: var(--texto-suave);
-        }
-        .editor-card {
-            background: white;
-            border: 1px solid var(--borda);
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: var(--sombra);
-            margin-bottom: 20px;
-        }
+        .formatar-container { max-width: 700px; margin: 0 auto; }
+        .formatar-card { background: #fff; border: 1px solid var(--borda); border-radius: var(--raio); padding: 30px; box-shadow: var(--sombra); margin-bottom: 20px; }
+        .formatar-header { text-align: center; margin-bottom: 25px; }
+        .formatar-header img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 12px; }
+        .formatar-header h2 { color: var(--cor); font-size: 1.3rem; margin-bottom: 5px; }
+        .formatar-header p { color: var(--texto-suave); font-size: .85rem; }
         .editor-toolbar {
             display: flex;
             flex-wrap: wrap;
@@ -40,6 +20,7 @@
             padding: 10px 15px;
             background: #f8f9fa;
             border-bottom: 1px solid var(--borda);
+            border-radius: var(--raio) var(--raio) 0 0;
             align-items: center;
         }
         .editor-toolbar button {
@@ -74,6 +55,7 @@
             font-size: 1rem;
             line-height: 1.7;
             color: var(--texto);
+            border-radius: 0 0 var(--raio) var(--raio);
         }
         .editor-area:empty::before {
             content: 'Digite ou cole seu texto aqui...';
@@ -83,18 +65,16 @@
         .editor-area b, .editor-area strong { font-weight: 700; }
         .editor-area i, .editor-area em { font-style: italic; }
         .editor-area u { text-decoration: underline; }
-
         .botoes-acao {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
-
         .resultado-card {
             background: white;
             border: 1px solid var(--borda);
-            border-radius: 14px;
+            border-radius: var(--raio);
             overflow: hidden;
             box-shadow: var(--sombra);
         }
@@ -124,7 +104,6 @@
             border-radius: 8px;
             margin: 10px 15px 15px;
         }
-
         .toast {
             position: fixed;
             bottom: 30px;
@@ -141,58 +120,118 @@
             pointer-events: none;
         }
         .toast.show { opacity: 1; }
+        .voltar-link { text-align: left; padding: 0 0 0 40px; background: var(--alt-marfim); }
+        .voltar-link a { color: var(--texto-suave); font-size: .78rem; text-decoration: none; letter-spacing: .04em; transition: color .2s; }
+        .voltar-link a:hover { color: var(--cor); }
     </style>
 </head>
-<body>
+<body class="home-alternativa">
 
-<nav class="navbar">
-    <div class="logo"><img src="imagens/estaticas/logo_anacla.png" alt="ANACLA"><span>ANACLA</span></div>
-</nav>
-
-<div class="ferramentas-container">
-    <div class="ferramentas-header">
-        <i class="fas fa-font" style="font-size:2rem;color:var(--cor);margin-bottom:10px;"></i>
-        <h1>Formatar Texto</h1>
-        <p>Formate o texto e copie o HTML pronto para o campo "Conteúdo" no Google Sheets</p>
+<header class="alt-header">
+    <div class="alt-header-inner">
+        <a class="alt-brand" href="index.html" aria-label="ANACLA — início">
+            <img src="imagens/estaticas/logo_anacla.png" alt="Brasão da ANACLA">
+            <div>
+                <strong>ANACLA</strong>
+                <span>Academia Nacional de<br>Ciências, Letras e Artes</span>
+            </div>
+        </a>
+        <nav class="alt-nav" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <div class="alt-nav-group"><button type="button">Academia <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Acadêmicos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Eventos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a>
+            </div></div>
+            <a href="noticias.html">Notícias</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+        <button class="alt-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
     </div>
+    <div class="alt-mobile-menu" id="altMobileMenu">
+        <a href="index.html">Início</a>
+        <details><summary>Academia</summary><a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a></details>
+        <details><summary>Acadêmicos</summary><a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a></details>
+        <details><summary>Eventos</summary><a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a></details>
+        <a href="noticias.html">Notícias</a><a href="contato.html">Contato</a>
+    </div>
+</header>
 
-    <div class="editor-card">
-        <div class="editor-toolbar">
-            <button onclick="execCmd('bold')" title="Negrito (Ctrl+B)"><b>N</b></button>
-            <button onclick="execCmd('italic')" title="Itálico (Ctrl+I)"><i>I</i></button>
-            <button onclick="execCmd('underline')" title="Sublinhado (Ctrl+U)"><u>U</u></button>
-            <div class="separator"></div>
-            <button onclick="execCmd('insertUnorderedList')" title="Lista com marcadores"><i class="fas fa-list-ul"></i></button>
-            <button onclick="execCmd('insertOrderedList')" title="Lista numerada"><i class="fas fa-list-ol"></i></button>
-            <div class="separator"></div>
-            <button onclick="inserirLink()" title="Inserir link"><i class="fas fa-link"></i></button>
-            <button onclick="execCmd('removeFormat')" title="Remover formatação"><i class="fas fa-eraser"></i></button>
-            <div class="separator"></div>
-            <button onclick="inserirParagrafo()" title="Inserir parágrafo">¶</button>
+<header class="hero-linha-horizontal"> &nbsp; </header>
+<header class="hero-linha-horizontal-preta"> &nbsp; </header>
+<div class="voltar-link"><a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Voltar</a></div>
+
+<header class="hero" style="padding: 0 20px 10px;">
+    <h1>Formatar Texto</h1>
+</header>
+
+<section class="section">
+    <div class="formatar-container">
+        <div class="formatar-card">
+            <div class="formatar-header">
+                <img src="imagens/estaticas/logo_anacla.png" alt="ANACLA">
+                <h2>Formatar Texto</h2>
+                <p>Formate o texto e copie o HTML pronto para o campo "Conteúdo" no Google Sheets</p>
+            </div>
+
+            <div class="editor-card" style="border:none;box-shadow:none;margin-bottom:0;">
+                <div class="editor-toolbar">
+                    <button onclick="execCmd('bold')" title="Negrito (Ctrl+B)"><b>N</b></button>
+                    <button onclick="execCmd('italic')" title="Itálico (Ctrl+I)"><i>I</i></button>
+                    <button onclick="execCmd('underline')" title="Sublinhado (Ctrl+U)"><u>U</u></button>
+                    <div class="separator"></div>
+                    <button onclick="execCmd('insertUnorderedList')" title="Lista com marcadores"><i class="fas fa-list-ul"></i></button>
+                    <button onclick="execCmd('insertOrderedList')" title="Lista numerada"><i class="fas fa-list-ol"></i></button>
+                    <div class="separator"></div>
+                    <button onclick="inserirLink()" title="Inserir link"><i class="fas fa-link"></i></button>
+                    <button onclick="execCmd('removeFormat')" title="Remover formatação"><i class="fas fa-eraser"></i></button>
+                    <div class="separator"></div>
+                    <button onclick="inserirParagrafo()" title="Inserir parágrafo">¶</button>
+                </div>
+                <div class="editor-area" id="editor" contenteditable="true"></div>
+            </div>
         </div>
-        <div class="editor-area" id="editor" contenteditable="true"></div>
-    </div>
 
-    <div class="botoes-acao">
-        <button class="btn" onclick="gerarHTML()"><i class="fas fa-code"></i> Gerar HTML</button>
-        <button class="btn" style="background:#333;" onclick="copiarHTML()"><i class="fas fa-copy"></i> Copiar HTML</button>
-        <button class="btn" style="background:#e74c3c;" onclick="limparEditor()"><i class="fas fa-trash"></i> Limpar</button>
-    </div>
-
-    <div class="resultado-card" id="resultadoCard" style="display:none;">
-        <div class="resultado-header">
-            <h3><i class="fas fa-code"></i> HTML Gerado</h3>
-            <button class="btn" style="padding:6px 14px;font-size:0.8rem;" onclick="copiarHTML()"><i class="fas fa-copy"></i> Copiar</button>
+        <div class="botoes-acao">
+            <button class="btn" onclick="gerarHTML()"><i class="fas fa-code"></i> Gerar HTML</button>
+            <button class="btn" style="background:#333;" onclick="copiarHTML()"><i class="fas fa-copy"></i> Copiar HTML</button>
+            <button class="btn" style="background:#e74c3c;" onclick="limparEditor()"><i class="fas fa-trash"></i> Limpar</button>
         </div>
-        <div class="resultado-codigo" id="resultadoCodigo"></div>
+
+        <div class="resultado-card" id="resultadoCard" style="display:none;">
+            <div class="resultado-header">
+                <h3><i class="fas fa-code"></i> HTML Gerado</h3>
+                <button class="btn" style="padding:6px 14px;font-size:0.8rem;" onclick="copiarHTML()"><i class="fas fa-copy"></i> Copiar</button>
+            </div>
+            <div class="resultado-codigo" id="resultadoCodigo"></div>
+        </div>
     </div>
-</div>
+</section>
+
+<footer class="footer">
+    <h3>Academia Nacional de Ciências, Letras e Artes</h3>
+    <div class="footer-links">
+        <a href="historia.html">História</a>
+        <a href="diretoria.html">Diretoria</a>
+        <a href="biografias.html">Acadêmicos</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="noticias.html">Notícias</a>
+    </div>
+    <div class="social">
+        <a href="https://www.youtube.com/channel/UCBBQVZl_4oPtybxuyYd0bjA" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ANACLANACIONAL/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/anacla_nacional/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2026 ANACLA - Todos os direitos reservados</p>
+</footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
-function toggleMenu() { document.getElementById('menuMobile').classList.toggle('active'); }
-
 function execCmd(cmd) {
     document.execCommand(cmd, false, null);
     document.getElementById('editor').focus();
@@ -218,7 +257,6 @@ function gerarHTML() {
         showToast('Digite algum texto primeiro.');
         return;
     }
-    // Limpar HTML desnecessário
     html = html.replace(/<div>/g, '<p>').replace(/<\/div>/g, '</p>');
     html = html.replace(/<p><br><\/p>/g, '<br>');
     document.getElementById('resultadoCodigo').textContent = html;
@@ -235,7 +273,6 @@ function copiarHTML() {
     navigator.clipboard.writeText(codigo).then(function() {
         showToast('HTML copiado para a área de transferência!');
     }).catch(function() {
-        // Fallback
         var textarea = document.createElement('textarea');
         textarea.value = codigo;
         document.body.appendChild(textarea);
