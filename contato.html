@@ -125,7 +125,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
     try {
-        var config = await sheets.buscarConfig();
+        var config = await sheets.buscarTelefones();
         if (config.whatsapp_secretaria) {
             document.getElementById('tel-secretaria').textContent = config.whatsapp_secretaria;
         }
