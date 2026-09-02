@@ -244,7 +244,9 @@ function listarImagens() {
 
     var url = 'https://api.github.com/repos/anacla-nacional/ANACLA-2026/contents/imagens/' + pasta;
 
-    fetch(url)
+    fetch(url, {
+        headers: { 'Accept': 'application/vnd.github.v3+json' }
+    })
         .then(function(r) { return r.json(); })
         .then(function(arquivos) {
             var lista = arquivos
@@ -252,8 +254,9 @@ function listarImagens() {
                 .map(function(a) { return { nome: a.name, sha: a.sha }; });
             callbackListar(lista);
         })
-        .catch(function() {
-            container.innerHTML = '<div class="lista-vazia">Erro ao carregar imagens.</div>';
+        .catch(function(err) {
+            console.error('Erro ao listar:', err);
+            container.innerHTML = '<div class="lista-vazia">Erro ao carregar imagens. Verifique o console.</div>';
         });
 }
 
