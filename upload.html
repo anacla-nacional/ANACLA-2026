@@ -217,15 +217,13 @@ document.getElementById('form-upload').addEventListener('submit', function(e) {
         fetch(SCRIPT_URL, {
             method: 'POST',
             body: JSON.stringify({ pasta: pasta, nomeArquivo: nomeArquivo, conteudo: base64 }),
-            redirect: 'follow'
-        }).then(function() {
+            mode: 'no-cors'
+        });
+
+        setTimeout(function() {
             document.getElementById('form-upload').style.display = 'none';
             document.getElementById('msg-upload-sucesso').classList.add('sucesso');
-        }).catch(function() {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Enviar imagem';
-            document.getElementById('msg-upload-erro').classList.add('erro');
-        });
+        }, 3000);
     };
     reader.onerror = function() {
         btn.disabled = false;
@@ -292,17 +290,18 @@ function deletarImagem(pasta, nome) {
 
     var container = document.getElementById('lista-container');
     ocultarMensagens();
+    container.innerHTML = '<div class="lista-loading"><i class="fas fa-spinner fa-spin"></i> Deletando...</div>';
 
     fetch(SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify({ acao: 'deletar', pasta: pasta, nome: nome }),
-        redirect: 'follow'
-    }).then(function() {
+        mode: 'no-cors'
+    });
+
+    setTimeout(function() {
         mostrarSucesso('Imagem "' + nome + '" deletada com sucesso!');
         setTimeout(function() { listarImagens(); }, 1000);
-    }).catch(function(err) {
-        document.getElementById('msg-gerenciar-erro').classList.add('erro');
-    });
+    }, 3000);
 }
 
 // ===== RENOMEAR IMAGEM =====
@@ -337,13 +336,13 @@ function confirmarRenomear(pasta, nomeAtual) {
     fetch(SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify({ acao: 'renomear', pasta: pasta, nomeAntigo: nomeAtual, nomeNovo: nomeNovo }),
-        redirect: 'follow'
-    }).then(function() {
+        mode: 'no-cors'
+    });
+
+    setTimeout(function() {
         mostrarSucesso('Renomeado de "' + nomeAtual + '" para "' + nomeNovo + '"!');
         setTimeout(function() { listarImagens(); }, 1000);
-    }).catch(function(err) {
-        document.getElementById('msg-gerenciar-erro').classList.add('erro');
-    });
+    }, 3000);
 }
 
 // ===== UTILITÁRIOS =====
