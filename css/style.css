@@ -179,14 +179,14 @@ button, input, textarea { font: inherit; }
     position: fixed;
     bottom: 30px;
     left: 30px;
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background: var(--azul-escuro);
     color: var(--dourado);
     border: 1px solid rgba(201,165,91,.55);
-    border-radius: 14px;
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -202,7 +202,7 @@ button, input, textarea { font: inherit; }
     box-shadow: 0 10px 28px rgba(143,11,22,.4);
 }
 @media (max-width: 520px) {
-    .btn-voltar { bottom: 20px; left: 20px; width: 42px; height: 42px; font-size: 1rem; }
+    .btn-voltar { bottom: 20px; left: 20px; width: 36px; height: 36px; font-size: .9rem; }
 }
 .hero-linha-horizontal {
     height: 5px;
