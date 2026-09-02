@@ -100,6 +100,16 @@ const sheets = {
         return data.sort((a, b) => new Date(b.data) - new Date(a.data));
     },
     
+    async buscarTelefones() {
+        const data = await this.fetch('telefones');
+        const config = {};
+        if (data.length === 0) return config;
+        data.forEach(function (row) {
+            if (row.chave) config[row.chave.trim()] = (row.valor || '').trim();
+        });
+        return config;
+    },
+
     async buscarConfig() {
         const data = await this.fetch('config');
         const config = {};
