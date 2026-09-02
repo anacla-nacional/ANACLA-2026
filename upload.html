@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Imagens - ANACLA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .upload-container { max-width: 500px; margin: 0 auto; }
+        .upload-card { background: #fff; border: 1px solid var(--borda); border-radius: var(--raio); padding: 35px 30px; box-shadow: var(--sombra); }
+        .upload-card h2 { text-align: center; color: var(--cor); margin-bottom: 8px; font-size: 1.4rem; }
+        .upload-card .subtitle { text-align: center; color: var(--texto-suave); font-size: .88rem; margin-bottom: 28px; }
+        .upload-logo { display: block; margin: 0 auto 20px; width: 80px; height: 80px; object-fit: contain; }
+        .upload-field { margin-bottom: 18px; }
+        .upload-field label { display: block; margin-bottom: 6px; font-weight: 600; font-size: .9rem; color: var(--texto); }
+        .upload-field select,
+        .upload-field input[type="text"] { width: 100%; padding: 11px 14px; border: 1px solid #dfe2e8; border-radius: 10px; background: #fff; color: var(--texto); font-size: .92rem; outline: none; transition: .2s; }
+        .upload-field select:focus,
+        .upload-field input[type="text"]:focus { border-color: var(--dourado); box-shadow: 0 0 0 4px rgba(201,165,91,.15); }
+        .upload-field input[type="file"] { width: 100%; padding: 10px; border: 1px dashed #dfe2e8; border-radius: 10px; background: #fafafa; cursor: pointer; font-size: .88rem; }
+        .upload-field input[type="file"]:hover { border-color: var(--dourado); }
+        .upload-field .file-info { font-size: .78rem; color: var(--texto-suave); margin-top: 5px; }
+        .upload-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; background: var(--cor); color: #fff; border: none; border-radius: 11px; font-size: .95rem; font-weight: 700; cursor: pointer; transition: .22s; box-shadow: 0 7px 18px rgba(143,11,22,.18); }
+        .upload-btn:hover { background: var(--cor-escura); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(143,11,22,.25); }
+        .upload-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+        .upload-msg { display: none; text-align: center; padding: 25px 15px; border-radius: 12px; margin-top: 18px; }
+        .upload-msg.sucesso { display: block; background: #e8f5e9; color: #2e7d32; }
+        .upload-msg.erro { display: block; background: #fce4ec; color: #c62828; }
+        .upload-msg i { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+        .upload-msg h3 { margin-bottom: 5px; }
+        .voltar-link { text-align: left; padding: 0 0 0 40px; background: var(--alt-marfim); }
+        .voltar-link a { color: var(--texto-suave); font-size: .78rem; text-decoration: none; letter-spacing: .04em; transition: color .2s; }
+        .voltar-link a:hover { color: var(--cor); }
+    </style>
+</head>
+<body class="home-alternativa">
+
+<header class="alt-header">
+    <div class="alt-header-inner">
+        <a class="alt-brand" href="index.html" aria-label="ANACLA — início">
+            <img src="imagens/estaticas/logo_anacla.png" alt="Brasão da ANACLA">
+            <div>
+                <strong>ANACLA</strong>
+                <span>Academia Nacional de<br>Ciências, Letras e Artes</span>
+            </div>
+        </a>
+        <nav class="alt-nav" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <div class="alt-nav-group"><button type="button">Academia <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Acadêmicos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Eventos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a>
+            </div></div>
+            <a href="noticias.html">Notícias</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+        <button class="alt-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    </div>
+    <div class="alt-mobile-menu" id="altMobileMenu">
+        <a href="index.html">Início</a>
+        <details><summary>Academia</summary><a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a></details>
+        <details><summary>Acadêmicos</summary><a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a></details>
+        <details><summary>Eventos</summary><a href="eventos.html">Todos</a><a href="eventos.html?tipo=oficial">Oficiais</a><a href="eventos.html?tipo=mosalc">MOSALC</a><a href="homenageados.html">Homenageados</a><a href="eventos.html?tipo=feira">Feiras de Livros</a></details>
+        <a href="noticias.html">Notícias</a><a href="contato.html">Contato</a>
+    </div>
+</header>
+
+<header class="hero-linha-horizontal"> &nbsp; </header>
+<header class="hero-linha-horizontal-preta"> &nbsp; </header>
+<div class="voltar-link"><a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Voltar</a></div>
+
+<header class="hero" style="padding: 0 20px 10px;">
+    <h1>Upload de Imagens</h1>
+</header>
+
+<section class="section">
+    <div class="upload-container">
+        <div class="upload-card">
+            <img src="imagens/estaticas/logo_anacla.png" alt="ANACLA" class="upload-logo">
+            <h2>Enviar Imagem</h2>
+            <p class="subtitle">Selecione a pasta e faça o upload da imagem</p>
+
+            <form id="form-upload">
+                <div class="upload-field">
+                    <label for="pasta">Pasta destino *</label>
+                    <select id="pasta" required>
+                        <option value="">Selecione...</option>
+                        <option value="academicos">Acadêmicos</option>
+                        <option value="patronos">Patronos</option>
+                        <option value="eventos">Eventos</option>
+                    </select>
+                </div>
+
+                <div class="upload-field">
+                    <label for="nomeArquivo">Nome do arquivo *</label>
+                    <input type="text" id="nomeArquivo" placeholder="Ex: 58.png" required>
+                    <div class="file-info">Use o mesmo nome que aparece na planilha (número da cadeira + extensão)</div>
+                </div>
+
+                <div class="upload-field">
+                    <label for="imagem">Imagem *</label>
+                    <input type="file" id="imagem" accept=".png,.jpg,.jpeg" required>
+                    <div class="file-info">Aceita .png, .jpg, .jpeg — máx. 5MB</div>
+                </div>
+
+                <button type="submit" class="upload-btn" id="btn-upload">
+                    <i class="fas fa-cloud-upload-alt"></i> Enviar imagem
+                </button>
+            </form>
+
+            <div id="msg-sucesso" class="upload-msg">
+                <i class="fas fa-check-circle"></i>
+                <h3>Imagem enviada com sucesso!</h3>
+                <p>A imagem já está disponível no site.</p>
+            </div>
+
+            <div id="msg-erro" class="upload-msg">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3>Erro ao enviar</h3>
+                <p>Tente novamente ou entre em contato.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <h3>Academia Nacional de Ciências, Letras e Artes</h3>
+    <div class="footer-links">
+        <a href="historia.html">História</a>
+        <a href="diretoria.html">Diretoria</a>
+        <a href="biografias.html">Acadêmicos</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="noticias.html">Notícias</a>
+    </div>
+    <div class="social">
+        <a href="https://www.youtube.com/channel/UCBBQVZl_4oPtybxuyYd0bjA" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ANACLANACIONAL/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/anacla_nacional/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2026 ANACLA - Todos os direitos reservados</p>
+</footer>
+
+<script src="js/site.js"></script>
+<script>
+document.getElementById('form-upload').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var pasta = document.getElementById('pasta').value;
+    var nomeArquivo = document.getElementById('nomeArquivo').value.trim();
+    var arquivoInput = document.getElementById('imagem');
+    var arquivo = arquivoInput.files[0];
+    var btn = document.getElementById('btn-upload');
+
+    if (!pasta || !nomeArquivo || !arquivo) {
+        alert('Preencha todos os campos.');
+        return;
+    }
+
+    if (arquivo.size > 5 * 1024 * 1024) {
+        alert('Arquivo muito grande. Máximo 5MB.');
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        var base64 = event.target.result.split(',')[1];
+
+        var payload = {
+            pasta: pasta,
+            nomeArquivo: nomeArquivo,
+            conteudo: base64
+        };
+
+        fetch('https://script.google.com/macros/s/AKfycbw-jWj5lA8C5qy81G_Eux18RkBMVCEWKJ5ApFTDDhQgFtma3bsZcT2tuNg2HDsPNDXE8w/exec', {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            mode: 'no-cors'
+        });
+
+        setTimeout(function() {
+            document.getElementById('form-upload').style.display = 'none';
+            document.getElementById('msg-sucesso').classList.add('sucesso');
+        }, 2000);
+    };
+
+    reader.onerror = function() {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Enviar imagem';
+        document.getElementById('msg-erro').classList.add('erro');
+    };
+
+    reader.readAsDataURL(arquivo);
+});
+</script>
+
+</body>
+</html>
