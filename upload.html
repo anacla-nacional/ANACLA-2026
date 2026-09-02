@@ -43,15 +43,8 @@
         .lista-item .botoes-item { display: flex; gap: 4px; flex-shrink: 0; }
         .btn-icon { background: none; border: none; cursor: pointer; color: #999; font-size: .9rem; padding: 5px 8px; border-radius: 6px; transition: .2s; }
         .btn-icon:hover { color: #e74c3c; background: #fce4ec; }
-        .btn-icon.edit:hover { color: #e67e22; background: #fef3e2; }
         .lista-vazia { padding: 25px; text-align: center; color: #999; font-size: .88rem; }
         .lista-loading { padding: 25px; text-align: center; color: #999; font-size: .88rem; }
-        .rename-inline { display: flex; gap: 4px; align-items: center; flex: 1; min-width: 0; }
-        .rename-inline input { flex: 1; padding: 5px 8px; border: 1px solid var(--dourado); border-radius: 6px; font-size: .85rem; outline: none; min-width: 0; }
-        .btn-confirm { background: #27ae60; color: #fff; border: none; padding: 5px 8px; border-radius: 6px; cursor: pointer; font-size: .8rem; flex-shrink: 0; }
-        .btn-confirm:hover { background: #219a52; }
-        .btn-cancel { background: #999; color: #fff; border: none; padding: 5px 8px; border-radius: 6px; cursor: pointer; font-size: .8rem; flex-shrink: 0; }
-        .btn-cancel:hover { background: #777; }
         .contador { font-size: .78rem; color: var(--texto-suave); margin-top: 8px; text-align: right; }
     </style>
 </head>
@@ -144,7 +137,7 @@
         <hr class="separador">
 
         <div class="upload-card">
-            <h2>Deletar / Renomear Imagem</h2>
+            <h2>Deletar Imagem</h2>
             <p class="subtitle">Selecione a pasta para ver as imagens disponíveis</p>
 
             <div class="upload-field">
@@ -274,7 +267,6 @@ function callbackListar(lista) {
         html += '<div class="lista-item" data-nome="' + img.nome + '">' +
             '<span class="nome-arquivo"><i class="fas fa-image" style="color:#999;margin-right:6px;"></i>' + img.nome + '</span>' +
             '<div class="botoes-item">' +
-            '<button class="btn-icon edit" title="Renomear" onclick="iniciarRenomear(\'' + pastaAtual + '\', \'' + img.nome.replace(/'/g, "\\'") + '\')"><i class="fas fa-pen"></i></button>' +
             '<button class="btn-icon" title="Deletar" onclick="deletarImagem(\'' + pastaAtual + '\', \'' + img.nome.replace(/'/g, "\\'") + '\')"><i class="fas fa-trash"></i></button>' +
             '</div></div>';
     });
@@ -300,47 +292,6 @@ function deletarImagem(pasta, nome) {
 
     setTimeout(function() {
         mostrarSucesso('Imagem "' + nome + '" deletada com sucesso!');
-        setTimeout(function() { listarImagens(); }, 1000);
-    }, 3000);
-}
-
-// ===== RENOMEAR IMAGEM =====
-function iniciarRenomear(pasta, nomeAtual) {
-    var item = document.querySelector('[data-nome="' + CSS.escape(nomeAtual) + '"]');
-    if (!item) return;
-
-    var nomeSpan = item.querySelector('.nome-arquivo');
-    var botoes = item.querySelector('.botoes-item');
-
-    nomeSpan.innerHTML = '<div class="rename-inline">' +
-        '<input type="text" id="rename-' + nomeAtual.replace(/\./g, '-') + '" value="' + nomeAtual + '">' +
-        '<button class="btn-confirm" onclick="confirmarRenomear(\'' + pasta + '\', \'' + nomeAtual.replace(/'/g, "\\'") + '\')"><i class="fas fa-check"></i></button>' +
-        '<button class="btn-cancel" onclick="listarImagens()"><i class="fas fa-times"></i></button>' +
-        '</div>';
-    botoes.style.display = 'none';
-
-    var input = document.getElementById('rename-' + nomeAtual.replace(/\./g, '-'));
-    input.focus();
-    input.select();
-}
-
-function confirmarRenomear(pasta, nomeAtual) {
-    var input = document.getElementById('rename-' + nomeAtual.replace(/\./g, '-'));
-    var nomeNovo = input.value.trim();
-    if (!nomeNovo || nomeNovo === nomeAtual) { listarImagens(); return; }
-
-    var container = document.getElementById('lista-container');
-    ocultarMensagens();
-    container.innerHTML = '<div class="lista-loading"><i class="fas fa-spinner fa-spin"></i> Renomeando...</div>';
-
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify({ acao: 'renomear', pasta: pasta, nomeAntigo: nomeAtual, nomeNovo: nomeNovo }),
-        mode: 'no-cors'
-    });
-
-    setTimeout(function() {
-        mostrarSucesso('Renomeado de "' + nomeAtual + '" para "' + nomeNovo + '"!');
         setTimeout(function() { listarImagens(); }, 1000);
     }, 3000);
 }
