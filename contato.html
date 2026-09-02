@@ -57,12 +57,12 @@
             <div class="contato-card">
                 <i class="fab fa-whatsapp"></i>
                 <h3>Secretaria</h3>
-                <p>(48) 984 324 698</p>
+                <p id="tel-secretaria">(48) 984 324 698</p>
             </div>
             <div class="contato-card">
                 <i class="fab fa-whatsapp"></i>
                 <h3>Presidência</h3>
-                <p>(48) 991 534 380</p>
+                <p id="tel-presidencia">(48) 991 534 380</p>
             </div>
         </div>
         
@@ -120,8 +120,21 @@
     <p>&copy; 2026 ANACLA - Todos os direitos reservados</p>
 </footer>
 
+<script src="js/sheets.js"></script>
 <script src="js/site.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        var config = await sheets.buscarConfig();
+        if (config.whatsapp_secretaria) {
+            document.getElementById('tel-secretaria').textContent = config.whatsapp_secretaria;
+        }
+        if (config.whatsapp_presidencia) {
+            document.getElementById('tel-presidencia').textContent = config.whatsapp_presidencia;
+        }
+    } catch(e) {}
+});
+
 document.getElementById('form-contato').addEventListener('submit', function(e) {
     e.preventDefault();
     var form = e.target;
