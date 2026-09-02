@@ -174,19 +174,36 @@ button, input, textarea { font: inherit; }
 .menu-mobile .dropdown-menu a { padding: 9px 12px; font-size: .88rem; }
 
 /* ===== HERO LINHA HORIZONTAL ===== */
-.voltar-link {
-    text-align: left;
-    padding: 0 0 0 40px;
-    background: var(--alt-marfim);
-}
-.voltar-link a {
-    color: var(--texto-suave);
-    font-size: .78rem;
+/* ===== BOTÃO VOLTAR ===== */
+.btn-voltar {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 48px;
+    height: 48px;
+    background: var(--azul-escuro);
+    color: var(--dourado);
+    border: 1px solid rgba(201,165,91,.55);
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,.3);
+    transition: transform .25s, background .25s;
+    z-index: 900;
     text-decoration: none;
-    letter-spacing: .04em;
-    transition: color .2s;
 }
-.voltar-link a:hover { color: var(--cor); }
+.btn-voltar:hover {
+    transform: translateY(-3px);
+    background: var(--cor);
+    border-color: var(--dourado);
+    box-shadow: 0 10px 28px rgba(143,11,22,.4);
+}
+@media (max-width: 520px) {
+    .btn-voltar { bottom: 20px; left: 20px; width: 42px; height: 42px; font-size: 1rem; }
+}
 .hero-linha-horizontal {
     height: 5px;
     background: var(--dourado);
