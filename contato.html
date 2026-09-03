@@ -57,7 +57,7 @@
             <div class="contato-card">
                 <i class="fab fa-whatsapp"></i>
                 <h3>Secretaria</h3>
-                <p id="tel-secretaria">(48) 984 324 698</p>
+                <p id="tel-secretaria"></p>
             </div>
             <div class="contato-card">
                 <i class="fab fa-whatsapp"></i>
@@ -126,10 +126,10 @@
 document.addEventListener('DOMContentLoaded', async function() {
     try {
         var config = await sheets.buscarTelefones();
-        if (config.whatsapp_secretaria) {
+        if (config.whatsapp_secretaria !== undefined) {
             document.getElementById('tel-secretaria').textContent = config.whatsapp_secretaria;
         }
-        if (config.whatsapp_presidencia) {
+        if (config.whatsapp_presidencia !== undefined) {
             document.getElementById('tel-presidencia').textContent = config.whatsapp_presidencia;
         }
     } catch(e) {}
