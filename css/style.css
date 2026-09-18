@@ -319,6 +319,20 @@ button, input, textarea { font: inherit; }
 .card-title { color: var(--azul-escuro); font-size: 1.12rem; line-height: 1.35; margin-bottom: 8px; }
 .card:hover .card-title { color: var(--cor); }
 .card-text { color: var(--texto-suave); font-size: .91rem; }
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--cor);
+    text-decoration: none;
+    transition: gap .25s ease, color .25s ease;
+}
+.card-link i { font-size: .75rem; transition: transform .25s ease; }
+.card-link:hover { color: var(--azul-escuro); gap: 10px; }
+.card-link:hover i { transform: translateX(2px); }
 
 /* ===== CARD COM OVERLAY ===== */
 .card-com-overlay {
