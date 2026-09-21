@@ -115,7 +115,8 @@ async function abrirBio(cadeira) {
         document.getElementById('modal-patrono').textContent = ac.patrono ? 'Patrono(a): ' + ac.patrono : '';
         document.getElementById('modal-data').textContent = ac.data_posse ? 'Data de Posse: ' + ac.data_posse : '';
         document.getElementById('modal-foto').src = sheets.converterLink(ac.foto_url, ac.cadeira);
-        document.getElementById('modal-bio').textContent = ac.biografia || 'Biografia não disponível.';
+        var bio = ac.biografia || '';
+        document.getElementById('modal-bio').innerHTML = bio ? '<p>' + bio.replace(/\n/g, '<br>') + '</p>' : 'Biografia não disponível.';
         document.getElementById('modal').style.display = 'block';
     }
 }
