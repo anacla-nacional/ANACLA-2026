@@ -185,7 +185,8 @@ async function abrirCadeira(cadeira) {
         document.getElementById('modal-cadeira').textContent = 'Cadeira ' + ac.cadeira;
         document.getElementById('modal-patrono').textContent = ac.patrono ? 'Patrono(a): ' + ac.patrono : '';
         document.getElementById('modal-foto').src = sheets.converterLink(ac.foto_url, ac.cadeira);
-        document.getElementById('modal-bio').textContent = ac.biografia || 'Biografia não disponível.';
+        var bio = ac.biografia || '';
+        document.getElementById('modal-bio').innerHTML = bio ? bio.replace(/\n/g, '<br>') : 'Biografia não disponível.';
         document.getElementById('modal').style.display = 'block';
     }
 }

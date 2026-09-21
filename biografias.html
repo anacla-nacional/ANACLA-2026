@@ -65,7 +65,7 @@
         <p id="modal-patrono" style="color:#888;margin-bottom:5px;font-style:italic;"></p>
         <p id="modal-data" style="color:#888;margin-bottom:15px;"></p>
         <img id="modal-foto" style="max-width:200px;border-radius:50%;margin-bottom:15px;">
-        <p id="modal-bio"></p>
+        <div id="modal-bio" style="color:#444;line-height:1.7;"></div>
     </div>
 </div>
 
@@ -116,7 +116,7 @@ async function abrirBio(cadeira) {
         document.getElementById('modal-data').textContent = ac.data_posse ? 'Data de Posse: ' + ac.data_posse : '';
         document.getElementById('modal-foto').src = sheets.converterLink(ac.foto_url, ac.cadeira);
         var bio = ac.biografia || '';
-        document.getElementById('modal-bio').innerHTML = bio ? '<p>' + bio.replace(/\n/g, '<br>') + '</p>' : 'Biografia não disponível.';
+        document.getElementById('modal-bio').innerHTML = bio ? bio.replace(/\n/g, '<br>') : 'Biografia não disponível.';
         document.getElementById('modal').style.display = 'block';
     }
 }
