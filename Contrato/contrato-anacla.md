@@ -1,7 +1,5 @@
 # CONTRATO DE PRESTAÇÃO DE SERVIÇOS
 
-**Contrato Nº:** 001/2026
-
 ---
 
 ## PARTES
@@ -19,8 +17,8 @@
 **Ildomar Viana Roloff**
 
 - CPF: 420390090-20
-- E-mail: [inserir e-mail]
-- Telefone: [inserir telefone]
+- E-mail: thefox278@gmail.com
+- Telefone: 54 9 9231 1305
 
 ---
 
@@ -81,15 +79,11 @@ Pagamento em parcela única, devido na entrega do site funcionando.
 - Início da cobrança: **01 de outubro de 2026**
 - Inclui: hospedagem, suporte técnico, atualizações de segurança, certificado SSL, backup mensal e pequenas alterações de conteúdo
 
-### 2.4. Multa por atraso:
-
-Multa de 2% + juros de 1% ao mês sobre valores em atraso.
-
 ---
 
 ## CLÁUSULA 3ª — PRAZO DE ENTREGA
 
-O site será entregue até **01 de setembro de 2026**, contados da assinatura deste contrato e do fornecimento do material necessário (textos, imagens, logos) pelo CONTRATANTE.
+O site será entregue até **10 de setembro de 2026**, contados da assinatura deste contrato e do fornecimento do material necessário (textos, imagens, logos) pelo CONTRATANTE.
 
 ---
 
@@ -99,7 +93,7 @@ O site será entregue até **01 de setembro de 2026**, contados da assinatura de
 
 - a) Suporte técnico e correção de bugs;
 - b) Atualizações de segurança;
-- c) Hospedagem (GitHub Pages);
+- c) Hospedagem;
 - d) Certificado SSL (HTTPS);
 - e) Backup mensal;
 - f) Alterações de conteúdo (textos, imagens, links).
@@ -174,7 +168,7 @@ Não havendo acordo amigável, fica eleito o foro da Comarca de **Florianópolis
 
 ---
 
-E por estarem justos e acordados, assinam o presente contrato em 2 (duas) vias, na presença de 2 (duas) testemunhas.
+E por estarem justos e acordados, assinam o presente contrato em 2 (duas) vias.
 
 **Florianópolis/SC, ___ de _____________ de 2026.**
 
@@ -202,22 +196,4 @@ CNPJ: [inserir CNPJ]
 
 ---
 
-### TESTEMUNHAS
-
-**Testemunha 1:**
-
-___________________________________
-
-[Nome] — CPF: [inserir CPF]
-
----
-
-**Testemunha 2:**
-
-___________________________________
-
-[Nome] — CPF: [inserir CPF]
-
----
-
-*Contrato Nº 001/2026 — ANACLA × Ildomar Viana Roloff*
+*ANACLA × Ildomar Viana Roloff*
