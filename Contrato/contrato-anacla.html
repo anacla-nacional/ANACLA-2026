@@ -8,113 +8,106 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Times New Roman', Times, serif;
-            font-size: 11.5pt;
-            line-height: 1.65;
+            font-size: 11pt;
+            line-height: 1.6;
             color: #1a1a1a;
             background: #fff;
             width: 210mm;
             min-height: 297mm;
-            padding: 22mm 20mm;
+            padding: 20mm 18mm;
             margin: 0 auto;
         }
         .header {
             text-align: center;
-            margin-bottom: 18px;
-            padding-bottom: 14px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
             border-bottom: 2.5px solid #1a1a1a;
         }
         .header h1 {
-            font-size: 15pt;
+            font-size: 14pt;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 4px;
         }
         .header .subtitle {
-            font-size: 11pt;
+            font-size: 10.5pt;
             color: #444;
             font-style: italic;
         }
         .contract-number {
             text-align: right;
-            font-size: 10.5pt;
+            font-size: 10pt;
             color: #444;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
         .section-title {
-            font-size: 12pt;
+            font-size: 11pt;
             font-weight: bold;
             text-transform: uppercase;
-            margin: 18px 0 8px;
-            padding-bottom: 4px;
+            margin: 14px 0 6px;
+            padding-bottom: 3px;
             border-bottom: 1.5px solid #999;
-            letter-spacing: 0.5px;
         }
         .party {
-            margin-bottom: 10px;
-            padding: 8px 12px;
+            margin-bottom: 8px;
+            padding: 7px 10px;
             background: #f5f5f5;
             border-left: 3.5px solid #1a1a1a;
         }
         .party .role {
-            font-size: 9.5pt;
+            font-size: 9pt;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #555;
-            margin-bottom: 3px;
         }
         .party .name {
-            font-size: 12pt;
+            font-size: 11.5pt;
             font-weight: bold;
-            margin-bottom: 3px;
+            margin: 2px 0;
         }
-        .party .info { font-size: 10pt; line-height: 1.5; }
-        .clause { margin-bottom: 14px; }
+        .party .info { font-size: 10pt; line-height: 1.45; }
+        .clause { margin-bottom: 11px; }
         .clause h3 {
-            font-size: 11pt;
+            font-size: 10.5pt;
             font-weight: bold;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
-        .clause p { text-align: justify; margin-bottom: 5px; }
-        .clause ul, .clause ol { margin: 5px 0 5px 22px; }
-        .clause li { margin-bottom: 3px; text-align: justify; }
+        .clause p { text-align: justify; margin-bottom: 4px; }
+        .clause ul { margin: 4px 0 4px 20px; }
+        .clause li { margin-bottom: 2px; text-align: justify; }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 8px 0;
-            font-size: 10.5pt;
+            margin: 6px 0;
+            font-size: 10pt;
         }
         table th {
             background: #1a1a1a;
             color: #fff;
-            padding: 6px 10px;
+            padding: 5px 8px;
             text-align: left;
-            font-size: 10pt;
+            font-size: 9pt;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
         table td {
-            padding: 5px 10px;
+            padding: 4px 8px;
             border-bottom: 1px solid #ddd;
         }
         table tr:nth-child(even) td { background: #f9f9f9; }
+        .total-row td { font-weight: bold; background: #eee !important; }
         .highlight-box {
             background: #f0f7f0;
             border: 1.5px solid #4a7a4a;
             border-radius: 4px;
-            padding: 10px 14px;
-            margin: 8px 0;
+            padding: 8px 12px;
+            margin: 6px 0;
             text-align: center;
         }
-        .highlight-box .value {
-            font-size: 14pt;
-            font-weight: bold;
-            color: #1a1a1a;
-        }
+        .highlight-box .value { font-size: 13pt; font-weight: bold; }
         .highlight-box .label {
-            font-size: 9pt;
+            font-size: 8.5pt;
             color: #555;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -123,16 +116,13 @@
             background: #f5f0e0;
             border: 1.5px solid #8a7a3a;
             border-radius: 4px;
-            padding: 10px 14px;
-            margin: 8px 0;
+            padding: 8px 12px;
+            margin: 6px 0;
             text-align: center;
         }
-        .monthly-box .value {
-            font-size: 14pt;
-            font-weight: bold;
-        }
+        .monthly-box .value { font-size: 13pt; font-weight: bold; }
         .monthly-box .label {
-            font-size: 9pt;
+            font-size: 8.5pt;
             color: #555;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -140,59 +130,48 @@
         .closing-text {
             text-align: center;
             font-style: italic;
-            margin: 20px 0 14px;
-            font-size: 10.5pt;
+            margin: 16px 0 10px;
+            font-size: 10pt;
         }
         .date-line {
             text-align: center;
             font-weight: bold;
-            margin-bottom: 20px;
-            font-size: 11pt;
+            margin-bottom: 16px;
+            font-size: 10.5pt;
         }
         .signatures {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 18px;
+            gap: 25px;
+            margin-bottom: 14px;
         }
         .sig-block {
             text-align: center;
-            padding-top: 55px;
+            padding-top: 50px;
         }
         .sig-line {
             border-top: 1.5px solid #1a1a1a;
-            padding-top: 6px;
+            padding-top: 5px;
         }
-        .sig-block .sig-name {
-            font-weight: bold;
-            font-size: 11pt;
-        }
-        .sig-block .sig-role {
-            font-style: italic;
-            color: #555;
-            font-size: 10pt;
-        }
-        .sig-block .sig-doc {
-            font-size: 9.5pt;
-            color: #666;
-        }
+        .sig-block .sig-name { font-weight: bold; font-size: 10.5pt; }
+        .sig-block .sig-role { font-style: italic; color: #555; font-size: 9.5pt; }
+        .sig-block .sig-doc { font-size: 9pt; color: #666; }
         .witnesses-title {
             text-align: center;
             font-weight: bold;
-            font-size: 11pt;
-            margin: 16px 0 8px;
+            font-size: 10.5pt;
+            margin: 12px 0 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .footer-note {
             text-align: center;
-            font-size: 9pt;
+            font-size: 8.5pt;
             color: #888;
-            margin-top: 22px;
+            margin-top: 18px;
             border-top: 1px solid #ddd;
-            padding-top: 8px;
+            padding-top: 6px;
         }
-        .page-break { page-break-before: always; }
     </style>
 </head>
 <body>
@@ -204,7 +183,7 @@
 
     <div class="contract-number"><strong>Contrato Nº:</strong> 001/2026</div>
 
-    <div class="section-title">Partes Contratantes</div>
+    <div class="section-title">Partes</div>
 
     <div class="party">
         <div class="role">Contratante</div>
@@ -212,7 +191,7 @@
         <div class="info">
             CNPJ: [inserir CNPJ]<br>
             Endereço: [inserir endereço completo]<br>
-            Representante: [inserir nome do representante legal]
+            Representante: [inserir nome]
         </div>
     </div>
 
@@ -220,73 +199,63 @@
         <div class="role">Contratado</div>
         <div class="name">Ildomar Viana Roloff</div>
         <div class="info">
-            CPF: [inserir CPF]<br>
-            Endereço: [inserir endereço completo]<br>
+            CPF: 420390090-20<br>
             E-mail: [inserir e-mail] — Telefone: [inserir telefone]
         </div>
     </div>
 
     <div class="clause">
         <h3>Cláusula 1ª — Objeto</h3>
-        <p>1.1. O presente contrato tem por objeto a prestação de serviços de desenvolvimento web e manutenção técnica, conforme especificações abaixo:</p>
+        <p>Prestação de serviços de desenvolvimento web, incluindo:</p>
         <ul>
-            <li>a) Criação de site institucional completo, incluindo design, desenvolvimento e configuração;</li>
-            <li>b) Certificado SSL (HTTPS) para o site;</li>
-            <li>c) Transferência de hospedagem para a plataforma indicada pelo CONTRATANTE;</li>
-            <li>d) Configuração de domínio;</li>
-            <li>e) Treinamento básico para atualização de conteúdo.</li>
+            <li>a) Criação de site institucional com 14 páginas;</li>
+            <li>b) Certificado SSL (HTTPS);</li>
+            <li>c) Transferência de hospedagem;</li>
+            <li>d) Configuração de domínio.</li>
         </ul>
+        <p><strong>Páginas do site:</strong></p>
+        <table>
+            <tr><th>Nº</th><th>Arquivo</th><th>Descrição</th></tr>
+            <tr><td>1</td><td>index.html</td><td>Home</td></tr>
+            <tr><td>2</td><td>biografias.html</td><td>Biografias dos acadêmicos</td></tr>
+            <tr><td>3</td><td>cadeiras.html</td><td>Cadeiras da ANACLA</td></tr>
+            <tr><td>4</td><td>contato.html</td><td>Formulário de contato</td></tr>
+            <tr><td>5</td><td>diretoria.html</td><td>Diretoria atual</td></tr>
+            <tr><td>6</td><td>eventos.html</td><td>Eventos</td></tr>
+            <tr><td>7</td><td>hino.html</td><td>Hino</td></tr>
+            <tr><td>8</td><td>historia.html</td><td>História da ANACLA</td></tr>
+            <tr><td>9</td><td>homenageados.html</td><td>Homenageados</td></tr>
+            <tr><td>10</td><td>noticias.html</td><td>Notícias</td></tr>
+            <tr><td>11</td><td>obras.html</td><td>Obras da ANACLA</td></tr>
+            <tr><td>12</td><td>patronos.html</td><td>Patronos</td></tr>
+            <tr><td>13</td><td>premios.html</td><td>Prêmios</td></tr>
+            <tr><td>14</td><td>vinicius.html</td><td>Patrono Vinícius de Moraes</td></tr>
+        </table>
     </div>
 
     <div class="clause">
-        <h3>Cláusula 2ª — Valores e Forma de Pagamento</h3>
+        <h3>Cláusula 2ª — Valores</h3>
 
-        <p><strong>2.1. Composição dos valores do desenvolvimento:</strong></p>
-
+        <p><strong>2.1. Composição do valor:</strong></p>
         <table>
-            <tr>
-                <th>Item</th>
-                <th>Valor unitário</th>
-                <th>Quantidade</th>
-                <th>Subtotal</th>
-            </tr>
-            <tr>
-                <td>Capa (página inicial)</td>
-                <td>R$ 600,00</td>
-                <td>1</td>
-                <td>R$ 600,00</td>
-            </tr>
-            <tr>
-                <td>Certificado SSL (HTTPS)</td>
-                <td>R$ 100,00</td>
-                <td>1</td>
-                <td>R$ 100,00</td>
-            </tr>
-            <tr>
-                <td>Páginas internas</td>
-                <td>R$ 250,00</td>
-                <td>___</td>
-                <td>R$ __________</td>
-            </tr>
+            <tr><th>Item</th><th>Valor unitário</th><th>Qtd</th><th>Subtotal</th></tr>
+            <tr><td>Capa (página inicial)</td><td>R$ 600,00</td><td>1</td><td>R$ 600,00</td></tr>
+            <tr><td>Certificado SSL (HTTPS)</td><td>R$ 100,00</td><td>1</td><td>R$ 100,00</td></tr>
+            <tr><td>Páginas internas</td><td>R$ 300,00</td><td>13</td><td>R$ 3.900,00</td></tr>
+            <tr class="total-row"><td colspan="3">Valor total</td><td>R$ 4.600,00</td></tr>
         </table>
 
-        <p style="text-align:right; font-weight:bold; margin-top:6px;">Valor total antes do desconto: R$ __________</p>
-
-        <p style="margin-top:10px;"><strong>2.2. Cláusula de desconto:</strong></p>
-        <p>Em reconhecimento à parceria estabelecida entre as partes e com o objetivo de viabilizar a presença digital da CONTRATANTE, o CONTRATADO concede <strong>desconto especial</strong> sobre o valor total do desenvolvimento, restando o valor de:</p>
+        <p><strong>2.2. Desconto:</strong></p>
+        <p>O CONTRATADO concede desconto de <strong>R$ 4.000,00 (quatro mil reais)</strong> sobre o valor total, restando:</p>
 
         <div class="highlight-box">
             <div class="label">Valor líquido a pagar</div>
             <div class="value">R$ 600,00 (seiscentos reais)</div>
         </div>
 
-        <p>O desconto corresponde a <strong>R$ __________</strong> sobre o valor total de R$ __________, representando desconto de <strong>___%</strong>.</p>
+        <p>Pagamento em parcela única, devido na entrega do site funcionando.</p>
 
-        <p style="margin-top:8px;"><strong>2.3. Forma de pagamento do desenvolvimento:</strong></p>
-        <p>O valor de <strong>R$ 600,00 (seiscentos reais)</strong> deverá ser pago em <strong>parcela única</strong>, devido na entrega do site funcionando, mediante PIX, transferência bancária ou boleto, com emissão de recibo pelo CONTRATADO.</p>
-
-        <p style="margin-top:8px;"><strong>2.4. Manutenção, hospedagem e suporte mensal:</strong></p>
-        <p>Pelo serviço de manutenção, hospedagem e suporte técnico mensal, o CONTRATANTE pagará ao CONTRATADO o valor de:</p>
+        <p><strong>2.3. Manutenção mensal:</strong></p>
 
         <div class="monthly-box">
             <div class="label">Manutenção + hospedagem + suporte</div>
@@ -295,102 +264,88 @@
 
         <ul>
             <li>Vencimento: até o <strong>5º dia útil</strong> de cada mês</li>
-            <li>Início da cobrança: a partir de <strong>01 de outubro de 2026</strong></li>
-            <li>Forma de pagamento: PIX, transferência bancária ou boleto</li>
+            <li>Início da cobrança: <strong>01 de outubro de 2026</strong></li>
+            <li>Inclui: hospedagem, suporte técnico, atualizações de segurança, certificado SSL, backup mensal e pequenas alterações de conteúdo</li>
         </ul>
 
-        <p style="margin-top:6px;"><strong>2.5. Multa e juros por atraso:</strong></p>
-        <p>Em caso de atraso no pagamento da manutenção mensal, incidirá multa de 2% sobre o valor devido, acrescido de juros de 1% ao mês, calculados pro rata die.</p>
+        <p><strong>2.4. Multa por atraso:</strong> Multa de 2% + juros de 1% ao mês sobre valores em atraso.</p>
     </div>
 
     <div class="clause">
         <h3>Cláusula 3ª — Prazo de Entrega</h3>
-        <p>3.1. O site deverá ser entregue até <strong>01 de setembro de 2026</strong>, contado a partir da assinatura do presente contrato e fornecimento de todo o material necessário (textos, imagens, logos) pelo CONTRATANTE.</p>
-        <p>3.2. Caso o CONTRATANTE não forneça o material no prazo estipulado, o prazo de entrega será prorrogado automaticamente pelo período de espera.</p>
-        <p>3.3. O prazo poderá ser prorrogado por acordo mútuo entre as partes, formalizado por escrito.</p>
+        <p>O site será entregue até <strong>01 de setembro de 2026</strong>, contados da assinatura deste contrato e do fornecimento do material necessário (textos, imagens, logos) pelo CONTRATANTE.</p>
     </div>
 
     <div class="clause">
-        <h3>Cláusula 4ª — Manutenção, Hospedagem e Suporte Mensal</h3>
-        <p>4.1. O serviço de manutenção mensal de <strong>R$ 300,00</strong> inclui:</p>
+        <h3>Cláusula 4ª — Manutenção Mensal</h3>
+        <p><strong>Incluído (R$ 300,00/mês):</strong></p>
         <ul>
-            <li>a) Suporte técnico para correção de bugs e falhas;</li>
-            <li>b) Atualizações de segurança do site;</li>
-            <li>c) Hospedagem do site (GitHub Pages ou plataforma indicada);</li>
-            <li>d) Certificado SSL (HTTPS) ativo e renovado;</li>
-            <li>e) Monitoramento da disponibilidade do site;</li>
-            <li>f) Pequenas alterações de conteúdo (textos, imagens, links);</li>
-            <li>g) Backup mensal do site.</li>
+            <li>a) Suporte técnico e correção de bugs;</li>
+            <li>b) Atualizações de segurança;</li>
+            <li>c) Hospedagem (GitHub Pages);</li>
+            <li>d) Certificado SSL (HTTPS);</li>
+            <li>e) Backup mensal;</li>
+            <li>f) Alterações de conteúdo (textos, imagens, links).</li>
         </ul>
-        <p>4.2. Não estão inclusos no serviço de manutenção:</p>
+        <p><strong>Não incluído:</strong></p>
         <ul>
             <li>a) Mudanças de layout ou redesign;</li>
-            <li>b) Criação de novas funcionalidades;</li>
-            <li>c) Desenvolvimento de páginas novas;</li>
-            <li>d) Integrações com sistemas externos.</li>
+            <li>b) Novas funcionalidades ou páginas;</li>
+            <li>c) Integrações com sistemas externos.</li>
         </ul>
-        <p>4.3. Serviços não incluídos poderão ser contratados separadamente, com orçamento prévio aprovado pelo CONTRATANTE.</p>
+        <p>Serviços não inclusos serão orçados separadamente.</p>
     </div>
 
     <div class="clause">
         <h3>Cláusula 5ª — Propriedade Intelectual</h3>
-        <p>5.1. Todo o código-fonte, design e arquivos desenvolvidos no âmbito deste contrato serão de propriedade exclusiva do CONTRATANTE, após pagamento integral dos valores estipulados na Cláusula 2ª.</p>
-        <p>5.2. O CONTRATADO se compromete a não utilizar o código desenvolvido para outros clientes, salvo componentes genéricos e bibliotecas de uso comum.</p>
-        <p>5.3. O CONTRATANTE poderá, a qualquer tempo, solicitar o código-fonte completo, que deverá ser entregue no prazo de 5 (cinco) dias úteis.</p>
+        <p>5.1. Todo o código-fonte e design são propriedade do CONTRATANTE após pagamento integral.</p>
+        <p>5.2. O CONTRATADO não utilizará o código para outros clientes, salvo componentes genéricos.</p>
+        <p>5.3. O código-fonte será entregue em até 5 dias úteis a qualquer solicitação.</p>
     </div>
 
     <div class="clause">
         <h3>Cláusula 6ª — Hospedagem e Domínio</h3>
-        <p>6.1. A hospedagem do site será realizada em plataforma gratuita (GitHub Pages) ou outra plataforma indicada pelo CONTRATANTE, sendo o custo incluso na mensalidade de manutenção.</p>
-        <p>6.2. O custo do registro de domínio (ex.: .com.br, .com, .pt) é de responsabilidade do CONTRATANTE.</p>
-        <p>6.3. O CONTRATADO auxiliará na configuração inicial da hospedagem, apontamento do domínio e emissão do certificado SSL, sem custo adicional.</p>
-        <p>6.4. Após a configuração inicial, a gestão da hospedagem é de responsabilidade do CONTRATADO, conforme Cláusula 4ª.</p>
+        <p>6.1. A hospedagem é de responsabilidade do CONTRATADO, incluso na mensalidade.</p>
+        <p>6.2. O registro do domínio é de responsabilidade do CONTRATANTE.</p>
+        <p>6.3. O CONTRATADO realiza a configuração inicial sem custo adicional.</p>
     </div>
 
     <div class="clause">
         <h3>Cláusula 7ª — Vigência e Rescisão</h3>
-        <p>7.1. O presente contrato tem vigência por prazo indeterminado, iniciando-se na data de sua assinatura.</p>
-        <p>7.2. Qualquer das partes poderá rescindir o contrato, mediante comunicação por escrito com antecedência mínima de <strong>30 (trinta) dias</strong>.</p>
-        <p>7.3. Em caso de rescisão, o CONTRATANTE terá direito a receber todos os arquivos e código-fonte do site desenvolvido.</p>
-        <p>7.4. Em caso de rescisão, os valores de manutenção mensal deverão ser pagos até a data efetiva do encerramento dos serviços.</p>
+        <p>7.1. Contrato por prazo indeterminado.</p>
+        <p>7.2. Rescisão por qualquer das partes com aviso prévio de <strong>30 (trinta) dias</strong>.</p>
+        <p>7.3. Em caso de rescisão, o CONTRATANTE recebe todos os arquivos e código-fonte.</p>
+        <p>7.4. Mensalidades devem ser pagas até a data efetiva do encerramento.</p>
     </div>
 
     <div class="clause">
-        <h3>Cláusula 8ª — Obrigações do Contratado</h3>
+        <h3>Cláusula 8ª — Obrigações</h3>
+        <p><strong>Do CONTRATADO:</strong></p>
         <ul>
-            <li>a) Executar os serviços com zelo, profissionalismo e no prazo estipulado;</li>
-            <li>b) Manter sigilo sobre todas as informações do CONTRATANTE;</li>
-            <li>c) Fornecer suporte técnico durante a vigência do contrato;</li>
-            <li>d) Comunicar imediatamente qualquer dificuldade ou atraso na execução;</li>
-            <li>e) Entregar toda a documentação técnica do site desenvolvido.</li>
+            <li>a) Executar os serviços com zelo e no prazo;</li>
+            <li>b) Manter sigilo das informações;</li>
+            <li>c) Fornecer suporte durante a vigência.</li>
+        </ul>
+        <p><strong>Do CONTRATANTE:</strong></p>
+        <ul>
+            <li>a) Efetuar os pagamentos nos prazos;</li>
+            <li>b) Fornecer material para o desenvolvimento;</li>
+            <li>c) Manter o domínio ativo.</li>
         </ul>
     </div>
 
     <div class="clause">
-        <h3>Cláusula 9ª — Obrigações do Contratante</h3>
-        <ul>
-            <li>a) Efetuar os pagamentos nos prazos estabelecidos;</li>
-            <li>b) Fornecer todo o material necessário para o desenvolvimento (textos, imagens, logos);</li>
-            <li>c) Indicar um responsável para aprovação das etapas do projeto;</li>
-            <li>d) Manter o registro de domínio ativo;</li>
-            <li>e) Comunicar com antecedência qualquer mudança de escopo.</li>
-        </ul>
+        <h3>Cláusula 9ª — Resolução de Conflitos</h3>
+        <p>Não havendo acordo amigável, fica eleito o foro da Comarca de <strong>Florianópolis/SC</strong>.</p>
     </div>
 
     <div class="clause">
-        <h3>Cláusula 10ª — Resolução de Conflitos</h3>
-        <p>10.1. As partes acordam em resolver amigavelmente quaisquer conflitos decorrentes do presente contrato.</p>
-        <p>10.2. Não sendo possível a resolução amigável, fica eleito o foro da Comarca de <strong>Florianópolis/SC</strong>, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+        <h3>Cláusula 10ª — Disposições Gerais</h3>
+        <p>10.1. Este contrato representa o acordo completo entre as partes.</p>
+        <p>10.2. Alterações só valem se feitas por escrito e assinadas por ambas as partes.</p>
     </div>
 
-    <div class="clause">
-        <h3>Cláusula 11ª — Disposições Gerais</h3>
-        <p>11.1. O presente contrato representa o acordo completo entre as partes, substituindo quaisquer outros acordos verbais ou escritos.</p>
-        <p>11.2. Qualquer alteração neste contrato deverá ser feita por escrito e assinada por ambas as partes.</p>
-        <p>11.3. A tolerância de qualquer das partes quanto ao descumprimento de cláusulas não implicará renúncia aos direitos aqui previstos.</p>
-    </div>
-
-    <p class="closing-text">E por estarem assim justos e acordados, assinam o presente contrato em 2 (duas) vias de igual teor e forma, na presença de 2 (duas) testemunhas.</p>
+    <p class="closing-text">E por estarem justos e acordados, assinam o presente contrato em 2 (duas) vias, na presença de 2 (duas) testemunhas.</p>
 
     <p class="date-line">Florianópolis/SC, ___ de _____________ de 2026.</p>
 
@@ -399,7 +354,7 @@
             <div class="sig-line">
                 <div class="sig-name">Ildomar Viana Roloff</div>
                 <div class="sig-role">CONTRATADO</div>
-                <div class="sig-doc">CPF: [inserir CPF]</div>
+                <div class="sig-doc">CPF: 420390090-20</div>
             </div>
         </div>
         <div class="sig-block">
@@ -428,7 +383,7 @@
         </div>
     </div>
 
-    <div class="footer-note">Contrato de Prestação de Serviços — ANACLA × Ildomar Viana Roloff — Contrato Nº 001/2026</div>
+    <div class="footer-note">Contrato Nº 001/2026 — ANACLA × Ildomar Viana Roloff</div>
 
 </body>
 </html>

@@ -1,14 +1,10 @@
 # CONTRATO DE PRESTAÇÃO DE SERVIÇOS
 
-**Serviços de Desenvolvimento Web e Manutenção**
-
----
-
 **Contrato Nº:** 001/2026
 
 ---
 
-## PARTES CONTRATANTES
+## PARTES
 
 ### CONTRATANTE:
 
@@ -16,14 +12,13 @@
 
 - CNPJ: [inserir CNPJ]
 - Endereço: [inserir endereço completo]
-- Representante: [inserir nome do representante legal]
+- Representante: [inserir nome]
 
 ### CONTRATADO:
 
 **Ildomar Viana Roloff**
 
-- CPF: [inserir CPF]
-- Endereço: [inserir endereço completo]
+- CPF: 420390090-20
 - E-mail: [inserir e-mail]
 - Telefone: [inserir telefone]
 
@@ -31,166 +26,155 @@
 
 ## CLÁUSULA 1ª — OBJETO
 
-1.1. O presente contrato tem por objeto a prestação de serviços de desenvolvimento web e manutenção técnica, conforme especificações abaixo:
+Prestação de serviços de desenvolvimento web, incluindo:
 
-- a) Criação de site institucional completo, incluindo design, desenvolvimento e configuração;
-- b) Certificado SSL (HTTPS) para o site;
-- c) Transferência de hospedagem para a plataforma indicada pelo CONTRATANTE;
-- d) Configuração de domínio;
-- e) Treinamento básico para atualização de conteúdo.
+- a) Criação de site institucional com 14 páginas;
+- b) Certificado SSL (HTTPS);
+- c) Transferência de hospedagem;
+- d) Configuração de domínio.
+
+### Páginas do site:
+
+| Nº | Arquivo | Descrição |
+|---|---|---|
+| 1 | index.html | Home |
+| 2 | biografias.html | Biografias dos acadêmicos |
+| 3 | cadeiras.html | Cadeiras da ANACLA |
+| 4 | contato.html | Formulário de contato |
+| 5 | diretoria.html | Diretoria atual |
+| 6 | eventos.html | Eventos |
+| 7 | hino.html | Hino |
+| 8 | historia.html | História da ANACLA |
+| 9 | homenageados.html | Homenageados |
+| 10 | noticias.html | Notícias |
+| 11 | obras.html | Obras da ANACLA |
+| 12 | patronos.html | Patronos |
+| 13 | premios.html | Prêmios |
+| 14 | vinicius.html | Patrono Vinícius de Moraes |
 
 ---
 
-## CLÁUSULA 2ª — VALORES E FORMA DE PAGAMENTO
+## CLÁUSULA 2ª — VALORES
 
-### 2.1. Composição dos valores do desenvolvimento:
+### 2.1. Composição do valor:
 
-| Item | Valor unitário | Quantidade | Subtotal |
+| Item | Valor unitário | Qtd | Subtotal |
 |---|---|---|---|
 | Capa (página inicial) | R$ 600,00 | 1 | R$ 600,00 |
 | Certificado SSL (HTTPS) | R$ 100,00 | 1 | R$ 100,00 |
-| Páginas internas | R$ 250,00 | ___ | R$ __________ |
+| Páginas internas | R$ 300,00 | 13 | R$ 3.900,00 |
+| **Valor total** | | | **R$ 4.600,00** |
 
-**Valor total antes do desconto:** R$ __________
+### 2.2. Desconto:
 
-### 2.2. Cláusula de desconto:
-
-Em reconhecimento à parceria estabelecida entre as partes e com o objetivo de viabilizar a presença digital da CONTRATANTE, o CONTRATADO concede **desconto especial** sobre o valor total do desenvolvimento, restando o valor de:
+O CONTRATADO concede desconto de **R$ 4.000,00 (quatro mil reais)** sobre o valor total, restando:
 
 > **VALOR LÍQUIDO A PAGAR: R$ 600,00 (seiscentos reais)**
 
-O desconto corresponde a **R$ __________** sobre o valor total de R$ __________, representando desconto de ___%.
+Pagamento em parcela única, devido na entrega do site funcionando.
 
-### 2.3. Forma de pagamento do desenvolvimento:
-
-O valor de **R$ 600,00 (seiscentos reais)** deverá ser pago em **parcela única**, devido na entrega do site funcionando, mediante PIX, transferência bancária ou boleto, com emissão de recibo pelo CONTRATADO.
-
-### 2.4. Manutenção, hospedagem e suporte mensal:
-
-Pelo serviço de manutenção, hospedagem e suporte técnico mensal, o CONTRATANTE pagará ao CONTRATADO o valor de:
+### 2.3. Manutenção mensal:
 
 > **R$ 300,00 (trezentos reais) por mês**
 
 - Vencimento: até o **5º dia útil** de cada mês
-- Início do cobrança: a partir de **01 de outubro de 2026**
-- Forma de pagamento: PIX, transferência bancária ou boleto
+- Início da cobrança: **01 de outubro de 2026**
+- Inclui: hospedagem, suporte técnico, atualizações de segurança, certificado SSL, backup mensal e pequenas alterações de conteúdo
 
-### 2.5. Multa e juros por atraso:
+### 2.4. Multa por atraso:
 
-Em caso de atraso no pagamento da manutenção mensal, incidirá multa de 2% sobre o valor devido, acrescido de juros de 1% ao mês, calculados pro rata die.
+Multa de 2% + juros de 1% ao mês sobre valores em atraso.
 
 ---
 
 ## CLÁUSULA 3ª — PRAZO DE ENTREGA
 
-3.1. O site deverá ser entregue até **01 de setembro de 2026**, contado a partir da assinatura do presente contrato e fornecimento de todo o material necessário (textos, imagens, logos) pelo CONTRATANTE.
-
-3.2. Caso o CONTRATANTE não forneça o material no prazo estipulado, o prazo de entrega será prorrogado automaticamente pelo período de espera.
-
-3.3. O prazo poderá ser prorrogado por acordo mútuo entre as partes, formalizado por escrito.
+O site será entregue até **01 de setembro de 2026**, contados da assinatura deste contrato e do fornecimento do material necessário (textos, imagens, logos) pelo CONTRATANTE.
 
 ---
 
-## CLÁUSULA 4ª — MANUTENÇÃO, HOSPEDAGEM E SUPORTE MENSAL
+## CLÁUSULA 4ª — MANUTENÇÃO MENSAL
 
-4.1. O serviço de manutenção mensal de **R$ 300,00** inclui:
+**Incluído (R$ 300,00/mês):**
 
-- a) Suporte técnico para correção de bugs e falhas;
-- b) Atualizações de segurança do site;
-- c) Hospedagem do site (GitHub Pages ou plataforma indicada);
-- d) Certificado SSL (HTTPS) ativo e renovado;
-- e) Monitoramento da disponibilidade do site;
-- f) Pequenas alterações de conteúdo (textos, imagens, links);
-- g) Backup mensal do site.
+- a) Suporte técnico e correção de bugs;
+- b) Atualizações de segurança;
+- c) Hospedagem (GitHub Pages);
+- d) Certificado SSL (HTTPS);
+- e) Backup mensal;
+- f) Alterações de conteúdo (textos, imagens, links).
 
-4.2. Não estão inclusos no serviço de manutenção:
+**Não incluído:**
 
 - a) Mudanças de layout ou redesign;
-- b) Criação de novas funcionalidades;
-- c) Desenvolvimento de páginas novas;
-- d) Integrações com sistemas externos.
+- b) Novas funcionalidades ou páginas;
+- c) Integrações com sistemas externos.
 
-4.3. Serviços não incluídos poderão ser contratados separadamente, com orçamento prévio aprovado pelo CONTRATANTE.
+Serviços não inclusos serão orçados separadamente.
 
 ---
 
 ## CLÁUSULA 5ª — PROPRIEDADE INTELECTUAL
 
-5.1. Todo o código-fonte, design e arquivos desenvolvidos no âmbito deste contrato serão de propriedade exclusiva do CONTRATANTE, após pagamento integral dos valores estipulados na Cláusula 2ª.
+5.1. Todo o código-fonte e design são propriedade do CONTRATANTE após pagamento integral.
 
-5.2. O CONTRATADO se compromete a não utilizar o código desenvolvido para outros clientes, salvo componentes genéricos e bibliotecas de uso comum.
+5.2. O CONTRATADO não utilizará o código para outros clientes, salvo componentes genéricos.
 
-5.3. O CONTRATANTE poderá, a qualquer tempo, solicitar o código-fonte completo, que deverá ser entregue no prazo de 5 (cinco) dias úteis.
+5.3. O código-fonte será entregue em até 5 dias úteis a qualquer solicitação.
 
 ---
 
 ## CLÁUSULA 6ª — HOSPEDAGEM E DOMÍNIO
 
-6.1. A hospedagem do site será realizada em plataforma gratuita (GitHub Pages) ou outra plataforma indicada pelo CONTRATANTE, sendo o custo incluso na mensalidade de manutenção.
+6.1. A hospedagem é de responsabilidade do CONTRATADO, incluso na mensalidade.
 
-6.2. O custo do registro de domínio (ex.: .com.br, .com, .pt) é de responsabilidade do CONTRATANTE.
+6.2. O registro do domínio é de responsabilidade do CONTRATANTE.
 
-6.3. O CONTRATADO auxiliará na configuração inicial da hospedagem, apontamento do domínio e emissão do certificado SSL, sem custo adicional.
-
-6.4. Após a configuração inicial, a gestão da hospedagem é de responsabilidade do CONTRATADO, conforme Cláusula 4ª.
+6.3. O CONTRATADO realiza a configuração inicial sem custo adicional.
 
 ---
 
 ## CLÁUSULA 7ª — VIGÊNCIA E RESCISÃO
 
-7.1. O presente contrato tem vigência por prazo indeterminado, iniciando-se na data de sua assinatura.
+7.1. Contrato por prazo indeterminado.
 
-7.2. Qualquer das partes poderá rescindir o contrato, mediante comunicação por escrito com antecedência mínima de **30 (trinta) dias**.
+7.2. Rescisão por qualquer das partes com aviso prévio de **30 (trinta) dias**.
 
-7.3. Em caso de rescisão, o CONTRATANTE terá direito a receber todos os arquivos e código-fonte do site desenvolvido.
+7.3. Em caso de rescisão, o CONTRATANTE recebe todos os arquivos e código-fonte.
 
-7.4. Em caso de rescisão, os valores de manutenção mensal deverão ser pagos até a data efetiva do encerramento dos serviços.
-
----
-
-## CLÁUSULA 8ª — OBRIGAÇÕES DO CONTRATADO
-
-São obrigações do CONTRATADO:
-
-- a) Executar os serviços com zelo, profissionalismo e no prazo estipulado;
-- b) Manter sigilo sobre todas as informações do CONTRATANTE;
-- c) Fornecer suporte técnico durante a vigência do contrato;
-- d) Comunicar imediatamente qualquer dificuldade ou atraso na execução;
-- e) Entregar toda a documentação técnica do site desenvolvido.
+7.4. Mensalidades devem ser pagas até a data efetiva do encerramento.
 
 ---
 
-## CLÁUSULA 9ª — OBRIGAÇÕES DO CONTRATANTE
+## CLÁUSULA 8ª — OBRIGAÇÕES
 
-São obrigações do CONTRATANTE:
+**Do CONTRATADO:**
+- a) Executar os serviços com zelo e no prazo;
+- b) Manter sigilo das informações;
+- c) Fornecer suporte durante a vigência.
 
-- a) Efetuar os pagamentos nos prazos estabelecidos;
-- b) Fornecer todo o material necessário para o desenvolvimento (textos, imagens, logos);
-- c) Indicar um responsável para aprovação das etapas do projeto;
-- d) Manter o registro de domínio ativo;
-- e) Comunicar com antecedência qualquer mudança de escopo.
-
----
-
-## CLÁUSULA 10ª — RESOLUÇÃO DE CONFLITOS
-
-10.1. As partes acordam em resolver amigavelmente quaisquer conflitos decorrentes do presente contrato.
-
-10.2. Não sendo possível a resolução amigável, fica eleito o foro da Comarca de **Florianópolis/SC**, com renúncia a qualquer outro, por mais privilegiado que seja.
+**Do CONTRATANTE:**
+- a) Efetuar os pagamentos nos prazos;
+- b) Fornecer material para o desenvolvimento;
+- c) Manter o domínio ativo.
 
 ---
 
-## CLÁUSULA 11ª — DISPOSIÇÕES GERAIS
+## CLÁUSULA 9ª — RESOLUÇÃO DE CONFLITOS
 
-11.1. O presente contrato representa o acordo completo entre as partes, substituindo quaisquer outros acordos verbais ou escritos.
-
-11.2. Qualquer alteração neste contrato deverá ser feita por escrito e assinada por ambas as partes.
-
-11.3. A tolerância de qualquer das partes quanto ao descumprimento de cláusulas não implicará renúncia aos direitos aqui previstos.
+Não havendo acordo amigável, fica eleito o foro da Comarca de **Florianópolis/SC**.
 
 ---
 
-E por estarem assim justos e acordados, assinam o presente contrato em 2 (duas) vias de igual teor e forma, na presença de 2 (duas) testemunhas.
+## CLÁUSULA 10ª — DISPOSIÇÕES GERAIS
+
+10.1. Este contrato representa o acordo completo entre as partes.
+
+10.2. Alterações só valem se feitas por escrito e assinadas por ambas as partes.
+
+---
+
+E por estarem justos e acordados, assinam o presente contrato em 2 (duas) vias, na presença de 2 (duas) testemunhas.
 
 **Florianópolis/SC, ___ de _____________ de 2026.**
 
@@ -204,7 +188,7 @@ ___________________________________
 
 **Ildomar Viana Roloff**
 
-CPF: [inserir CPF]
+CPF: 420390090-20
 
 ---
 
@@ -224,9 +208,7 @@ CNPJ: [inserir CNPJ]
 
 ___________________________________
 
-[Nome]
-
-CPF: [inserir CPF]
+[Nome] — CPF: [inserir CPF]
 
 ---
 
@@ -234,10 +216,8 @@ CPF: [inserir CPF]
 
 ___________________________________
 
-[Nome]
-
-CPF: [inserir CPF]
+[Nome] — CPF: [inserir CPF]
 
 ---
 
-*Contrato de Prestação de Serviços — ANACLA × Ildomar Viana Roloff*
+*Contrato Nº 001/2026 — ANACLA × Ildomar Viana Roloff*
