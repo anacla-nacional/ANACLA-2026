@@ -97,7 +97,7 @@ Para cada arquivo CSV nesta pasta:
 #### Aba "patronos":
 | cadeira | nome | foto_url | biografia | profissao | nascimento | falecimento |
 |---------|------|----------|-----------|-----------|------------|-------------|
-| 1 | Dr. Cibélis da Rocha Vianna | imagens/patronos/1.png | Texto bio... | Professor e Político | 23/08/1919 | 21/10/2014 |
+| 1 | Dr. Cibélis da Rocha Vianna | imagens/patronos/01.png | Texto bio... | Professor e Político | 23/08/1919 | 21/10/2014 |
 
 ## Solução de Problemas
 
