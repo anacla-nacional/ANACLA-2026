@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const patronos = await sheets.buscarPatronos();
         container.innerHTML = patronos.map(p => {
-            const foto = sheets.converterLink(p.foto_url, p.cadeira);
+            const foto = p.foto_url ? sheets.converterLink(p.foto_url, p.cadeira) : 'imagens/patronos/placeholder.svg';
             return '<div class="card-com-overlay" onclick="abrirPatrono(\'' + p.cadeira + '\')">' +
                 '<img src="' + foto + '" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}">' +
                 '<div class="card-overlay">' +
@@ -117,7 +117,7 @@ async function abrirPatrono(cadeira) {
         document.getElementById('modal-cadeira').textContent = 'Cadeira ' + p.cadeira;
         document.getElementById('modal-profissao').textContent = p.profissao || '';
         document.getElementById('modal-datas').textContent = [p.nascimento, p.falecimento].filter(Boolean).join(' — ') || '';
-        document.getElementById('modal-foto').src = sheets.converterLink(p.foto_url, p.cadeira);
+        document.getElementById('modal-foto').src = p.foto_url ? sheets.converterLink(p.foto_url, p.cadeira) : 'imagens/patronos/placeholder.svg';
         document.getElementById('modal-bio').textContent = p.biografia || 'Biografia não disponível.';
         document.getElementById('modal').style.display = 'block';
     }
