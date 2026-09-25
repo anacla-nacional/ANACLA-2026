@@ -118,7 +118,8 @@ async function abrirPatrono(cadeira) {
         document.getElementById('modal-profissao').textContent = p.profissao || '';
         document.getElementById('modal-datas').textContent = [p.nascimento, p.falecimento].filter(Boolean).join(' — ') || '';
         document.getElementById('modal-foto').src = p.foto_url ? sheets.converterLink(p.foto_url, p.cadeira) : 'imagens/patronos/placeholder.svg';
-        document.getElementById('modal-bio').textContent = p.biografia || 'Biografia não disponível.';
+        var bio = p.biografia || '';
+        document.getElementById('modal-bio').innerHTML = bio ? (/<[a-z][^>]*>/i.test(bio) ? bio : bio.replace(/\n/g, '<br>')) : 'Biografia não disponível.';
         document.getElementById('modal').style.display = 'block';
     }
 }
