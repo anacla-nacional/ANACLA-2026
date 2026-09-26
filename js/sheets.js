@@ -179,11 +179,11 @@ const sheets = {
         try {
             const response = await fetch(BASE_URL + encodeURIComponent('status'));
             const text = await response.text();
-            var lines = text.split('\n');
-            for (var i = 0; i < lines.length; i++) {
-                var line = lines[i].trim().replace(/"/g, '').toLowerCase();
-                if (line === 'online' || line === 'offline') return line;
-            }
+            // Lê apenas a célula A1 (primeira linha, primeira coluna) da aba status
+            var firstLine = (text.split('\n')[0] || '').trim();
+            if (!firstLine) return 'online';
+            var cell = (this.parseCsvLine(firstLine)[0] || '').trim().toLowerCase();
+            if (cell === 'online' || cell === 'offline') return cell;
             return 'online';
         } catch(e) {
             return 'online';
