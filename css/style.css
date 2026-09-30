@@ -320,6 +320,8 @@ button, input, textarea { font: inherit; }
 .card-title { color: var(--azul-escuro); font-size: 1.12rem; line-height: 1.35; margin-bottom: 8px; }
 .card:hover .card-title { color: var(--cor); }
 .card-text { color: var(--texto-suave); font-size: .91rem; }
+#modal-conteudo a, .card-text a { color: #1a73e8; text-decoration: underline; }
+#modal-conteudo a:hover, .card-text a:hover { color: var(--azul-escuro); }
 .card-link {
     display: inline-flex;
     align-items: center;
