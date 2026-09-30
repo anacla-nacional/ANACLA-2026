@@ -76,8 +76,8 @@ const sheets = {
     
     async buscarEventos(tipo) {
         const data = await this.fetch('eventos');
-        if (tipo && tipo !== 'todos') return data.filter(e => e.tipo === tipo);
-        return data.sort((a, b) => new Date(b.data) - new Date(a.data));
+        const lista = (tipo && tipo !== 'todos') ? data.filter(e => e.tipo === tipo) : data.slice();
+        return lista.sort((a, b) => new Date(b.data) - new Date(a.data));
     },
     
     async buscarNoticias() {
