@@ -7,6 +7,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico">
+    <style>
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        .galeria-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            border: 2px solid var(--borda);
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+        .galeria-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-hover);
+            border-color: rgba(236,28,36,0.3);
+        }
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .galeria-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 30px 10px 10px;
+            color: white;
+        }
+        .galeria-item .overlay .cadeira-badge {
+            background: var(--cor);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            display: inline-block;
+        }
+        .galeria-item .overlay .badges {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+        .galeria-item .overlay .nome {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .galeria-item .overlay .sub {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+    </style>
 </head>
 <body class="home-alternativa">
 
@@ -52,7 +111,7 @@
 </header>
 
 <section class="section">
-    <div class="cards" id="biografias">
+    <div class="galeria-grid" id="biografias">
         <div class="loading">Carregando biografias...</div>
     </div>
 </section>
@@ -94,10 +153,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const academicos = await sheets.buscarAcademicos();
         container.innerHTML = academicos.map(ac => {
             const foto = sheets.converterLink(ac.foto_url, ac.cadeira);
-            return '<div class="card-com-overlay" onclick="abrirBio(\'' + ac.cadeira + '\')">' +
-                '<img src="' + foto + '">' +
-                '<div class="card-overlay">' +
-                '<span class="badge">Cadeira ' + ac.cadeira + '</span>' +
+            return '<div class="galeria-item" onclick="abrirBio(\'' + ac.cadeira + '\')">' +
+                '<img src="' + foto + '" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}">' +
+                '<div class="overlay">' +
+                '<div class="badges"><span class="cadeira-badge">Cadeira ' + ac.cadeira + '</span></div>' +
                 '<div class="nome">' + ac.nome + '</div>' +
                 (ac.patrono ? '<div class="sub">' + ac.patrono + '</div>' : '') +
                 '</div></div>';
