@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crônicas do Contestado — protótipo ANACLA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Vollkorn:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    box-sizing: border-box;
+    --bg: #E8DFC8;
+    --panel: #F4EFDD;
+    --ink: #241C15;
+    --ink-soft: #4a3f30;
+    --rule: #c9bd9a;
+    --gold: #9c7d1f;
+    --ember: #a3491a;
+    --btn-bg: #241C15;
+    --btn-ink: #F4EFDD;
+    --btn-bg-hover: #3a2c1c;
+    --note-bg: #ded1a8;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17130d;
+      --panel: #221b12;
+      --ink: #ECE3CB;
+      --ink-soft: #cabf9f;
+      --rule: #4a3f2b;
+      --gold: #d8b23a;
+      --ember: #e07a3f;
+      --btn-bg: #ECE3CB;
+      --btn-ink: #17130d;
+      --btn-bg-hover: #d8cba4;
+      --note-bg: #2a2214;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17130d;
+    --panel: #221b12;
+    --ink: #ECE3CB;
+    --ink-soft: #cabf9f;
+    --rule: #4a3f2b;
+    --gold: #d8b23a;
+    --ember: #e07a3f;
+    --btn-bg: #ECE3CB;
+    --btn-ink: #17130d;
+    --btn-bg-hover: #d8cba4;
+    --note-bg: #2a2214;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Vollkorn", Georgia, "Times New Roman", serif;
+    display: flex;
+    justify-content: center;
+    padding: 28px 16px 40px;
+  }
+  .book {
+    width: 100%;
+    max-width: 620px;
+  }
+  header.top {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+  h1 {
+    font-family: "Old Standard TT", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    margin: 0 0 4px;
+    letter-spacing: 0.01em;
+  }
+  .subtitle {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  .scene {
+    position: relative;
+    height: clamp(150px, 32vw, 240px);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 18px 0;
+    border: 1px solid var(--rule);
+  }
+  .scene svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .scene .glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 105%, var(--glowcolor, transparent) 0%, transparent 62%);
+    opacity: 0.75;
+  }
+  .scene-alvorada    { --sky1:#f2c879; --sky2:#a3491a; --layer:#241C15; --glowcolor: transparent; }
+  .scene-reduto      { --sky1:#4a6440; --sky2:#1c2917; --layer:#0e130a; --glowcolor: #d8912f; }
+  .scene-lavoura     { --sky1:#e0c467; --sky2:#8a6a2a; --layer:#241C15; --glowcolor: transparent; }
+  .scene-ferrovia    { --sky1:#7c8590; --sky2:#33383f; --layer:#15171a; --glowcolor: transparent; }
+  .scene-fim-tragico { --sky1:#3a1414; --sky2:#0d0403; --layer:#000000; --glowcolor: #7A2E2E; }
+  .scene-fim-esperanca { --sky1:#f2e6bd; --sky2:#c9a227; --layer:#3B5232; --glowcolor: #f6d98a; }
+  .scene-fim-ambiguo { --sky1:#9a9276; --sky2:#4a4636; --layer:#211c14; --glowcolor: transparent; }
+  .scene-bg { position:absolute; inset:0; background: linear-gradient(180deg, var(--sky1), var(--sky2)); }
+  .layer1 { fill: var(--layer); opacity: 1; }
+  .layer2 { fill: var(--layer); opacity: 0.68; }
+  .layer3 { fill: var(--layer); opacity: 0.4; }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 22px 22px 20px;
+  }
+  .chapter {
+    font-family: "Old Standard TT", Georgia, serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin: 0 0 10px;
+  }
+  .story-text {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    margin: 0 0 20px;
+    max-width: 62ch;
+  }
+  .story-text p { margin: 0 0 0.9em; }
+  .story-text p:last-child { margin-bottom: 0; }
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .choice-btn {
+    text-align: left;
+    background: transparent;
+    color: var(--ink);
+    border: none;
+    border-top: 1px solid var(--rule);
+    padding: 12px 4px 12px 22px;
+    font-family: "Vollkorn", serif;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: padding-left 0.15s ease, color 0.15s ease;
+  }
+  .choice-btn::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  .choice-btn:hover, .choice-btn:focus-visible {
+    padding-left: 28px;
+    color: var(--ember);
+  }
+  .choice-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .ending-title {
+    font-family: "Old Standard TT", Georgia, serif;
+    font-size: 1.4rem;
+    margin: 0 0 12px;
+  }
+  .note {
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: var(--note-bg);
+    border-left: 3px solid var(--gold);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  .note-label {
+    font-style: italic;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .restart-btn {
+    margin-top: 20px;
+    background: var(--btn-bg);
+    color: var(--btn-ink);
+    border: none;
+    padding: 11px 18px;
+    font-family: "Vollkorn", serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .restart-btn:hover, .restart-btn:focus-visible { background: var(--btn-bg-hover); }
+  .restart-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .trail {
+    margin-top: 22px;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  footer.foot {
+    margin-top: 22px;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-align: left;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .choice-btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="book">
+  <header class="top">
+    <h1>Crônicas do Contestado</h1>
+    <p class="subtitle">Episódio piloto interativo — protótipo de jogo narrativo para a ANACLA</p>
+  </header>
+
+  <div class="scene" id="scene">
+    <div class="scene-bg"></div>
+    <div class="glow"></div>
+    <svg viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
+      <polygon class="layer3" points="0,140 60,100 140,150 220,90 300,145 380,95 460,150 540,110 600,145 600,200 0,200"></polygon>
+      <polygon class="layer2" points="0,165 80,130 160,170 260,120 340,168 430,125 520,172 600,150 600,200 0,200"></polygon>
+      <polygon class="layer1" points="0,185 100,160 200,190 300,155 400,192 500,162 600,188 600,200 0,200"></polygon>
+    </svg>
+  </div>
+
+  <div class="panel">
+    <p class="chapter" id="chapter"></p>
+    <div class="story-text" id="storyText"></div>
+    <div class="choices" id="choices"></div>
+    <div id="endingExtra"></div>
+  </div>
+
+  <p class="trail" id="trail"></p>
+
+  <footer class="foot">
+    Livremente inspirado na Guerra do Contestado (1912–1916), Santa Catarina/Paraná. Protótipo de narrativa ramificada — personagens fictícios.
+  </footer>
+</div>
+
+<script>
+(function () {
+  var STORY = {
+    start: {
+      scene: "alvorada",
+      chapter: "I. O sertão, 1912",
+      text: [
+        "Ana Joaquina tem dezessete anos e observa, de longe, a fumaça que sobe do reduto do Taquaruçu.",
+        "A família dela foi expulsa da própria terra pela companhia da estrada de ferro que corta o sertão entre Santa Catarina e o Paraná. Agora, correm notícias de um monge que reúne peregrinos ao redor de uma promessa: um novo tempo, sem donos nem despejos."
+      ],
+      choices: [
+        { tag: "Reduto", label: "Seguir até o reduto, atrás do monge", next: "reduto_intro" },
+        { tag: "Lavoura", label: "Ficar com a família, recomeçando a lavoura em terra alheia", next: "familia_intro" },
+        { tag: "Ferrovia", label: "Procurar trabalho na própria companhia que os despejou", next: "ferrovia_intro" }
+      ]
+    },
+    reduto_intro: {
+      scene: "reduto",
+      chapter: "II. O reduto",
+      text: [
+        "No Taquaruçu, Ana encontra centenas de famílias como a sua — famintas, expulsas, crentes de que o monge fala em nome de um poder maior que o da República.",
+        "Um velho conselheiro repara no facão que ela herdou do pai e pergunta se veio para lutar ou para rezar."
+      ],
+      choices: [
+        { tag: "Lutar", label: "Pegar em armas para defender o reduto", next: "reduto_luta" },
+        { tag: "Cuidar", label: "Oferecer-se como curandeira e guardiã da memória dos que caem", next: "reduto_cuidar" }
+      ]
+    },
+    reduto_luta: {
+      scene: "reduto",
+      chapter: "III. O cerco",
+      text: [
+        "Meses depois, colunas do Exército cercam o Taquaruçu com uma artilharia que os peregrinos nunca haviam visto.",
+        "Ana defende a trincheira ao lado de vizinhos que já perderam tudo duas vezes — a terra, e agora, talvez, a vida."
+      ],
+      choices: [
+        { tag: "Resistir", label: "Resistir até o fim, ao lado dos seus", next: "ending_martir" },
+        { tag: "Fugir", label: "Fugir pela mata levando os feridos", next: "ending_fuga" }
+      ]
+    },
+    reduto_cuidar: {
+      scene: "reduto",
+      chapter: "III. Os cadernos",
+      text: [
+        "Ana se torna a memória viva do reduto: aprende orações, cura feridos com ervas do mato e escuta histórias que temem não ter mais quem as conte.",
+        "Quando o cerco se aperta, ela precisa decidir o que fazer com os cadernos onde vem anotando tudo."
+      ],
+      choices: [
+        { tag: "Esconder", label: "Esconder os cadernos na mata, mesmo sob risco de vida", next: "ending_guardia" },
+        { tag: "Queimar", label: "Queimar os cadernos para que nada incrimine os sobreviventes", next: "ending_silencio" }
+      ]
+    },
+    familia_intro: {
+      scene: "lavoura",
+      chapter: "II. A terra do coronel",
+      text: [
+        "A família de Ana se instala como agregada em terra de um coronel local, trabalhando em troca de metade da colheita.",
+        "Notícias do reduto chegam distorcidas: para uns, os peregrinos são fanáticos perigosos; para outros, os últimos que ainda resistem à ferrovia."
+      ],
+      choices: [
+        { tag: "Abrigar", label: "Abrigar em segredo parentes que fugiram do reduto", next: "familia_abrigo" },
+        { tag: "Distância", label: "Manter distância de tudo, só cuidando da própria terra", next: "familia_distancia" }
+      ]
+    },
+    familia_abrigo: {
+      scene: "lavoura",
+      chapter: "III. A porta e os soldados",
+      text: [
+        "Esconder fugitivos é arriscado: o coronel desconfia, e uma denúncia pode custar a pouca terra que resta à família.",
+        "Uma noite, soldados batem à porta perguntando por “monges rebeldes”."
+      ],
+      choices: [
+        { tag: "Mentir", label: "Mentir na cara dos soldados e proteger quem se escondeu", next: "ending_protecao" },
+        { tag: "Entregar", label: "Entregar os fugitivos, com medo de perder tudo", next: "ending_denuncia" }
+      ]
+    },
+    familia_distancia: {
+      scene: "lavoura",
+      chapter: "III. A neutralidade",
+      text: [
+        "A neutralidade tem seu preço: vizinhos dos dois lados passam a olhar a família com desconfiança.",
+        "Quando a guerra termina, a terra que sobrou está cercada por covas sem nome."
+      ],
+      choices: [
+        { tag: "Reconstruir", label: "Ficar e reconstruir, tentando lembrar em voz baixa o que houve", next: "ending_reconstrucao" },
+        { tag: "Partir", label: "Vender o pouco que resta e partir para nunca mais falar disso", next: "ending_esquecimento" }
+      ]
+    },
+    ferrovia_intro: {
+      scene: "ferrovia",
+      chapter: "II. A companhia",
+      text: [
+        "Trabalhando para a empresa estrangeira que corta o sertão com trilhos, Ana vê de perto os despejos que atingiram sua própria família — agora do outro lado.",
+        "Um engenheiro pede que ela sirva de intérprete entre a companhia e os caboclos que ainda resistem."
+      ],
+      choices: [
+        { tag: "Avisar", label: "Avisar em segredo os moradores sobre os próximos despejos", next: "ferrovia_aviso" },
+        { tag: "Obedecer", label: "Cumprir as ordens da companhia, temendo perder o emprego", next: "ferrovia_ordem" }
+      ]
+    },
+    ferrovia_aviso: {
+      scene: "ferrovia",
+      chapter: "III. A suspeita",
+      text: [
+        "Avisar os vizinhos coloca Ana sob suspeita da própria empresa.",
+        "Descoberta, ela precisa escolher entre negar tudo ou assumir o que fez diante do engenheiro que confiava nela."
+      ],
+      choices: [
+        { tag: "Negar", label: "Negar tudo e continuar como se nada tivesse acontecido", next: "ending_dupla" },
+        { tag: "Assumir", label: "Assumir o que fez, mesmo sabendo o preço", next: "ending_exposta" }
+      ]
+    },
+    ferrovia_ordem: {
+      scene: "ferrovia",
+      chapter: "III. O reencontro",
+      text: [
+        "Anos depois, com a guerra encerrada e o reduto arrasado, Ana carrega a lembrança de despejos que ajudou a cumprir.",
+        "Um antigo vizinho, sobrevivente, a reconhece na estação."
+      ],
+      choices: [
+        { tag: "Perdão", label: "Aproximar-se e pedir perdão", next: "ending_culpa" },
+        { tag: "Negar", label: "Fingir não reconhecê-lo e seguir caminho", next: "ending_negacao" }
+      ]
+    },
+
+    ending_martir: {
+      ending: true, scene: "fim-tragico",
+      title: "Os últimos do Taquaruçu",
+      text: ["Ana cai defendendo o reduto ao lado dos seus. Seu nome seria esquecido, não fosse por quem sobreviveu para contar o que ali aconteceu."],
+      note: "Taquaruçu foi o primeiro reduto erguido pelos sertanejos, em 1913, e também o primeiro a ser destruído pelas forças policiais, em 1914 — um ataque que arrasou até a capela onde se abrigavam mulheres e crianças, e que por décadas quase não teve registro fora da tradição oral local."
+    },
+    ending_fuga: {
+      ending: true, scene: "fim-esperanca",
+      title: "A trilha dos sobreviventes",
+      text: ["Ana sobrevive fugindo com os feridos pela mata. Anos mais tarde, é uma das poucas vozes que ainda restam para contar o que houve no Contestado."],
+      note: "A Guerra do Contestado (1912–1916) deixou mais de 6.000 mortos e um número ainda maior de deslocados — muitos dos quais nunca tiveram sua história registrada."
+    },
+    ending_guardia: {
+      ending: true, scene: "fim-esperanca",
+      title: "Os cadernos escondidos",
+      text: ["Os cadernos sobrevivem enterrados na mata. Décadas depois, netos os encontram e entendem, pela primeira vez, o que a avó viveu."],
+      note: "Boa parte do que se sabe hoje sobre o cotidiano dos redutos vem de relatos orais e documentos guardados por famílias — não de arquivos oficiais, majoritariamente escritos pelo lado da repressão."
+    },
+    ending_silencio: {
+      ending: true, scene: "fim-tragico",
+      title: "O silêncio necessário",
+      text: ["Ao queimar os cadernos, Ana protege os vizinhos — mas parte da história do Contestado se perde para sempre nas cinzas."],
+      note: "O medo de represálias levou muitas famílias sobreviventes a apagar deliberadamente registros e memórias do conflito, o que ajuda a explicar por que o Contestado permanece pouco conhecido fora da região."
+    },
+    ending_protecao: {
+      ending: true, scene: "fim-esperanca",
+      title: "A mentira que salvou",
+      text: ["Protegendo os fugitivos, a família guarda um segredo que passa, em voz baixa, de geração em geração."],
+      note: "Redes informais de proteção entre agregados e pequenos posseiros foram comuns durante a repressão ao movimento — raramente documentadas, mas centrais para a sobrevivência de muitas famílias."
+    },
+    ending_denuncia: {
+      ending: true, scene: "fim-tragico",
+      title: "O preço do medo",
+      text: ["Entregando os fugitivos, a família mantém a terra — mas carrega, sem nunca falar sobre isso, o peso do que fez."],
+      note: "A pressão de coronéis e autoridades locais sobre pequenos agregados foi um dos fatores que aprofundou as divisões dentro das próprias comunidades atingidas pela guerra."
+    },
+    ending_reconstrucao: {
+      ending: true, scene: "fim-esperanca",
+      title: "Reconstruir em silêncio",
+      text: ["A família fica e reconstrói. Décadas depois, um pesquisador bate à porta perguntando sobre aquele tempo — e, pela primeira vez, alguém escuta até o fim."],
+      note: "Instituições de memória regional, como a própria ANACLA, cumprem hoje esse papel: registrar histórias de família que, sem isso, se perderiam com a geração que as viveu."
+    },
+    ending_esquecimento: {
+      ending: true, scene: "fim-ambiguo",
+      title: "Terra sem nome",
+      text: ["A família parte e, por muito tempo, ninguém mais soube contar aquela história — até documentos de arquivo trazerem o nome de volta à luz."],
+      note: "Muitas famílias deslocadas pelo Contestado migraram para outras regiões do Sul, levando consigo memórias fragmentadas que só voltaram a ser reconstituídas com pesquisa histórica recente."
+    },
+    ending_dupla: {
+      ending: true, scene: "fim-ambiguo",
+      title: "Duas vidas",
+      text: ["Ana segue como intérprete da companhia, guardando em segredo quem ela realmente ajudou. A empresa nunca soube."],
+      note: "Trabalhadores locais empregados pelas próprias companhias ferroviárias e madeireiras ocupavam, com frequência, essa posição ambígua entre dois lados do conflito."
+    },
+    ending_exposta: {
+      ending: true, scene: "fim-esperanca",
+      title: "Expulsa por dizer a verdade",
+      text: ["Ana perde o emprego, mas ganha o respeito silencioso dos caboclos que avisou a tempo."],
+      note: "A Brazil Railway Company e empresas madeireiras associadas foram, ao lado do Estado, os principais alvos da revolta — sua atuação na região é hoje amplamente documentada como estopim do conflito."
+    },
+    ending_culpa: {
+      ending: true, scene: "fim-esperanca",
+      title: "Pedir perdão",
+      text: ["Ana reconhece o antigo vizinho e pede perdão. Isso não muda o passado — mas muda o que ela faz dali em diante."],
+      note: "A reconciliação entre descendentes de diferentes lados do Contestado é, ainda hoje, um processo em curso em muitas comunidades do planalto catarinense e paranaense."
+    },
+    ending_negacao: {
+      ending: true, scene: "fim-tragico",
+      title: "Fingir não ver",
+      text: ["Ana finge não reconhecê-lo e segue caminho — carregando essa negação como uma segunda ferida, dessa vez autoinfligida."],
+      note: "O silenciamento em torno do Contestado não veio apenas da repressão oficial: também nasceu do desconforto de muitos dos seus próprios sobreviventes em revisitar o que viveram."
+    }
+  };
+
+  var storyTextEl = document.getElementById("storyText");
+  var choicesEl = document.getElementById("choices");
+  var chapterEl = document.getElementById("chapter");
+  var sceneEl = document.getElementById("scene");
+  var trailEl = document.getElementById("trail");
+  var endingExtraEl = document.getElementById("endingExtra");
+
+  var path = [];
+  var STORAGE_KEY = "cronicas_contestado_progress_v1";
+
+  function loadProgress() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) { return null; }
+  }
+  function saveProgress(nodeId) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ node: nodeId, path: path }));
+    } catch (e) { /* ignore */ }
+  }
+  function clearProgress() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+  }
+
+  function render(nodeId) {
+    var node = STORY[nodeId];
+    if (!node) { nodeId = "start"; node = STORY.start; }
+
+    sceneEl.className = "scene scene-" + node.scene;
+    endingExtraEl.innerHTML = "";
+    choicesEl.innerHTML = "";
+
+    if (node.ending) {
+      chapterEl.textContent = "Fim de jornada";
+      storyTextEl.innerHTML =
+        '<p class="ending-title">' + node.title + "</p>" +
+        node.text.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+      var note = document.createElement("div");
+      note.className = "note";
+      note.innerHTML = '<span class="note-label">Nota histórica</span>' + node.note;
+      endingExtraEl.appendChild(note);
+
+      var restart = document.createElement("button");
+      restart.className = "restart-btn";
+      restart.type = "button";
+      restart.textContent = "Recomeçar a jornada";
+      restart.addEventListener("click", function () {
+        path = [];
+        clearProgress();
+        render("start");
+      });
+      endingExtraEl.appendChild(restart);
+    } else {
+      chapterEl.textContent = node.chapter;
+      storyTextEl.innerHTML = node.text.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+      node.choices.forEach(function (choice) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "choice-btn";
+        btn.textContent = choice.label;
+        btn.addEventListener("click", function () {
+          path.push(choice.tag);
+          saveProgress(choice.next);
+          render(choice.next);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        choicesEl.appendChild(btn);
+      });
+    }
+
+    trailEl.textContent = path.length ? "Sua jornada: " + path.join(" → ") : "";
+  }
+
+  var saved = loadProgress();
+  if (saved && STORY[saved.node]) {
+    path = saved.path || [];
+    render(saved.node);
+  } else {
+    render("start");
+  }
+})();
+</script>
+</body>
+</html>
