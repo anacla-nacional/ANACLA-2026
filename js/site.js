@@ -43,6 +43,13 @@
                 var open = mobileMenu.classList.toggle('open');
                 menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
             });
+            // Fechar o menu ao tocar em qualquer link dele
+            mobileMenu.addEventListener('click', function (event) {
+                if (event.target && event.target.closest && event.target.closest('a')) {
+                    mobileMenu.classList.remove('open');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
         }
 
         // Botão topo
@@ -64,6 +71,7 @@
             var button = document.querySelector('.alt-menu-button');
             if (menu && menu.classList.contains('open') && !menu.contains(event.target) && !button?.contains(event.target)) {
                 menu.classList.remove('open');
+                if (button) button.setAttribute('aria-expanded', 'false');
             }
         });
     });

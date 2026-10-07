@@ -762,6 +762,11 @@ textarea { min-height: 130px; resize: vertical; }
     padding: 8px 22px 18px;
     background: #0b2237;
     border-top: 1px solid rgba(201,165,91,.45);
+    max-height: calc(100vh - 90px);
+    max-height: calc(100dvh - 90px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
 }
 .alt-mobile-menu.open {
     display: block;
