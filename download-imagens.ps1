@@ -73,7 +73,7 @@ Write-Host "`n=== EVENTOS ===" -ForegroundColor Cyan
 $eventos = @(
     "ID00079-Evento-23-05-23-Online.png",
     "ID00065-Evento-Oficial-24-06-22.png",
-    "ID00077-evento-oficial-Marcos-Costa.png",
+    "vinicius-de-moraes-saraus.jpg",
     "ID00074-Evento-Oficial-V-Posse-09-07-2021.png",
     "ID00067-Evento-Oficial-V-Posse-OnLine-09-07-21.png",
     "ID00070-Evento-Oficial-18-10-19.png",
