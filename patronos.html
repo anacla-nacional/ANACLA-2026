@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patronos - ANACLA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico">
@@ -157,7 +161,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         container.innerHTML = patronos.map(p => {
             const foto = p.foto_url ? sheets.converterLink(p.foto_url, p.cadeira) : 'imagens/patronos/placeholder.svg';
             return '<div class="galeria-item" onclick="abrirPatrono(\'' + p.cadeira + '\')">' +
-                '<img src="' + foto + '" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}">' +
+                '<img loading="lazy" src="' + foto + '" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}">' +
                 '<div class="overlay">' +
                 '<div class="badges"><span class="cadeira-badge">Cadeira ' + p.cadeira + '</span></div>' +
                 '<div class="nome">' + p.nome + '</div>' +
