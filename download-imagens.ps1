@@ -77,7 +77,7 @@ $eventos = @(
     "ID00074-Evento-Oficial-V-Posse-09-07-2021.png",
     "ID00067-Evento-Oficial-V-Posse-OnLine-09-07-21.png",
     "ID00070-Evento-Oficial-18-10-19.png",
-    "ID00072-evento-oficial-III-Evento-Posse-29-08-2019.png",
+    "ID00072-evento-oficial-III-Evento-Posse-29-08-2019.jpg",
     "ID00073-evento-oficial-II-Posse-24-05-2019.png",
     "ID00015-Evento-Oficial-20-07-2018.png"
 )
