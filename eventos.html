@@ -67,7 +67,7 @@
 <section class="section">
     <div style="text-align:center;margin-bottom:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
         <a href="eventos.html" class="btn btn-filtro" data-tipo="todos">Todos</a>
-        <a href="eventos.html?tipo=oficial" class="btn btn-filtro" data-tipo="oficial">Oficiais</a>
+        <a href="oficial.html" class="btn btn-filtro" data-tipo="oficial">Oficiais</a>
         <a href="homenageados.html" class="btn btn-filtro" data-tipo="homenagens">Homenagens</a>
         <a href="eventos.html?tipo=mosalc" class="btn btn-filtro" data-tipo="mosalc">Mosalc</a>
         <a href="eventos.html?tipo=feira" class="btn btn-filtro" data-tipo="feira">Feiras</a>
@@ -101,6 +101,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('eventos');
     const params = new URLSearchParams(window.location.search);
     const tipo = params.get('tipo') || 'todos';
+
+    // Categoria oficial agora tem página própria
+    if (tipo === 'oficial') { window.location.replace('oficial.html'); return; }
 
     // Destacar botão ativo
     document.querySelectorAll('.btn-filtro').forEach(btn => {

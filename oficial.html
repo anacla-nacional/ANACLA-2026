@@ -62,10 +62,18 @@
 <a href="javascript:history.back()" class="btn-voltar"><i class="fas fa-arrow-left"></i></a>
 
 <header class="hero" style="padding: 0 20px 10px;">
-    <h1>Eventos Oficiais</h1>
+    <h1>Eventos</h1>
 </header>
 
 <section class="section">
+    <div style="text-align:center;margin-bottom:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
+        <a href="eventos.html" class="btn btn-filtro">Todos</a>
+        <a href="oficial.html" class="btn btn-filtro" style="background:var(--cor);color:#fff;box-shadow:0 4px 12px rgba(143,11,22,0.3);border-color:transparent;">Oficiais</a>
+        <a href="homenageados.html" class="btn btn-filtro">Homenagens</a>
+        <a href="eventos.html?tipo=mosalc" class="btn btn-filtro">Mosalc</a>
+        <a href="eventos.html?tipo=feira" class="btn btn-filtro">Feiras</a>
+        <a href="eventos.html?tipo=sarau" class="btn btn-filtro">Saraus</a>
+    </div>
     <div class="cards" id="oficiais">
         <div class="loading">Carregando eventos...</div>
     </div>
