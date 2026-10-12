@@ -13,11 +13,7 @@
     <meta property="og:image" content="https://www.anacla.com.br/imagens/estaticas/imagem_capa_fundo.png">
     <meta property="og:locale" content="pt_BR">
     <link rel="preload" as="image" href="imagens/estaticas/imagem_capa_fundo.webp" fetchpriority="high">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="fonts/fa/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico">
 </head>
@@ -25,7 +21,7 @@
 
 <header class="alt-header">
     <div class="alt-header-inner">
-        <a class="alt-brand" href="index.html" aria-label="ANACLA — início">
+        <a class="alt-brand" href="index.html" aria-label="ANACLA — Academia Nacional de Ciências, Letras e Artes — início">
             <img src="imagens/estaticas/logo_anacla.png" alt="Brasão da ANACLA">
             <div>
                 <strong>ANACLA</strong>
@@ -115,9 +111,9 @@
         <a href="noticias.html">Notícias</a>
     </div>
     <div class="social">
-        <a href="https://www.youtube.com/channel/UCBBQVZl_4oPtybxuyYd0bjA" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.facebook.com/ANACLANACIONAL/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/anacla_nacional/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCBBQVZl_4oPtybxuyYd0bjA" target="_blank" aria-label="YouTube da ANACLA"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ANACLANACIONAL/" target="_blank" aria-label="Facebook da ANACLA"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/anacla_nacional/" target="_blank" aria-label="Instagram da ANACLA"><i class="fab fa-instagram"></i></a>
     </div>
     <p>&copy; 2026 ANACLA - Todos os direitos reservados</p>
 </footer>
@@ -141,7 +137,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             imagem: n.imagem_url ? sheets.converterLink(n.imagem_url, '') : 'imagens/estaticas/placeholder.svg'
         });
         const first = normal(noticias[0]);
-        feature.innerHTML = '<a href="noticias.html" style="display:block;"><img loading="lazy" src="' + first.imagem + '" alt="" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}"></a><div class="feature-text"><small>DESTAQUE</small><h3>' + first.titulo + '</h3><p>' + first.resumo + '</p><a href="noticias.html">Ler notícia <i class="fas fa-arrow-right"></i></a></div>';
+        feature.innerHTML = '<a href="noticias.html" style="display:block;" aria-label="Ler notícia: ' + first.titulo.replace(/"/g,'&quot;') + '"><img loading="lazy" src="' + first.imagem + '" alt="" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}"></a><div class="feature-text"><small>DESTAQUE</small><h3>' + first.titulo + '</h3><p>' + first.resumo + '</p><a href="noticias.html">Ler notícia <i class="fas fa-arrow-right"></i></a></div>';
         list.innerHTML = noticias.slice(1, 4).map(function (item, index) {
             const n = normal(item);
             return '<article class="alt-news-item"><span class="news-index">0' + (index + 2) + '</span><div><small>ANACLA</small><h3><a href="noticias.html">' + n.titulo + '</a></h3><p>' + n.resumo + '</p></div><a href="noticias.html" aria-label="Ler notícia"><i class="fas fa-arrow-right"></i></a></article>';
