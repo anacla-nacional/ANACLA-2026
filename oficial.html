@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Oficiais - ANACLA</title>
+    <meta name="description" content="Eventos Oficiais da ANACLA: posses acadêmicas, solenidades e atos institucionais da Academia Nacional de Ciências, Letras e Artes.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ANACLA">
+    <meta property="og:title" content="Eventos Oficiais - ANACLA">
+    <meta property="og:description" content="Eventos Oficiais da ANACLA: posses acadêmicas, solenidades e atos institucionais da Academia Nacional de Ciências, Letras e Artes.">
+    <meta property="og:url" content="https://www.anacla.com.br/oficial.html">
+    <meta property="og:image" content="https://www.anacla.com.br/imagens/estaticas/logo_anacla.png">
+    <meta property="og:locale" content="pt_BR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body class="home-alternativa">
+
+<header class="alt-header">
+    <div class="alt-header-inner">
+        <a class="alt-brand" href="index.html" aria-label="ANACLA — início">
+            <img src="imagens/estaticas/logo_anacla.png" alt="Brasão da ANACLA">
+            <div>
+                <strong>ANACLA</strong>
+                <span>Academia Nacional de<br>Ciências, Letras e Artes</span>
+            </div>
+        </a>
+        <nav class="alt-nav" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <div class="alt-nav-group"><button type="button">Academia <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Acadêmicos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a>
+            </div></div>
+            <div class="alt-nav-group"><button type="button">Eventos <i class="fas fa-angle-down"></i></button><div class="alt-dropdown">
+                <a href="eventos.html">Todos</a><a href="oficial.html">Oficiais</a><a href="homenageados.html">Homenagens</a><a href="eventos.html?tipo=mosalc">Mosalc</a><a href="eventos.html?tipo=feira">Feiras de Livros</a><a href="eventos.html?tipo=sarau">Saraus</a>
+            </div></div>
+            <a href="noticias.html">Notícias</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+        <button class="alt-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    </div>
+    <div class="alt-mobile-menu" id="altMobileMenu">
+        <a href="index.html">Início</a>
+        <details><summary>Academia</summary><a href="historia.html">História</a><a href="vinicius.html">Patrono Vinícius de Moraes</a><a href="obras.html">Obras da ANACLA</a><a href="diretoria.html">Diretoria</a><a href="hino.html">Hino</a><a href="premios.html">Prêmios</a></details>
+        <details><summary>Acadêmicos</summary><a href="cadeiras.html">Cadeiras</a><a href="biografias.html">Biografias</a><a href="patronos.html">Patronos</a></details>
+        <details><summary>Eventos</summary><a href="eventos.html">Todos</a><a href="oficial.html">Oficiais</a><a href="homenageados.html">Homenagens</a><a href="eventos.html?tipo=mosalc">Mosalc</a><a href="eventos.html?tipo=feira">Feiras de Livros</a><a href="eventos.html?tipo=sarau">Saraus</a></details>
+        <a href="noticias.html">Notícias</a>
+        <a href="contato.html">Contato</a>
+    </div>
+</header>
+
+<header class="hero-linha-horizontal"> &nbsp; </header>
+<header class="hero-linha-horizontal-preta"> &nbsp; </header>
+<a href="javascript:history.back()" class="btn-voltar"><i class="fas fa-arrow-left"></i></a>
+
+<header class="hero" style="padding: 0 20px 10px;">
+    <h1>Eventos Oficiais</h1>
+</header>
+
+<section class="section">
+    <div class="cards" id="oficiais">
+        <div class="loading">Carregando eventos...</div>
+    </div>
+</section>
+
+<div class="modal" id="modal" onclick="if(event.target===this)fecharModal()">
+    <div class="modal-content">
+        <span class="modal-close" onclick="fecharModal()">&times;</span>
+        <p id="modal-data" style="color:#888;font-size:0.85rem;margin-bottom:8px;"></p>
+        <h2 id="modal-titulo" style="color:var(--cor);margin-bottom:15px;"></h2>
+        <img id="modal-foto" style="width:100%;max-height:350px;object-fit:cover;border-radius:12px;margin-bottom:15px;">
+        <div id="modal-conteudo" style="color:#444;line-height:1.8;"></div>
+    </div>
+</div>
+
+<footer class="footer">
+    <h3>Academia Nacional de Ciências, Letras e Artes</h3>
+    <div class="footer-links">
+        <a href="historia.html">História</a>
+        <a href="diretoria.html">Diretoria</a>
+        <a href="biografias.html">Acadêmicos</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="noticias.html">Notícias</a>
+    </div>
+    <div class="social">
+        <a href="https://www.youtube.com/channel/UCBBQVZl_4oPtybxuyYd0bjA" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/ANACLANACIONAL/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/anacla_nacional/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2026 ANACLA - Todos os direitos reservados</p>
+</footer>
+
+<script src="js/sheets.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('oficiais');
+    try {
+        const oficiais = await sheets.buscarOficiais();
+        console.log('Eventos oficiais carregados:', oficiais);
+        container.innerHTML = oficiais.map((n, i) => {
+            const foto = n.imagem_url ? sheets.converterLink(n.imagem_url, '') : 'imagens/estaticas/placeholder.svg';
+            return '<div class="card" style="cursor:pointer;" onclick="abrirOficial(' + i + ')">' +
+                '<img loading="lazy" src="' + foto + '" onerror="if(!this.dataset.err){this.dataset.err=1;this.src=\'imagens/estaticas/placeholder.svg\';}">' +
+                '<div class="card-content">' +
+                '<p style="color:#666;font-size:0.9rem;">' + n.data + '</p>' +
+                '<h3 class="card-title">' + n.titulo + '</h3>' +
+                '<p class="card-text">' + (n.resumo || '') + '</p>' +
+                '<a class="card-link" href="#" onclick="event.preventDefault();event.stopPropagation();abrirOficial(' + i + ')">Leia mais <i class="fas fa-arrow-right"></i></a>' +
+                '</div></div>';
+        }).join('');
+        window._oficiais = oficiais;
+    } catch(e) {
+        container.innerHTML = '<div class="loading">Erro ao carregar.</div>';
+    }
+});
+
+function abrirOficial(idx) {
+    var n = window._oficiais[idx];
+    if (!n) return;
+    console.log('Evento oficial selecionado:', n);
+    document.getElementById('modal-data').textContent = n.data || '';
+    document.getElementById('modal-titulo').textContent = n.titulo || '';
+    var foto = n.imagem_url ? sheets.converterLink(n.imagem_url, '') : '';
+    var fotoEl = document.getElementById('modal-foto');
+    if (foto) { fotoEl.src = foto; fotoEl.style.display = 'block'; }
+    else { fotoEl.style.display = 'none'; }
+    var conteudo = n.conteudo ? n.conteudo.replace(/\n/g, '<br>') : '';
+    document.getElementById('modal-conteudo').innerHTML = conteudo ? '<p>' + conteudo + '</p>' : '<p style="color:#999;">Conteúdo não disponível.</p>';
+    document.getElementById('modal').style.display = 'block';
+}
+
+function fecharModal() { document.getElementById('modal').style.display = 'none'; }
+</script>
+
+<script src="js/site.js"></script>
+</body>
+</html>

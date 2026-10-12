@@ -85,6 +85,11 @@ const sheets = {
         return data.sort((a, b) => new Date(b.data) - new Date(a.data));
     },
     
+    async buscarOficiais() {
+        const data = await this.fetch('oficial');
+        return data.sort((a, b) => new Date(b.data) - new Date(a.data));
+    },
+
     async buscarPatrono(cadeira) {
         const data = await this.fetch('patronos');
         return data.find(p => p.cadeira === String(cadeira));
