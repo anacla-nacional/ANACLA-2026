@@ -1,0 +1,17 @@
+# ANACLA — Academia Nacional de Ciências, Letras e Artes
+
+> Associação cultural brasileira fundada em 25 de janeiro de 2018, em Florianópolis, dedicada a cultivar, incentivar e promover a criatividade e o desenvolvimento da cultura nas áreas de Ciências, Letras e Artes.
+
+## Seções principais
+
+- [História](https://www.anacla.com.br/historia.html): Origem e trajetória da Academia.
+- [Cadeiras](https://www.anacla.com.br/cadeiras.html): Cadeiras e acadêmicos titulares.
+- [Biografias](https://www.anacla.com.br/biografias.html): Perfis dos membros da Academia.
+- [Diretoria](https://www.anacla.com.br/diretoria.html): Diretoria eleita e mandato atual.
+- [Eventos](https://www.anacla.com.br/eventos.html): Agenda de posses, cerimônias e encontros.
+- [Notícias](https://www.anacla.com.br/noticias.html): Comunicados e destaques institucionais.
+- [Obras](https://www.anacla.com.br/obras.html): Publicações e acervo da ANACLA.
+- [Homenagens](https://www.anacla.com.br/homenageados.html): Panegíricos, moções e reconhecimentos.
+- [Prêmios](https://www.anacla.com.br/premios.html): Títulos e honrarias concedidas.
+- [Patrono Vinícius de Moraes](https://www.anacla.com.br/vinicius.html): Patrono e significado.
+- [Contato](https://www.anacla.com.br/contato.html): Canais oficiais de contato.
