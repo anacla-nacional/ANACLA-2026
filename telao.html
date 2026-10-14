@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telão - Canção da Tríade Anaclana - ANACLA</title>
+    <title>Telão - Canção da Tríade Anacliana - ANACLA</title>
     <meta name="robots" content="noindex">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,15 +160,15 @@
 <body>
 
 <div id="inicio">
-    <h1>Canção da Tríade Anaclana</h1>
+    <h1>Canção da Tríade Anacliana</h1>
     <p><b>Como usar no telão:</b><br>
-    <kbd>Espaço</kbd> pausar/continuar &nbsp;•&nbsp; <kbd>↑</kbd><kbd>↓</kbd> velocidade &nbsp;•&nbsp; <kbd>R</kbd> voltar ao topo &nbsp;•&nbsp; <kbd>F</kbd> tela cheia &nbsp;•&nbsp; <kbd>C</kbd> fundo branco (pra sol)<br>
+    <kbd>Espaço</kbd> pausar/continuar &nbsp;•&nbsp; <kbd>↑</kbd><kbd>↓</kbd> ou <kbd>+</kbd><kbd>−</kbd> velocidade &nbsp;•&nbsp; <kbd>R</kbd> voltar ao topo &nbsp;•&nbsp; <kbd>F</kbd> tela cheia &nbsp;•&nbsp; <kbd>C</kbd> fundo branco (pra sol)<br>
     Atalhos de seção: <kbd>1</kbd> verso 1 &nbsp;<kbd>2</kbd> refrão &nbsp;<kbd>3</kbd> verso 2 &nbsp;<kbd>4</kbd> refrão &nbsp;<kbd>5</kbd> verso 3 &nbsp;<kbd>6</kbd> ponte &nbsp;<kbd>7</kbd> coro &nbsp;<kbd>8</kbd> final</p>
     <button id="btn-iniciar" type="button">Iniciar letra</button>
 </div>
 
 <div id="letra">
-    <p class="titulo">Canção da Tríade Anaclana</p>
+    <p class="titulo">Canção da Tríade Anacliana</p>
 
     <section id="s1">
         <span class="rotulo">Verso 1 — tecla 1</span>
@@ -259,9 +259,9 @@
 
 <div id="controles" class="oculto">
     <button id="btn-play" class="principal" type="button" title="Espaço">⏸ Pausar</button>
-    <button id="btn-menos" type="button" title="Seta para cima">−</button>
+    <button id="btn-menos" type="button" title="Seta para baixo ou tecla −">− Vel</button>
     <span class="info" id="velocidade">30 px/s</span>
-    <button id="btn-mais" type="button" title="Seta para baixo">+</button>
+    <button id="btn-mais" type="button" title="Seta para cima ou tecla +">+ Vel</button>
     <button id="btn-fonte-" type="button" title="Diminuir letra">A−</button>
     <button id="btn-fonte+" type="button" title="Aumentar letra">A+</button>
     <button id="btn-tema" type="button" title="Tecla C — fundo branco/preto">◐ Fundo branco</button>
@@ -280,6 +280,7 @@
     var ultimoTempo = 0;
     var acumulado = 0;
     var esconderTimer = null;
+    var mouseSobreControles = false;
 
     var controles = document.getElementById('controles');
     var btnPlay = document.getElementById('btn-play');
@@ -290,7 +291,7 @@
         controles.classList.remove('oculto');
         clearTimeout(esconderTimer);
         esconderTimer = setTimeout(function () {
-            if (rodando) controles.classList.add('oculto');
+            if (rodando && !mouseSobreControles) controles.classList.add('oculto');
         }, 3000);
     }
 
@@ -400,6 +401,9 @@
 
     document.addEventListener('mousemove', mostrarControles);
     document.addEventListener('touchstart', mostrarControles, { passive: true });
+    // mantém a barra aberta enquanto o mouse estiver sobre ela
+    controles.addEventListener('mouseenter', function () { mouseSobreControles = true; mostrarControles(); });
+    controles.addEventListener('mouseleave', function () { mouseSobreControles = false; mostrarControles(); });
 
     document.addEventListener('keydown', function (e) {
         if (telaInicial.style.display !== 'none' && e.key !== 'F' && e.key !== 'f') return;
@@ -407,6 +411,8 @@
             case ' ': e.preventDefault(); toggle(); break;
             case 'ArrowUp': e.preventDefault(); mudarVel(1); break;
             case 'ArrowDown': e.preventDefault(); mudarVel(-1); break;
+            case '+': case '=': e.preventDefault(); mudarVel(1); break;
+            case '-': case '_': e.preventDefault(); mudarVel(-1); break;
             case 'r': case 'R': window.scrollTo(0, 0); mostrarControles(); break;
             case 'f': case 'F': telaCheia(); break;
             case 'c': case 'C': alternarTema(); break;
