@@ -251,6 +251,7 @@
     var fonte = 2.2;        // rem
     var fonteMin = 1.2, fonteMax = 4.5, passoFonte = 0.2;
     var ultimoTempo = 0;
+    var acumulado = 0;
     var esconderTimer = null;
 
     var controles = document.getElementById('controles');
@@ -278,7 +279,13 @@
         if (!rodando) return;
         if (ultimoTempo) {
             var dt = (ts - ultimoTempo) / 1000;
-            window.scrollBy(0, vel * dt);
+            // scrollBy arredonda pra inteiro; acumula fração pra velocidades baixas
+            acumulado += vel * dt;
+            var passoInt = Math.floor(acumulado);
+            if (passoInt >= 1) {
+                window.scrollBy(0, passoInt);
+                acumulado -= passoInt;
+            }
             if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2) {
                 rodando = false;
                 atualizarPlay();
@@ -294,6 +301,7 @@
         if (rodando) return;
         rodando = true;
         ultimoTempo = 0;
+        acumulado = 0;
         atualizarPlay();
         mostrarControles();
         requestAnimationFrame(rodar);
