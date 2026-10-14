@@ -13,8 +13,13 @@
         :root {
             --cor: #8f0b16;
             --fundo: #0a0a0a;
-            --texto: #f5f0e8;
-            --texto-suave: #b8b0a4;
+            --texto: #ffffff;
+            --texto-suave: #d9d9d9;
+        }
+        body.modo-claro {
+            --fundo: #ffffff;
+            --texto: #111111;
+            --texto-suave: #333333;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: auto; }
@@ -23,8 +28,10 @@
             color: var(--texto);
             font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
             font-size: 2.2rem;
+            font-weight: 700;
             line-height: 1.55;
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
         }
         #letra {
             max-width: 1100px;
@@ -41,18 +48,19 @@
         }
         #letra section { margin-bottom: 10vh; }
         #letra .estrofe { margin-bottom: 0.6em; }
-        #letra .refrao { color: #e8b4b9; }
         #letra .refrao .marca,
         #letra .coro .marca,
         #letra .final .marca { color: var(--cor); font-weight: 700; }
-        #letra .ponte { font-style: italic; color: var(--texto-suave); }
+        #letra .ponte { font-style: italic; }
         #letra .rotulo {
             display: block;
             font-size: 0.35em;
             font-family: Arial, sans-serif;
+            font-weight: 400;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #666;
+            color: var(--texto-suave);
+            opacity: 0.75;
             margin-bottom: 1.2em;
         }
 
@@ -93,6 +101,24 @@
         #controles button.principal { background: var(--cor); border-color: var(--cor); color: #fff; font-weight: bold; }
         #controles .info { color: #888; padding: 0 6px; white-space: nowrap; }
         #controles .atalhos { width: 100%; text-align: center; color: #777; font-size: 12px; padding-top: 4px; }
+        body.modo-claro #controles {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: #bbb;
+            color: #222;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.18);
+        }
+        body.modo-claro #controles button {
+            background: #f0f0f0;
+            color: #222;
+            border-color: #bbb;
+        }
+        body.modo-claro #controles .info { color: #555; }
+        body.modo-claro #controles .atalhos { color: #777; }
+        body.modo-claro kbd {
+            background: #eee;
+            border-color: #bbb;
+            color: #333;
+        }
 
         /* Tela inicial */
         #inicio {
@@ -136,7 +162,7 @@
 <div id="inicio">
     <h1>Canção da Tríade Anaclana</h1>
     <p><b>Como usar no telão:</b><br>
-    <kbd>Espaço</kbd> pausar/continuar &nbsp;•&nbsp; <kbd>↑</kbd><kbd>↓</kbd> velocidade &nbsp;•&nbsp; <kbd>R</kbd> voltar ao topo &nbsp;•&nbsp; <kbd>F</kbd> tela cheia<br>
+    <kbd>Espaço</kbd> pausar/continuar &nbsp;•&nbsp; <kbd>↑</kbd><kbd>↓</kbd> velocidade &nbsp;•&nbsp; <kbd>R</kbd> voltar ao topo &nbsp;•&nbsp; <kbd>F</kbd> tela cheia &nbsp;•&nbsp; <kbd>C</kbd> fundo branco (pra sol)<br>
     Atalhos de seção: <kbd>1</kbd> verso 1 &nbsp;<kbd>2</kbd> refrão &nbsp;<kbd>3</kbd> verso 2 &nbsp;<kbd>4</kbd> refrão &nbsp;<kbd>5</kbd> verso 3 &nbsp;<kbd>6</kbd> ponte &nbsp;<kbd>7</kbd> coro &nbsp;<kbd>8</kbd> final</p>
     <button id="btn-iniciar" type="button">Iniciar letra</button>
 </div>
@@ -238,9 +264,10 @@
     <button id="btn-mais" type="button" title="Seta para baixo">+</button>
     <button id="btn-fonte-" type="button" title="Diminuir letra">A−</button>
     <button id="btn-fonte+" type="button" title="Aumentar letra">A+</button>
+    <button id="btn-tema" type="button" title="Tecla C — fundo branco/preto">◐ Fundo branco</button>
     <button id="btn-topo" type="button" title="Tecla R">⏮ Topo</button>
     <button id="btn-tela" type="button" title="Tecla F">⛶ Tela cheia</button>
-    <span class="atalhos">Espaço pausa • ↑↓ velocidade • R topo • F tela cheia • 1–8 seções</span>
+    <span class="atalhos">Espaço pausa • ↑↓ velocidade • C fundo branco/preto • R topo • F tela cheia • 1–8 seções</span>
 </div>
 
 <script>
@@ -343,6 +370,21 @@
         }
     }
 
+    var btnTema = document.getElementById('btn-tema');
+    function aplicarTema(claro) {
+        document.body.classList.toggle('modo-claro', claro);
+        btnTema.textContent = claro ? '◑ Fundo preto' : '◐ Fundo branco';
+        try { localStorage.setItem('telao-tema', claro ? 'claro' : 'escuro'); } catch (err) {}
+    }
+    function alternarTema() {
+        aplicarTema(!document.body.classList.contains('modo-claro'));
+        mostrarControles();
+    }
+    try {
+        if (localStorage.getItem('telao-tema') === 'claro') aplicarTema(true);
+    } catch (err) {}
+    btnTema.addEventListener('click', alternarTema);
+
     document.getElementById('btn-iniciar').addEventListener('click', function () {
         telaInicial.style.display = 'none';
         play();
@@ -367,6 +409,7 @@
             case 'ArrowDown': e.preventDefault(); mudarVel(-1); break;
             case 'r': case 'R': window.scrollTo(0, 0); mostrarControles(); break;
             case 'f': case 'F': telaCheia(); break;
+            case 'c': case 'C': alternarTema(); break;
             case '1': irPara('s1'); break;
             case '2': irPara('s2'); break;
             case '3': irPara('s3'); break;
