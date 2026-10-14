@@ -100,7 +100,17 @@
         #controles button:hover { background: var(--cor); border-color: var(--cor); color: #fff; }
         #controles button.principal { background: var(--cor); border-color: var(--cor); color: #fff; font-weight: bold; }
         #controles .info { color: #888; padding: 0 6px; white-space: nowrap; }
-        #controles .atalhos { width: 100%; text-align: center; color: #777; font-size: 12px; padding-top: 4px; }
+        #controles .atalhos { width: 100%; text-align: center; color: #ffffff; font-size: 12px; padding-top: 4px; }
+        #controles .atalhos kbd {
+            background: #1a1a1a;
+            color: #ffffff;
+            border: 1px solid #666;
+            border-radius: 5px;
+            padding: 2px 7px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+        }
         body.modo-claro #controles {
             background: rgba(255, 255, 255, 0.95);
             border-color: #bbb;
@@ -113,11 +123,11 @@
             border-color: #bbb;
         }
         body.modo-claro #controles .info { color: #555; }
-        body.modo-claro #controles .atalhos { color: #777; }
-        body.modo-claro kbd {
-            background: #eee;
-            border-color: #bbb;
-            color: #333;
+        body.modo-claro #controles .atalhos { color: #111111; }
+        body.modo-claro #controles .atalhos kbd {
+            background: #ffffff;
+            color: #111111;
+            border-color: #999;
         }
 
         /* Tela inicial */
@@ -135,7 +145,22 @@
             padding: 20px;
         }
         #inicio h1 { font-size: clamp(1.6rem, 4vw, 3rem); font-weight: 700; }
-        #inicio p { color: var(--texto-suave); font-family: Arial, sans-serif; font-size: 1rem; max-width: 640px; line-height: 1.7; }
+        #inicio p { color: var(--texto-suave); font-family: Arial, sans-serif; font-size: 1rem; max-width: 640px; line-height: 1.7; font-weight: 400; }
+        #inicio p kbd {
+            background: #222;
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 2px 8px;
+            font-size: 0.9em;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+        }
+        body.modo-claro #inicio p kbd {
+            background: #ffffff;
+            border-color: #999;
+            color: #111111;
+        }
         #inicio button {
             background: var(--cor);
             color: #fff;
@@ -267,7 +292,7 @@
     <button id="btn-tema" type="button" title="Tecla C — fundo branco/preto">◐ Fundo branco</button>
     <button id="btn-topo" type="button" title="Tecla R">⏮ Topo</button>
     <button id="btn-tela" type="button" title="Tecla F">⛶ Tela cheia</button>
-    <span class="atalhos">Espaço pausa • ↑↓ velocidade • C fundo branco/preto • R topo • F tela cheia • 1–8 seções</span>
+    <span class="atalhos"><kbd>Espaço</kbd> pausa • <kbd>↑↓</kbd> velocidade • <kbd>C</kbd> fundo branco/preto • <kbd>R</kbd> topo • <kbd>F</kbd> tela cheia • <kbd>1–8</kbd> seções</span>
 </div>
 
 <script>
