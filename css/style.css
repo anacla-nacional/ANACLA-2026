@@ -465,6 +465,9 @@ textarea { min-height: 130px; resize: vertical; }
 }
 .social a:hover { background: var(--cor); border-color: var(--dourado); transform: translateY(-3px); }
 .footer > p { color: #858b96; font-size: .82rem; }
+.footer-credit { margin-top: 8px; }
+.footer-credit a { color: var(--dourado); transition: .2s; }
+.footer-credit a:hover { text-decoration: underline; }
 
 /* ===== LOADING ===== */
 .loading {
