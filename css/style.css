@@ -940,7 +940,8 @@ textarea { min-height: 130px; resize: vertical; }
     .alt-manifesto { grid-column: 1/-1; border-left: 0; border-top: 1px solid rgba(201,165,91,.45); padding: 25px 0 0; }
     .alt-manifesto p { max-width: 500px; }
     .alt-news-layout { grid-template-columns: 1fr; }
-    .alt-feature img { height: 220px; }
+    .alt-feature { min-height: 0; }
+    .alt-feature img { height: auto; min-height: 0; object-fit: contain; }
     .alt-strip { grid-template-columns: 1fr; }
     .alt-strip-item { border-right: 0; border-bottom: 1px solid #d7cdbd; }
     .alt-strip-item:last-child { border-bottom: 0; }
