@@ -124,4 +124,25 @@ imagens/
 
 ---
 
-*Documento atualizado em: 02/09/2026*
+## 12. Buscadores — `biografias.html`
+
+- **Campos:** "Filtrar por nome…" e "Nº da cadeira", lado a lado, logo abaixo do `<h1>`.
+- **Nome:** substring insensível a caixa e acento (`normalizar()` com `NFD`).
+- **Cadeira:** dígito parcial ("12" acha Cadeira 12; "1" acha 1, 10–19, 21, 31…);
+  o que não for dígito é ignorado (letra pura = sem filtro).
+- **Combinação:** os dois filtros valem juntos (E). Vazio = sem filtro.
+- **Contador:** `X de 41 acadêmicos`, aparece só com filtro ativo (`aria-live="polite"`).
+- **Zero resultados:** "Nenhum acadêmico encontrado com esses filtros."
+- **Visual:** 220px por campo (AEL usava 320px), `padding: 7px 11px`, cantos **6px**,
+  borda **2px dourada** `var(--dourado)` com faixa de brilho que corre **da esquerda pra
+  direita em 0,9s** no hover — mesmo princípio dos cards de Serviços da moiova Digital
+  (`input` não aceita `::after`, então a faixa mora numa camada de background recortada
+  só na borda).
+- **Código:** `aplicarFiltros()`, `normalizar()` e `pintarBiografias()` inline na página.
+  Não altera `css/style.css`, `js/sheets.js` nem `js/site.js`.
+- **Commits:** `62c5216` (buscadores) e `eaab05f` (borda dourada + brilho).
+- **Referência de estilo:** protótipo AEL Erechim (`academicos.html`) — **não alterado**.
+
+---
+
+*Documento atualizado em: 25/11/2026*
