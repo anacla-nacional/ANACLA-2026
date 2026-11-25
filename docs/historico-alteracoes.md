@@ -151,4 +151,24 @@ imagens/
 
 ---
 
+## 13. Buscadores — `cadeiras.html`
+
+- **O que mudou:** o subtítulo `<h2>Acadêmicos</h2>` foi **substituído** pelos dois campos de
+  busca, dentro do `<header class="hero">` logo abaixo do `<h1>Cadeiras</h1>`.
+- **Mesmas regras da página de Biografias:** nome com substring insensível a caixa e acento;
+  cadeira por dígito parcial; os dois filtros combinam (E); contador "X de 41 cadeiras" só
+  com filtro ativo; aviso "Nenhuma cadeira encontrada com esses filtros." em zero resultados.
+- **Mesmo visual:** 220px por campo, `padding: 7px 11px` (9px no celular → alvo de toque de
+  46px), cantos **6px**, borda **2px dourada** com brilho que corre da esquerda pra direita em
+  **0,9s** no hover.
+- **Código:** `aplicarFiltros()`, `normalizar()` e `pintarCadeira()` inline na página — não
+  altera `css/style.css`, `js/sheets.js` nem `js/site.js`. O modal (`abrirCadeira`) continua
+  abrindo normalmente depois de filtrar.
+- **Commits:** `927fef8`.
+- **Verificado:** local e ao vivo — 41 itens, 0 erros de console; em 320px os campos
+  empilham e em 375px+ ficam lado a lado; `overflowX = 0` em 320/375/414/480/500px; brilho
+  medido por pixel (faixa em 19% da largura em `p=66%` e em 85% em `p=33%` → esquerda→direita).
+
+---
+
 *Documento atualizado em: 25/11/2026*
