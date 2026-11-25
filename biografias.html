@@ -141,7 +141,9 @@
             color: var(--texto-suave);
         }
         @media (max-width: 480px) {
-            .filtros-biografias input { max-width: none; }
+            /* largura total no celular e alvo de toque confortável:
+               7px de padding dava 42px, 2px abaixo dos 44px recomendados */
+            .filtros-biografias input { max-width: none; padding: 9px 11px; }
         }
     </style>
 </head>
