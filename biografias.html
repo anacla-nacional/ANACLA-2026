@@ -99,6 +99,33 @@
             padding: 7px 11px;         /* global: 12px 14px */
             font-size: 0.88rem;
             border-radius: 6px;        /* global: 10px — cantos menos arredondados */
+
+            /* Borda 2px (global: 1px) dourada com brilho que corre da
+               esquerda pra direita no hover — mesmo princípio dos cards de
+               Serviços da moiova (faixa que sai de -70% e vai a 140% em .9s).
+               `input` não aceita ::after, então a faixa mora numa camada de
+               background recortada só na borda: o texto não é afetado. */
+            border: 2px solid transparent;
+            background-image:
+                linear-gradient(#fff, #fff),
+                linear-gradient(100deg,
+                    var(--dourado) 0%, var(--dourado) 45%,
+                    #fff6de 50%,
+                    var(--dourado) 55%, var(--dourado) 100%);
+            background-origin: padding-box, border-box;
+            background-clip: padding-box, border-box;
+            background-repeat: no-repeat, no-repeat;
+            background-size: 100% 100%, 300% 100%;
+            background-position: 0 0, 100% 0;   /* repouso: borda dourada lisa */
+            transition: background-position .9s ease, box-shadow .3s ease;
+        }
+        .filtros-biografias input:hover {
+            background-position: 0 0, 0% 0;     /* a faixa atravessa a borda */
+            box-shadow: 0 0 10px rgba(201,165,91,.45);
+        }
+        .filtros-biografias input:focus {
+            border-color: transparent;           /* senão o :focus global tapa o gradiente */
+            box-shadow: 0 0 0 3px rgba(201,165,91,.3);
         }
         .filtros-biografias input::placeholder { color: #9aa1ac; }
         .contador-biografias {
