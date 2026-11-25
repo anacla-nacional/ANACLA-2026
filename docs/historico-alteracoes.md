@@ -142,6 +142,12 @@ imagens/
   Não altera `css/style.css`, `js/sheets.js` nem `js/site.js`.
 - **Commits:** `62c5216` (buscadores) e `eaab05f` (borda dourada + brilho).
 - **Referência de estilo:** protótipo AEL Erechim (`academicos.html`) — **não alterado**.
+- **Celular (≤480px):** campos em largura total (`max-width: none`) com `padding: 9px 11px`,
+  resultando em alvo de toque de **46px** (antes 42px, 2px abaixo dos 44px recomendados).
+  Em 320px os dois campos **empilham** (`flex-wrap`); em 375px+ ficam lado a lado.
+  Sem overflow horizontal em nenhuma largura testada (320/375/414/480/500px).
+- **Commits:** `62c5216` (buscadores), `eaab05f` (borda dourada + brilho) e
+  `5de3052` (alvo de toque no celular).
 
 ---
 
